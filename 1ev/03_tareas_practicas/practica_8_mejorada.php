@@ -70,8 +70,14 @@
         input{
             height: 3rem;
         }
+        .label{
+            width: 5rem;
+        }
+        .input-number{
+            width: 15rem;
+        }
         .button{
-            width: 100%;
+            width: 20rem;
             height: 3rem;
             border: none;
             background-color: grey;
@@ -89,7 +95,7 @@
             <h3>Eres un poco manazas</h3>
         <?php } ?>
         <form action="" method="get">
-            <label for="filas">Filas: </label><input type="number" step="0.1" name="filas" id="" value="<?= $r ?>"><br>
+            <label class="label" for="filas">Filas: </label><input class="input-number" type="number" step="0.1" name="filas" id="" value="<?= $r ?>"><br>
             <input class="button" type="submit" value="Generar">
         </form>
         <?php crearPiramide($r) ?>
