@@ -65,10 +65,21 @@
         form{
             display: flex;
             flex-flow: row wrap;
-            border: 1px solid black;
+            margin-bottom: 2.5rem;
+        }
+        input{
+            height: 3rem;
         }
         .button{
             width: 100%;
+            height: 3rem;
+            border: none;
+            background-color: grey;
+            color: #000;
+        }
+        .button:hover{
+            background-color: #000;
+            color: #fff;
         }
     </style>
 </head>
