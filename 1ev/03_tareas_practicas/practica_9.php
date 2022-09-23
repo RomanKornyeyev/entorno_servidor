@@ -1,12 +1,16 @@
 <?php
     $num = 0;
+    $error = false;
+    $palabra_introducida = false;
 
     if(isset($_GET['palabra'])){
+        $palabra_introducida = true;
         $palabra = $_GET['palabra'];
         if($palabra == ""){
             $error = true;
         }
     }else{
+        $palabra_introducida = false;
         $palabra = null;
     }
 
@@ -70,8 +74,8 @@
             </form>
             <?php if ($error) { ?>
                 <h3 class="error-message">ERROR: introduce una palabra</h3>
-            <?php }else{ ?>
-
+            <?php }else if(!$palabra_introducida){ ?>
+            <?php }else { ?>
             <ul class="lista">
                 <li class="lista__li">Número de consonantes: <strong><?= contarConsonantes($palabra) ?></strong></li>
                 <li class="lista__li">Número de vocales: <strong><?= contarVocales($palabra) ?></strong></li>
