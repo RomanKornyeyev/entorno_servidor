@@ -7,7 +7,7 @@
             $error = true;
         }
     }else{
-        $palabra = false;
+        $palabra = null;
     }
 
     function contarVocales($var){
