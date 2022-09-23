@@ -82,7 +82,7 @@
                 <li class="lista__li">¿Es palíndromo? <strong><?php echo esPalindromo($palabra)?'sí':'no' ?></strong></li>
             </ul>
             <?php } ?>
-        </div class="central">
+        </div>
     </div>
 </body>
 </html>
