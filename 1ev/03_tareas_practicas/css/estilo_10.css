@@ -21,11 +21,12 @@ input,textarea,button{
     overflow: hidden;
 }
 :root{
-    --light-gray: #eaeaea;
-    --light-grey: #a7a7a7;
-    --grey: #808080;
-    --primary: #fff;
+    --light-gray: #1D1D1D;
+    --light-grey: #2B2B2B;
+    --very-light-grey: #606060;
+    --primary: #08FDD8;
     --secondary: #000;
+    --almost-white: #8D8D8D;
     --error: #ffc400;
 }
 
@@ -49,6 +50,7 @@ input,textarea,button{
 }
 .titulo{
     font-size: 3rem;
+    color: var(--primary);
 }
 .formulario{
     width: 100%;
@@ -58,7 +60,7 @@ input,textarea,button{
     align-items: center;
     gap: 2rem;
     padding: 2rem;
-    border: 1px solid var(--grey);
+    border: 1px solid var(--very-light-grey);
 }
 .form-ul{
     display: flex;
@@ -76,6 +78,11 @@ input,textarea,button{
 .input{
     height: 4rem;
     font-size: 1.6rem;
+    background-color: var(--light-grey);
+    color: var(--almost-white);
+}
+.input::placeholder{
+    color: var(--very-light-grey);
 }
 .label-lane{
     content: '';
@@ -84,7 +91,7 @@ input,textarea,button{
     height: .3rem;
     bottom: 0;
     left: -100%;
-    background-color: var(--secondary);
+    background-color: var(--primary);
     transition: left 250ms ease-out;
 }
 .input:focus~.label-lane{
@@ -100,10 +107,11 @@ input,textarea,button{
     height: 4rem;
     border: none;
     background-color: var(--grey);
-    color: var(--secondary);
+    color: var(--primary);
     cursor: pointer;
     overflow: hidden;
     font-size: 1.6rem;
+    border: 1px solid var(--primary);
 }
 .button::after{
     content: '';
@@ -113,7 +121,7 @@ input,textarea,button{
     bottom:0;
     right:0;
     z-index: -1;
-    background-color: var(--secondary);
+    background-color: var(--primary);
     transition: transform 250ms ease-out;
     transform: scaleX(0);
     transform-origin:left;
@@ -128,7 +136,7 @@ input,textarea,button{
 }
 .button:hover,
 .button:focus{
-    color: var(--primary);
+    color: var(--secondary);
 }
 .lista{
     width: 100%;
