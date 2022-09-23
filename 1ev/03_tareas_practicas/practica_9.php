@@ -49,88 +49,35 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hola mundo de php</title>
-
-    <!-- <meta http-equiv="refresh" content=".5"> -->
-
-    <style>
-        *{
-            margin:0;
-            padding:0;
-            box-sizing: border-box;
-            font-family: arial;
-        }
-        html{
-            font-size: 62.5%;
-        }
-        body{
-            font-size: 1.6rem;
-            background-color: #eaeaea;
-        }
-		
-		.container{
-            margin: 0 auto;
-            width: 120rem;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 5rem;
-            flex-flow: column;
-        }
-        .titulo{
-            font-size: 3rem;
-            line-height: 4rem;
-        }
-        form{
-            width: 50rem;
-            display: flex;
-            flex-flow: row wrap;
-            justify-content: center;
-            align-items: center;
-            gap: 2rem;
-            border: 1px solid black;
-        }
-        input{
-            height: 3rem;
-        }
-        .label{
-            width: 20%;
-            line-height: 3rem;
-        }
-        .input-text{
-            width: 80%;
-        }
-        .button{
-            width: 100%;
-            height: 3rem;
-            margin-left: 2rem;
-            border: none;
-            background-color: grey;
-            color: #000;
-        }
-        .button:hover{
-            background-color: #000;
-            color: #fff;
-        }
-    </style>
+    <link rel="stylesheet" href="./css/estilo_9.css">
+    <script src="./js/scrollreveal-lib.js"></script>
+    <script src="./js/scrollreveal.js" defer=""></script>
+    <title>Analizador</title>
 </head>
 <body>
     <div class="container">
-        <h1 class="titulo" >Analizador de palabras</h1>
-        <form action="" method="get">
-            <label class="label" for="palabra">Palabra: </label><input class="input-text" type="text" name="palabra" id="" value="<?= $palabra ?>">
-            <input class="button" type="submit" value="Comprobar">
-        </form>
-        <?php if ($error) { ?>
-            <h3>Eres un poco manazas</h3>
-        <?php } ?>
+        <div class="central">
+            <h1 class="titulo" >Analizador de palabras</h1>
+            <form class="formulario" action="" method="get">
+                <ul class="form-ul">
+                    <li class="form-ul-li">
+                        <input class="input input-text" type="text" name="palabra" id="" value="<?= $palabra ?>" placeholder="Introduce una palabra">
+                        <label class="label-lane" for="palabra"></label> 
+                    </li>
+                </ul>
 
-        <ul class="lista">
-            <li>Número de vocales: <strong><?= contarVocales($palabra) ?></strong></li>
-            <li>Número de consonantes: <strong><?= contarConsonantes($palabra) ?></strong></li>
-            <li>Palíndromo: <strong><?php echo esPalindromo($palabra)?'sí':'no' ?></strong></li>
-        </ul>
+                <button class="button" type="submit">ANALIZAR</button>
+            </form>
+            <?php if ($error) { ?>
+                <h3 class="error-message">ERROR: introduce una palabra</h3>
+            <?php } ?>
+
+            <ul class="lista">
+                <li class="lista__li">Número de consonantes: <strong><?= contarConsonantes($palabra) ?></strong></li>
+                <li class="lista__li">Número de vocales: <strong><?= contarVocales($palabra) ?></strong></li>
+                <li class="lista__li">¿Es palíndromo? <strong><?php echo esPalindromo($palabra)?'sí':'no' ?></strong></li>
+            </ul>
+        </div class="central">
     </div>
 </body>
 </html>
