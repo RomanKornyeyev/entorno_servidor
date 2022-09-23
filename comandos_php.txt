@@ -1,0 +1,8 @@
+COMANDOS PHP:
+
+- INSTALAR PHP:
+sudo apt install php-cli
+
+	- INSTALAR mb_strlen:
+	sudo su -
+	apt install php-mbstring
