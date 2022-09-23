@@ -45,12 +45,13 @@ input,textarea,button{
     align-items: center;
     flex-flow: column;
     gap: 2rem;
+    width: 100%;
 }
 .titulo{
     font-size: 3rem;
 }
 .formulario{
-    width: 50rem;
+    width: 100%;
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
@@ -137,7 +138,7 @@ input,textarea,button{
     height: 4rem;
     padding: 1rem;
     background-color: var(--error);
-    animation: bounce 1s linear;
+    animation: bounce 750ms linear;
 }
 
 @keyframes bounce {

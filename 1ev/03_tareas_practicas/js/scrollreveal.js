@@ -20,5 +20,5 @@ sr.reveal('.lista__li',{
 })
 
 sr.reveal('.error-message',{
-    duration: 1500
+    duration: 1000
 })

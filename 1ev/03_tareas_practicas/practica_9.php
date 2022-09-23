@@ -70,13 +70,14 @@
             </form>
             <?php if ($error) { ?>
                 <h3 class="error-message">ERROR: introduce una palabra</h3>
-            <?php } ?>
+            <?php }else{ ?>
 
             <ul class="lista">
                 <li class="lista__li">Número de consonantes: <strong><?= contarConsonantes($palabra) ?></strong></li>
                 <li class="lista__li">Número de vocales: <strong><?= contarVocales($palabra) ?></strong></li>
                 <li class="lista__li">¿Es palíndromo? <strong><?php echo esPalindromo($palabra)?'sí':'no' ?></strong></li>
             </ul>
+            <?php } ?>
         </div class="central">
     </div>
 </body>
