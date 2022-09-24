@@ -1,2 +1,7 @@
-Nombre: Roman
-Empresa: Google
+Me dirijo a usted, por la reciente publicacion de su oferta de trabajo como programador de Java. Me gustaria integrarme en dicho puesto, ya que estoy capacitado y tengo las habilidades para desarrollar diferentes tareas, especialmente en las areas de la programacion orientada a objetos y gestion de bases de datos relacionales.
+
+Actualmente estoy cursando el ciclo formativo de grado superior en Desarrollo de Aplicaciones Web en IES Juan de la Cierva. Este grado ha contribuido muy positivamente en mis anteriores conocimientos de informatica, completamente autodidactas y no reglados, tales como la programacion orientada a objetos, gestion de bases de datos relacionales y maquetacion web. Como complemento didactico extraoficial, he aprendido y estoy aprendiendo a ser cada vez mas eficiente, organizado y a trabajar bajo presion. Por supuesto, tambien le remito mi curriculum, en el que podra comprobar mis habilidades y experiencia que puedan ser de utilidad a la hora de desempenar las funciones que se requieren.
+
+Mi disponibilidad actual es completa, por mi parte podria concretar una entrevista presencial en Madrid o de manera telematica mediante cualquier aplicacion de videollamada en el momento que considere oportuno, en la que estare encantado de responder cualquier pregunta y dar mas informacion sobre mi.
+
+Agradezco su atencion y estoy a la espera de sus noticias, atentamente:
