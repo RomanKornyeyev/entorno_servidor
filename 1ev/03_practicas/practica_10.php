@@ -27,9 +27,9 @@
 
     class PDF extends FPDF
     {
+        //con vars globales
         function Header()
         {
-            global $title;
             global $email;
             global $ciudad;
             global $telefono;
@@ -83,6 +83,7 @@
             
         }
         
+        //con vars por parámetros
         function PrintBody($nombre, $empresa, $responsable, $fecha, $file)
         {
             $this->Body($nombre, $empresa, $responsable, $fecha, $file);
@@ -91,7 +92,7 @@
     
     $pdf = new PDF();
     
-    $title = 'Roman Kornyeyev';
+    
     $pdf->SetTitle($title);
     $pdf->SetAuthor('Roman');
     $pdf->AddPage();
