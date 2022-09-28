@@ -1,24 +1,35 @@
 <?php
 
-    require('funciones_9.php');
-
-    $palabra = "";
-    $vocales = 0;
-    $consonantes = 0;
-    $palindromo = false;
-    $envio = false;
-    $error = false;
+    $dwec = "Cliente";
+    $dwes = "Servidor";
+    $emp = "Empresa";
+    $ing = "Inglés";
+    $diw = "Interfaces";
+    $daw = "Despliegue";
     
-    if(isset($_GET['palabra'])){
-        $palabra = $_GET['palabra'];
-        $envio = true;
-        $vocales = contarVocales($palabra);
-        $consonantes = contarConsonantes($palabra);
-        $palindromo = esPalindromo($palabra);
-        if($palabra == ""){
-            $error = true;
+
+    $horario = [
+        1 => ["16:00", $dwec, $ing, $diw, $emp, $dwes], 
+        2 => ["16:55", $dwec, $daw, $diw, $daw, $dwes], 
+        3 => ["17:50", $dwec, $daw, $diw, $daw, $dwes],
+        4 => ["18:45", "P", "A", "T", "I", "O"],
+        5 => ["19:10", $emp, $diw, $dwes, $dwes, $dwec],
+        6 => ["16:00", $emp, $diw, $dwes, $dwes, $dwec],
+        7 => ["16:00", $ing, $diw, $dwes, $dwes, $dwec],
+    ];
+
+    function generarHorario(){
+
+        global $horario;
+
+        for ($i = 1; $i < count($horario); $i++) {
+            echo "<tr class='tr'>";
+            for($j = 0; $j < count($horario[$i]); $j++){
+                echo "<td class='td'>".$horario[$i][$j]."</td>";
+            }
+            echo "</tr>";
         }
-    }
+    };
 
 ?>
 <!DOCTYPE html>
@@ -30,35 +41,16 @@
     <link rel="stylesheet" href="./css/estilo_9.css">
     <script src="./js/scrollreveal-lib.js"></script>
     <script src="./js/scrollreveal.js" defer=""></script>
-    <title>Analizador</title>
+    <title>HORARIO</title>
 </head>
 <body>
     <div class="container">
         <div class="central">
-            <h1 class="titulo" >Analizador de palabras</h1>
-            <form class="formulario" action="" method="get">
-                <ul class="form-ul">
-                    <li class="form-ul-li">
-                        <input class="input input-text" type="text" name="palabra" id="" value="<?= $palabra ?>" placeholder="Introduce una palabra">
-                        <label class="label-lane" for="palabra"></label> 
-                    </li>
-                </ul>
-
-                <button class="button" type="submit">ANALIZAR</button>
-            </form>
-
-            <?php if ($envio) { ?>
-                <?php if ($error) { ?>
-                    <h3 class="error-message">ERROR: introduce una palabra</h3>
-                <?php }else{ ?>  
-                <ul class="lista">
-                    <li class="lista__li">Número de consonantes: <strong><?= $consonantes ?></strong></li>
-                    <li class="lista__li">Número de vocales: <strong><?= $vocales ?></strong></li>
-                    <li class="lista__li">¿Es palíndromo? <strong><?= ($palindromo)?'sí':'no' ?></strong></li>
-                </ul>
-                <?php } ?>
-            <?php } ?>
-            
+            <table class="table">
+                <tbody>
+                    <?php generarHorario() ?>
+                </tbody>
+            </table>
         </div>
     </div>
 </body>
