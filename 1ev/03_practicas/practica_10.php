@@ -27,14 +27,15 @@
     require('pruebas/fpdf184/fpdf.php');
     require('cartaPdf.php');
 
-    $pdf = new PDF();
-   
-    $pdf->SetTitle($title);
-    $pdf->SetAuthor('Roman');
-    $pdf->AddPage();
-    $pdf->PrintBody($nombre, $empresa, $responsable, $fecha, 'practica_10.txt');
-    
     if($envio){
+        
+        $pdf = new PDF();
+   
+        $pdf->SetTitle($title);
+        $pdf->SetAuthor('Roman');
+        $pdf->AddPage();
+        $pdf->PrintBody($nombre, $empresa, $responsable, $fecha, 'practica_10.txt');
+
         $pdf->Output();
     }
 
