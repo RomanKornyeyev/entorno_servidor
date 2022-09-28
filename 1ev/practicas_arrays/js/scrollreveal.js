@@ -1,8 +1,13 @@
 window.sr = ScrollReveal();
 
-sr.reveal('.x',{
+sr.reveal('.central',{
     duration: 1500,
-    origin: 'bottom',
-    distance: '50px',
-    interval: 100
-})
+    origin: 'right',
+    distance: '150px'
+});
+
+sr.reveal('.title',{
+    duration: 1500,
+    origin: 'left',
+    distance: '150px'
+});

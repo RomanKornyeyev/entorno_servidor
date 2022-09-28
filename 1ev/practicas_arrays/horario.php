@@ -57,12 +57,15 @@
     <title>HORARIO</title>
 </head>
 <body>
-    <div class="container">
-        <table class="table">
-            <tbody>
-                <?php generarHorario() ?>
-            </tbody>
-        </table>
-    </div>
+    <main class="container">
+        <h1 class="title">HORARIO</h1>
+        <div class="central">
+            <table class="table">
+                <tbody>
+                    <?php generarHorario() ?>
+                </tbody>
+            </table>
+        </div>
+    </main>
 </body>
 </html>
