@@ -19,14 +19,20 @@
         7 => ["21:50", $ing, $diw, $dwes, $dwes, $dwec],
     ];
 
+    $estilo = [
+        "Servidor" => "color1",
+        "Cliente" => "color2",
+        "Empresa" => "color3",
+        "Inglés" => "color4",
+        "Interfaces" => "color5",
+        "Despliegue" => "color6",
+    ];
+
     function generarHorario(){
 
-        global $dwec;
-        global $dwes;
-        global $emp;
-        global $ing;
-        global $diw;
-        global $daw;
+        global $dwec, $dwes, $emp, $ing, $diw, $daw;
+
+        global $estilo;
 
         global $horario;
         $cont = 1;
@@ -36,19 +42,17 @@
             echo "<tr class='tr'>";
             for($j = 0; $j < count($horario[$i]); $j++){
                 $i_aux = $i;
-                while($horario[$i_aux][$j] == $horario[$i_aux+1][$j]){ //si el td de abajo es igual, rowspan++ (cont++)
+                while(($i_aux+1) < count($horario) && $horario[$i_aux][$j] == $horario[$i_aux+1][$j]){ //si el td de abajo es igual, rowspan++ (cont++)
                     $cont++;
                     $i_aux++;
                 }
                 if($i > 0){
                     if($horario[$i-1][$j] != $horario[$i][$j]){ //si el td de arriba es igual, no pintes nada
-                        if($horario[$i][$j] == $dwes) echo "<td class='td color-1' rowspan='$cont'>".$horario[$i][$j]."</td>";
-                        else if($horario[$i][$j] == $dwec) echo "<td class='td color-2' rowspan='$cont'>".$horario[$i][$j]."</td>";
-                        else if($horario[$i][$j] == $emp) echo "<td class='td color-3' rowspan='$cont'>".$horario[$i][$j]."</td>";
-                        else if($horario[$i][$j] == $ing) echo "<td class='td color-4' rowspan='$cont'>".$horario[$i][$j]."</td>";
-                        else if($horario[$i][$j] == $diw) echo "<td class='td color-5' rowspan='$cont'>".$horario[$i][$j]."</td>";
-                        else if($horario[$i][$j] == $daw) echo "<td class='td color-6' rowspan='$cont'>".$horario[$i][$j]."</td>";
-                        else echo "<td class='td color-default' rowspan='$cont'>".$horario[$i][$j]."</td>";
+                        if(in_array($horario[$i][$j], array_keys($estilo))){ //pintame el estilo extra SOLO SI COINCIDE CON UNA ASIGNATURA
+                            echo "<td class='td ".$estilo[$horario[$i][$j]]."' rowspan='$cont'>".$horario[$i][$j]."</td>";
+                        }else{ //si no coincide, pintame color-default
+                            echo "<td class='td color-default' rowspan='$cont'>".$horario[$i][$j]."</td>"; 
+                        }
                     }
                 }else{
                    echo "<td class='td color-default' rowspan='$cont'>".$horario[$i][$j]."</td>"; 

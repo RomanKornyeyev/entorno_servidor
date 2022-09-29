@@ -69,9 +69,9 @@ table{
     border: 1px solid var(--light-grey);
 }
 .color-default{background-color: var(--light-gray);}
-.color-1{background-color: var(--light-blue);}
-.color-2{background-color: var(--light-orange);}
-.color-3{background-color: var(--light-green);}
-.color-4{background-color: var(--light-purple);}
-.color-5{background-color: var(--light-red);}
-.color-6{background-color: var(--light-yellow);}
+.color1{background-color: var(--light-blue);}
+.color2{background-color: var(--light-orange);}
+.color3{background-color: var(--light-green);}
+.color4{background-color: var(--light-purple);}
+.color5{background-color: var(--light-red);}
+.color6{background-color: var(--light-yellow);}
