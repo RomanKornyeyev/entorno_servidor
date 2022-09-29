@@ -20,20 +20,18 @@
     ];
 
     $estilo = [
-        "Servidor" => "color1",
-        "Cliente" => "color2",
-        "Empresa" => "color3",
-        "Inglés" => "color4",
-        "Interfaces" => "color5",
-        "Despliegue" => "color6",
+        $dwes => "color1",
+        $dwec => "color2",
+        $emp => "color3",
+        $ing => "color4",
+        $diw => "color5",
+        $daw => "color6",
     ];
 
     function generarHorario(){
 
         global $dwec, $dwes, $emp, $ing, $diw, $daw;
-
         global $estilo;
-
         global $horario;
         $cont = 1;
         $i_aux = 0;
