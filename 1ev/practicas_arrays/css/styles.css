@@ -10,7 +10,7 @@ html{
 }
 body{
     font-size: 1.6rem;
-    background-color: var(--light-gray);
+    background-color: var(--very-light-gray);
 }
 ul,ol{
     list-style: none;
@@ -24,12 +24,20 @@ table{
     border-collapse: collapse;
 }
 :root{
+    --very-light-gray: #f8f8f8;
     --light-gray: #eaeaea;
     --light-grey: #a7a7a7;
     --grey: #808080;
     --primary: #fff;
     --secondary: #000;
     --error: #ffc400;
+
+    --light-blue: #90fafa;
+    --light-purple: #ec87ec;
+    --light-green: #8ae48a;
+    --light-orange: #f0c26c;
+    --light-red: #e48383;
+    --light-yellow: #f3f3a2;
 }
 
 /* === GENERALES === */
@@ -58,5 +66,12 @@ table{
     text-align: center;
     width: calc(100% / 6);
     height: 5rem;
-    border: 1px solid var(--secondary);
+    border: 1px solid var(--light-grey);
 }
+.color-default{background-color: var(--light-gray);}
+.color-1{background-color: var(--light-blue);}
+.color-2{background-color: var(--light-orange);}
+.color-3{background-color: var(--light-green);}
+.color-4{background-color: var(--light-purple);}
+.color-5{background-color: var(--light-red);}
+.color-6{background-color: var(--light-yellow);}

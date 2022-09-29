@@ -21,6 +21,13 @@
 
     function generarHorario(){
 
+        global $dwec;
+        global $dwes;
+        global $emp;
+        global $ing;
+        global $diw;
+        global $daw;
+
         global $horario;
         $cont = 1;
         $i_aux = 0;
@@ -31,11 +38,22 @@
                 $i_aux = $i;
                 while($horario[$i_aux][$j] == $horario[$i_aux+1][$j]){ //si el td de abajo es igual, rowspan++ (cont++)
                     $cont++;
-                    $i_aux++; 
+                    $i_aux++;
                 }
-                if($horario[$i-1][$j] != $horario[$i][$j] || $horario[$i-1][$j] == null){ //si el td de arriba es igual o nulo, no pintes nada
-                    echo "<td class='td' rowspan='$cont'>".$horario[$i][$j]."</td>";
+                if($i > 0){
+                    if($horario[$i-1][$j] != $horario[$i][$j]){ //si el td de arriba es igual, no pintes nada
+                        if($horario[$i][$j] == $dwes) echo "<td class='td color-1' rowspan='$cont'>".$horario[$i][$j]."</td>";
+                        else if($horario[$i][$j] == $dwec) echo "<td class='td color-2' rowspan='$cont'>".$horario[$i][$j]."</td>";
+                        else if($horario[$i][$j] == $emp) echo "<td class='td color-3' rowspan='$cont'>".$horario[$i][$j]."</td>";
+                        else if($horario[$i][$j] == $ing) echo "<td class='td color-4' rowspan='$cont'>".$horario[$i][$j]."</td>";
+                        else if($horario[$i][$j] == $diw) echo "<td class='td color-5' rowspan='$cont'>".$horario[$i][$j]."</td>";
+                        else if($horario[$i][$j] == $daw) echo "<td class='td color-6' rowspan='$cont'>".$horario[$i][$j]."</td>";
+                        else echo "<td class='td color-default' rowspan='$cont'>".$horario[$i][$j]."</td>";
+                    }
+                }else{
+                   echo "<td class='td color-default' rowspan='$cont'>".$horario[$i][$j]."</td>"; 
                 }
+                
                 $cont = 1;
             }
             echo "</tr>";
