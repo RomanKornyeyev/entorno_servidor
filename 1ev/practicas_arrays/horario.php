@@ -39,7 +39,8 @@
         for ($i = 0; $i < count($horario); $i++) {
             echo "<tr class='tr'>";
             for($j = 0; $j < count($horario[$i]); $j++){
-                $i_aux = $i;
+                $i_aux = $i; //procesado del valor de rowspan
+                $cont = 1;
                 while(($i_aux+1) < count($horario) && $horario[$i_aux][$j] == $horario[$i_aux+1][$j]){ //si el td de abajo es igual, rowspan++ (cont++)
                     $cont++;
                     $i_aux++;
@@ -56,7 +57,7 @@
                    echo "<td class='td color-default' rowspan='$cont'>".$horario[$i][$j]."</td>"; 
                 }
                 
-                $cont = 1;
+                
             }
             echo "</tr>";
         }

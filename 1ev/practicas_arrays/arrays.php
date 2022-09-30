@@ -13,17 +13,14 @@ $busqueda = array_search(13, $arrayFusionada); //devolvería el 4 (el índice)
 //Función para imprimir arrays
 function imprimirArray($arr){
  for ($i=0;$i<count($arr);$i++) {
+    echo "<div class='lane'>";
     for ($j=0;$j<count($arr[$i]);$j++){
-       echo "  " . $arr[$i][$j] ;
+       echo " " . $arr[$i][$j];
     }
-    echo "<br>";
+    echo "</div>";
  }
 }
 ?>
-
-
-
-
 
 <!DOCTYPE html>
 <html lang="es">
@@ -32,7 +29,7 @@ function imprimirArray($arr){
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- CSS -->
-    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="./css/styles-arrays.css">
     <!-- JS -->
     <script src="./js/scrollreveal-lib.js"></script>
     <script src="./js/scrollreveal.js" defer=""></script>
@@ -40,15 +37,12 @@ function imprimirArray($arr){
 </head>
 <body>
     <main class="container">
-        <h1 class="title">CRUM</h1>
         <div class="central">
-        <?php
-            imprimirArray($arrays);
-            echo "¿En qué índice está el 13? - En el índice " . $busqueda;
-        ?>
-
-
-
+        <h1 class="title">CRUM</h1>
+            <?php
+                imprimirArray($arrays);
+                echo "<div class='lane'> ¿En qué índice está el 13? - En el índice " . $busqueda . "</div>";
+            ?>
         </div>
     </main>
 </body>
