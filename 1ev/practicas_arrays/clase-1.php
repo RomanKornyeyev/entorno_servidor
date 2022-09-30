@@ -46,9 +46,15 @@ Con el array de personas anterior, utiliza el array_filter para sacar un listado
             $resultado = "Señora";
         }
 
-        return $resultado;
+        return $resultado." ".$var[0];
     }
-    print_r(array_map("saludo", $personas));
+    function imprimirArray($arr){
+        for ($i = 0; $i < count($arr); $i++) {
+            echo "<div class='lane'>".$arr[$i]."</div>";
+        }
+    }
+
+    $lista = array_map("saludo", $personas);
 
 ?>
 <!DOCTYPE html>
@@ -65,6 +71,6 @@ Con el array de personas anterior, utiliza el array_filter para sacar un listado
     <title>Clase 1</title>
 </head>
 <body>
-    
+    <?= imprimirArray($lista) ?>
 </body>
 </html>
