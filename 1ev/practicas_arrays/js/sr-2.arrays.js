@@ -4,8 +4,8 @@ sr.reveal('.lane',{
     duration: 1500,
     origin: 'bottom',
     distance: '100px',
-    interval: 200,
-    delay: 200
+    interval: 150,
+    delay: 300
 });
 
 sr.reveal('.title',{

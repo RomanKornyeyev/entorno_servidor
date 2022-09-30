@@ -74,7 +74,7 @@
     <link rel="stylesheet" href="./css/styles.css">
     <!-- JS -->
     <script src="./js/scrollreveal-lib.js"></script>
-    <script src="./js/scrollreveal.js" defer=""></script>
+    <script src="./js/sr-1.horario.js" defer=""></script>
     <title>HORARIO</title>
 </head>
 <body>

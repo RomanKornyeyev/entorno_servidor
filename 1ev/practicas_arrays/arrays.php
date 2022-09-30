@@ -32,7 +32,7 @@ function imprimirArray($arr){
     <link rel="stylesheet" href="./css/styles-arrays.css">
     <!-- JS -->
     <script src="./js/scrollreveal-lib.js"></script>
-    <script src="./js/scrollreveal.js" defer=""></script>
+    <script src="./js/sr-2.arrays.js" defer=""></script>
     <title>CRUM</title>
 </head>
 <body>
