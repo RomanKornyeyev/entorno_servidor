@@ -9,7 +9,7 @@ sr.reveal('.lane',{
 });
 
 sr.reveal('.title',{
-    duration: 1500,
+    duration: 1000,
     origin: 'top',
     distance: '150px'
 });

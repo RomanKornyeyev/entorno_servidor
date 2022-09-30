@@ -1,25 +1,25 @@
 <?php
  
-$arrayReemplazo = [1=>20, 3=>7, 4=>13];
- 
-$arrays = [
-  $array1 = [1,2,13,4,15,6,7,18,9],
-  $array2 = [1,12,13,14,5,6,7,18,19],
-  $arrayFusionada = array_replace(array_intersect($array1,$array2), $arrayReemplazo)
-];
- 
-$busqueda = array_search(13, $arrayFusionada); //devolvería el 4 (el índice)
- 
-//Función para imprimir arrays
-function imprimirArray($arr){
- for ($i=0;$i<count($arr);$i++) {
-    echo "<div class='lane'>";
-    for ($j=0;$j<count($arr[$i]);$j++){
-       echo " " . $arr[$i][$j];
+    $arrayReemplazo = [1=>20, 3=>7, 4=>13];
+    
+        $arrays = [
+        $array1 = [1,2,13,4,15,6,7,18,9],
+        $array2 = [1,12,13,14,5,6,7,18,19],
+        $arrayFusionada = array_replace(array_intersect($array1,$array2), $arrayReemplazo)
+    ];
+    
+    $busqueda = array_search(13, $arrayFusionada); //devolvería el 4 (el índice)
+    
+    //Función para imprimir arrays
+    function imprimirArray($arr){
+        for ($i=0;$i<count($arr);$i++) {
+            echo "<div class='lane'>";
+            for ($j=0;$j<count($arr[$i]);$j++){
+            echo " " . $arr[$i][$j];
+            }
+            echo "</div>";
+        }
     }
-    echo "</div>";
- }
-}
 ?>
 
 <!DOCTYPE html>
