@@ -1,6 +1,6 @@
 <?php
 
-    require('funciones_9.php');
+    require('./funciones_php/funciones_5.php');
 
     $palabra = "";
     $vocales = 0;

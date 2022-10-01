@@ -77,7 +77,7 @@ input,textarea,button,a{
     margin: 5rem auto;    
 }
 .title-wrapper::before{
-    content: '<h1>';
+    content: '<h2>';
     position: absolute;
     font-size: 2rem;
     font-family: 'Caveat', cursive;
@@ -86,7 +86,7 @@ input,textarea,button,a{
     bottom: 100%;
 }
 .title-wrapper::after{
-    content: '</h1>';
+    content: '</h2>';
     position: absolute;
     font-size: 2rem;
     font-family: 'Caveat', cursive;

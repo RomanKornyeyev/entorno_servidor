@@ -4,8 +4,9 @@ sr.reveal('.elemento',{
     duration: 1500,
     origin: 'bottom',
     distance: '100px',
-    interval: 150,
-    delay: 300
+    easing: 'cubic-bezier(0,.42,.25,1.07)',
+    interval: 100,
+    delay: 600
 });
 
 sr.reveal('.title',{

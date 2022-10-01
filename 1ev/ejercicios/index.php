@@ -1,12 +1,13 @@
 <?php
 function directory(){
     $dir = './';
-    $files = scandir($dir);
+    $files = scandir($dir,$sorting_order = SCANDIR_SORT_ASCENDING);
+    sort($files, $sort_flags = SORT_NATURAL);
 
     echo "<ul class='lista'>";
     foreach ($files as $file) {
-        if (preg_match("/.php\b/", $file)) {
-            if (!preg_match("/index.php\b/", $file)){ //muestra todos los archivos que no sean el index (este archivo)
+        if (preg_match("/\.php/", $file)) {
+            if (!preg_match("/index.php/", $file)){ //muestra todos los archivos que no sean el index (este archivo)
                 echo "<li class='elemento'><a class='button' href=" . $dir . "/" . $file . ">" . $file . "</a></li>";
             }
         }
@@ -25,6 +26,7 @@ function directory(){
     <script src="./js/scrollreveal-lib.js"></script>
     <script src="./js/sr-index.js" defer=""></script>
     <!-- CSS -->
+    <link rel="preload" href="./css/index.css" as="styles">
     <link rel="stylesheet" href="./css/index.css">
     <title>Inicio</title>
 </head>
