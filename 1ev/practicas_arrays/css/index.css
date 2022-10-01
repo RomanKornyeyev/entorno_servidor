@@ -166,16 +166,3 @@ input,textarea,button,a{
 .button:focus{
     color: var(--secondary);
 }
-/* .mark{
-    color: var(--light-grey-1);
-}
-.mark--before{
-    position: absolute;
-    top: -1rem;
-    left: 0;
-}
-.mark--after{
-    position: absolute;
-    bottom: -1rem;
-    left: 0;
-} */
