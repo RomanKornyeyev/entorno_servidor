@@ -11,5 +11,5 @@ sr.reveal('.elemento',{
 sr.reveal('.title',{
     duration: 1000,
     origin: 'top',
-    distance: '150px'
+    distance: '100px'
 });
