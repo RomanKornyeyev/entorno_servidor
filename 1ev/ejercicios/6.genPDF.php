@@ -24,8 +24,8 @@
 
 
     ob_end_clean();
-    require('pruebas/fpdf184/fpdf.php');
-    require('cartaPdf.php');
+    require('librerias_php/fpdf184/fpdf.php');
+    require('librerias_php/cartaPdf.php');
 
     if($envio){
         
@@ -34,7 +34,7 @@
         $pdf->SetTitle($title);
         $pdf->SetAuthor('Roman');
         $pdf->AddPage();
-        $pdf->PrintBody($nombre, $empresa, $responsable, $fecha, 'practica_10.txt');
+        $pdf->PrintBody($nombre, $empresa, $responsable, $fecha, '6.genPDF.txt');
 
         $pdf->Output();
     }
