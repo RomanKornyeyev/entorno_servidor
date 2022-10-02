@@ -33,19 +33,19 @@ Con el array de personas anterior, utiliza el array_filter para sacar un listado
 
     //=== FUNCIONES GENERALES ===
     function imprimirVariable($var){
-        echo "<div class='lane'>".$var."</div>";
+        echo "<div class='lane up-1250'>".$var."</div>";
     }
     function imprimirArray($arr){
         for ($i = 0; $i < count($arr); $i++) {
-            echo "<div class='lane'>".$arr[$i]."</div>";
+            echo "<div class='lane up-1250'>".$arr[$i]."</div>";
         }
     }
     function imprimirMatriz($matr){ //es necesario usar array_walk
-        foreach ($matr as $v1) {
-            foreach ($v1 as $v2) {
-                echo "<div class='lane'>".$v2."</div>";
-            }
-        }
+        // foreach ($matr as $v1) {
+        //     foreach ($v1 as $v2) {
+        //         echo "<div class='lane'>".$v2."</div>";
+        //     }
+        // }
         // for ($i = 0; $i < count($matr); $i++) {
         //     for ($j=0; $j <= count($matr[$i]); $j++) { 
         //         echo "<div class='lane'>".$matr[$i][$j]."</div>";
@@ -101,10 +101,16 @@ Con el array de personas anterior, utiliza el array_filter para sacar un listado
     function mujeres($var){
         return !($var[1] == 1);
     };
+    function recorrerArray($valor, $llave){
+        echo "<div class='lane up-1250'>".$valor[0]."</div>";
+    }
+    function walkearArray($array){
+        array_walk($array, "recorrerArray");
+    }
     
     $listaHombres = array_filter($personas, "hombres");
     $listaMujeres = array_filter($personas, "mujeres");
-    print_r(array_filter($personas, "hombres"));
+    
 
     // Array ( 
     //     [0] => Array ( [0] => Jorge [1] => 1 )
@@ -150,8 +156,10 @@ Con el array de personas anterior, utiliza el array_filter para sacar un listado
             </div>
             <div class="central">
                 <h2 class="title">array_filter</h2>
-                <?= imprimirMatriz($listaHombres) ?>
-                <?= imprimirMatriz($listaMujeres) ?>
+                <h3 class="sub-title up-1250">Hombres:</h3>
+                <?= walkearArray($listaHombres) ?>
+                <h3 class="sub-title up-1250">Mujeres:</h3>
+                <?= walkearArray($listaMujeres) ?>
             </div>
         </div>
     </div>

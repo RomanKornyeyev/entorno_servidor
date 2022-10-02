@@ -5,7 +5,7 @@ sr.reveal('.elemento',{
     origin: 'bottom',
     distance: '100px',
     easing: 'cubic-bezier(0,.42,.25,1.07)',
-    interval: 100,
+    interval: 75,
     delay: 600
 });
 

@@ -63,6 +63,10 @@ input,textarea,button{
     color: var(--primary);
     margin-bottom: 4rem;
 }
+.sub-title{
+    font-size: 2.5rem;
+    color: var(--primary);
+}
 .lane{
     display: flex;
     justify-content: center;
