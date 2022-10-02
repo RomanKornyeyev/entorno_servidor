@@ -40,20 +40,6 @@ Con el array de personas anterior, utiliza el array_filter para sacar un listado
             echo "<div class='lane up-1250'>".$arr[$i]."</div>";
         }
     }
-    function imprimirMatriz($matr){ //es necesario usar array_walk
-        // foreach ($matr as $v1) {
-        //     foreach ($v1 as $v2) {
-        //         echo "<div class='lane'>".$v2."</div>";
-        //     }
-        // }
-        // for ($i = 0; $i < count($matr); $i++) {
-        //     for ($j=0; $j <= count($matr[$i]); $j++) { 
-        //         echo "<div class='lane'>".$matr[$i][$j]."</div>";
-        //     }
-            
-        // }
-    }
-
 
     //=== 1.1 ====
     $personas = [
@@ -110,22 +96,6 @@ Con el array de personas anterior, utiliza el array_filter para sacar un listado
     
     $listaHombres = array_filter($personas, "hombres");
     $listaMujeres = array_filter($personas, "mujeres");
-    
-
-    // Array ( 
-    //     [0] => Array ( [0] => Jorge [1] => 1 )
-    //     [1] => Array ( [0] => Bea [1] => 0 )
-    //     [2] => Array ( [0] => Paco [1] => 1 )
-    //     [3] => Array ( [0] => Amparo [1] => 0 ) 
-    // );
-    // Array (
-    //     [1] => Array ( [0] => Bea [1] => 0 )
-    //     [3] => Array ( [0] => Amparo [1] => 0 )
-    // );
-    // Array (
-    //     [0] => Array ( [0] => Jorge [1] => 1 )
-    //     [2] => Array ( [0] => Paco [1] => 1 )
-    // );
    
     
 
