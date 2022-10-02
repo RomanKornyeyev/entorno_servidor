@@ -31,6 +31,15 @@ Con el array de personas anterior, utiliza el array_filter para sacar un listado
 -->
 <?php
 
+    //=== FUNCIONES ===
+    function imprimirArray($arr){
+        for ($i = 0; $i < count($arr); $i++) {
+            echo "<div class='lane'>".$arr[$i]."</div>";
+        }
+    }
+    function imprimirVariable($var){
+        echo "<div class='lane'>".$var."</div>";
+    }
     //=== 1.1 ====
     $personas = [
         ["Jorge", 1],
@@ -49,13 +58,8 @@ Con el array de personas anterior, utiliza el array_filter para sacar un listado
 
         return $resultado." ".$var[0];
     }
-    function imprimirArray($arr){
-        for ($i = 0; $i < count($arr); $i++) {
-            echo "<div class='lane'>".$arr[$i]."</div>";
-        }
-    }
 
-    $lista = array_map("saludo", $personas);
+    $lista1 = array_map("saludo", $personas);
 
 
 
@@ -67,14 +71,11 @@ Con el array de personas anterior, utiliza el array_filter para sacar un listado
         2 => ["Pan", 1, 90]
     ];
 
-    function myfunction($v1,$v2){
-        return $v1+$v2;
+    function calcularCalorias($carry, $item){
+        return $carry += ($item[1] * $item[2]);
     }
     
-    
-    print_r(array_reduce($a,"myfunction",$comida[2]));
-    
-    
+    $lista2 = array_reduce($comida,"calcularCalorias");
     
 
 ?>
@@ -85,16 +86,27 @@ Con el array de personas anterior, utiliza el array_filter para sacar un listado
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- CSS -->
-    <link rel="stylesheet" href="./css/generales.css">
+    <link rel="stylesheet" href="./css/10.1.clase.css">
     <!-- JS -->
     <script src="./js/scrollreveal-lib.js"></script>
-    <script src="./js/sr-2.arrays.js" defer=""></script>
+    <script src="./js/sr-10.1.clase.js" defer=""></script>
     <title>Clase 1</title>
 </head>
 <body>
     <div class="container">
-        <div class="central">
-            <?= imprimirArray($lista) ?>
+        <div class="container__main">
+            <div class="central">
+                <h2 class="title">array_map</h2>
+                <?= imprimirArray($lista1) ?>
+            </div>
+            <div class="central">
+                <h2 class="title">array_reduce</h2>
+                <?= imprimirVariable($lista2) ?>
+            </div>
+            <div class="central">
+                <h2 class="title">array_reduce</h2>
+                <?= imprimirVariable($lista2) ?>
+            </div>
         </div>
     </div>
 </body>
