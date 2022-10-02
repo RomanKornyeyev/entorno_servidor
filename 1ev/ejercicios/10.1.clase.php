@@ -81,21 +81,26 @@ Con el array de personas anterior, utiliza el array_filter para sacar un listado
 
     //=== 1.3 ===
     //Con el array de personas anterior, utiliza el array_filter para sacar un listado de Hombre y otro listado de mujeres.
-    function hombres($var){
+    function hombres($var){ //filtramos hombres
         return ($var[1] == 1);
     };
-    function mujeres($var){
+    function mujeres($var){ //filtramos mujeres
         return !($var[1] == 1);
     };
+    //volcamos los resultados en 2 arrays
+    $listaHombres = array_filter($personas, "hombres");
+    $listaMujeres = array_filter($personas, "mujeres");
+
+    //recorremos el array e imprimimos los valores
     function recorrerArray($valor, $llave){
         echo "<div class='lane up-1250'>".$valor[0]."</div>";
     }
+    //hacemos una función para llamarla en HTML
     function walkearArray($array){
         array_walk($array, "recorrerArray");
     }
     
-    $listaHombres = array_filter($personas, "hombres");
-    $listaMujeres = array_filter($personas, "mujeres");
+    
    
     
 
