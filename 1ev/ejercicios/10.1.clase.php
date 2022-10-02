@@ -31,15 +31,30 @@ Con el array de personas anterior, utiliza el array_filter para sacar un listado
 -->
 <?php
 
-    //=== FUNCIONES ===
+    //=== FUNCIONES GENERALES ===
+    function imprimirVariable($var){
+        echo "<div class='lane'>".$var."</div>";
+    }
     function imprimirArray($arr){
         for ($i = 0; $i < count($arr); $i++) {
             echo "<div class='lane'>".$arr[$i]."</div>";
         }
     }
-    function imprimirVariable($var){
-        echo "<div class='lane'>".$var."</div>";
+    function imprimirMatriz($matr){ //es necesario usar array_walk
+        foreach ($matr as $v1) {
+            foreach ($v1 as $v2) {
+                echo "<div class='lane'>".$v2."</div>";
+            }
+        }
+        // for ($i = 0; $i < count($matr); $i++) {
+        //     for ($j=0; $j <= count($matr[$i]); $j++) { 
+        //         echo "<div class='lane'>".$matr[$i][$j]."</div>";
+        //     }
+            
+        // }
     }
+
+
     //=== 1.1 ====
     $personas = [
         ["Jorge", 1],
@@ -60,7 +75,7 @@ Con el array de personas anterior, utiliza el array_filter para sacar un listado
     }
 
     $lista1 = array_map("saludo", $personas);
-
+    
 
 
     //=== 1.2 ====
@@ -76,6 +91,36 @@ Con el array de personas anterior, utiliza el array_filter para sacar un listado
     }
     
     $lista2 = array_reduce($comida,"calcularCalorias");
+    
+
+    //=== 1.3 ===
+    //Con el array de personas anterior, utiliza el array_filter para sacar un listado de Hombre y otro listado de mujeres.
+    function hombres($var){
+        return ($var[1] == 1);
+    };
+    function mujeres($var){
+        return !($var[1] == 1);
+    };
+    
+    $listaHombres = array_filter($personas, "hombres");
+    $listaMujeres = array_filter($personas, "mujeres");
+    print_r(array_filter($personas, "hombres"));
+
+    // Array ( 
+    //     [0] => Array ( [0] => Jorge [1] => 1 )
+    //     [1] => Array ( [0] => Bea [1] => 0 )
+    //     [2] => Array ( [0] => Paco [1] => 1 )
+    //     [3] => Array ( [0] => Amparo [1] => 0 ) 
+    // );
+    // Array (
+    //     [1] => Array ( [0] => Bea [1] => 0 )
+    //     [3] => Array ( [0] => Amparo [1] => 0 )
+    // );
+    // Array (
+    //     [0] => Array ( [0] => Jorge [1] => 1 )
+    //     [2] => Array ( [0] => Paco [1] => 1 )
+    // );
+   
     
 
 ?>
@@ -104,8 +149,9 @@ Con el array de personas anterior, utiliza el array_filter para sacar un listado
                 <?= imprimirVariable($lista2) ?>
             </div>
             <div class="central">
-                <h2 class="title">array_reduce</h2>
-                <?= imprimirVariable($lista2) ?>
+                <h2 class="title">array_filter</h2>
+                <?= imprimirMatriz($listaHombres) ?>
+                <?= imprimirMatriz($listaMujeres) ?>
             </div>
         </div>
     </div>
