@@ -37,7 +37,7 @@ input,textarea,button{
     width: 100%;
     height: 4rem;
     border: none;
-    background-color: var(--grey);
+    background-color: var(--light-grey);
     color: var(--primary);
     cursor: pointer;
     overflow: hidden;

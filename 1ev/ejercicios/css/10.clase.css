@@ -4,18 +4,27 @@
     justify-content: center;
     align-items: center;
     flex-flow: column;
+    gap: 4rem;
     margin: 0 auto;
     width: 90%;
     max-width: 120rem;
     min-height: 100vh;
-    border: 1px solid red;
+    /* border: 1px solid red; */
+}
+.formulario{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    width: 100%;
 }
 .container__main{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
     width: 100%;
-    border: 1px solid red;
+    /* border: 1px solid red; */
 }
 .central{
     display: flex;
@@ -47,3 +56,8 @@
     color: var(--almost-white);
     border: 1px solid var(--primary);
 }
+.pie{
+    width: calc(100% / 4);
+    /* border: 1px solid white; */
+}
+.form-100-width{width: 100%;}

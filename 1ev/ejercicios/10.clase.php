@@ -31,6 +31,15 @@ Con el array de personas anterior, utiliza el array_filter para sacar un listado
 -->
 <?php
 
+    $nEjercicio = 0;
+
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        if (isset($_POST['e0'])) $nEjercicio = 0; 
+        elseif (isset($_POST['e1'])) $nEjercicio = 1;
+        else $nEjercicio = 0;
+
+    }
+
     //=== FUNCIONES GENERALES ===
     function imprimirVariable($var){
         echo "<div class='lane up-1250'>".$var."</div>";
@@ -120,27 +129,53 @@ Con el array de personas anterior, utiliza el array_filter para sacar un listado
     <title>Clase</title>
 </head>
 <body>
+    
+    <!-- INICIO -->
+    <?php if($nEjercicio == 0) { ?>
     <div class="container">
-        <form action="" method="post">
-            <button class="button" type="submit" name="10.1">Ejercicio 10.1</button>
+        <form class="formulario" action="" method="post">
+            <button class="button to-left-750" type="submit" name="e1">Ejercicio 10.1</button>
+            <button class="button to-left-750" type="submit" name="e2">Ejercicio 10.2</button>
+            <button class="button to-left-750" type="submit" name="e3">Ejercicio 10.3</button>
+            <button class="button to-left-750" type="submit" name="e4">Ejercicio 10.4</button>
+            <button class="button to-left-750" type="submit" name="e5">Ejercicio 10.5</button>
+            <button class="button to-left-750" type="submit" name="e6">Ejercicio 10.6</button>
+            <button class="button to-left-750" type="submit" name="e7">Ejercicio 10.7</button>
+            <button class="button to-left-750" type="submit" name="e8">Ejercicio 10.8</button>
+            <button class="button to-left-750" type="submit" name="e9">Ejercicio 10.9</button>
+            <button class="button to-left-750" type="submit" name="e10">Ejercicio 10.10</button>
+            <button class="button to-left-750" type="submit" name="e11">Ejercicio 10.11</button>
+            <button class="button to-left-750" type="submit" name="e12">Ejercicio 10.12</button>
         </form>
-        <div class="container__main">
-            <div class="central">
-                <h2 class="title">array_map</h2>
-                <?= imprimirArray($lista1) ?>
-            </div>
-            <div class="central">
-                <h2 class="title">array_reduce</h2>
-                <?= imprimirVariable($lista2) ?>
-            </div>
-            <div class="central">
-                <h2 class="title">array_filter</h2>
-                <h3 class="sub-title up-1250">Hombres:</h3>
-                <?= walkearArray($listaHombres) ?>
-                <h3 class="sub-title up-1250">Mujeres:</h3>
-                <?= walkearArray($listaMujeres) ?>
-            </div>
-        </div>
     </div>
+    <?php } ?>
+
+    <!-- EJER 10.1 -->
+    <?php if($nEjercicio == 1) { ?>
+        <div class="container">
+            <div class="container__main">
+                <div class="central">
+                    <h2 class="title">array_map</h2>
+                    <?= imprimirArray($lista1) ?>
+                </div>
+                <div class="central">
+                    <h2 class="title">array_reduce</h2>
+                    <?= imprimirVariable($lista2) ?>
+                </div>
+                <div class="central">
+                    <h2 class="title">array_filter</h2>
+                    <h3 class="sub-title up-1250">Hombres:</h3>
+                    <?= walkearArray($listaHombres) ?>
+                    <h3 class="sub-title up-1250">Mujeres:</h3>
+                    <?= walkearArray($listaMujeres) ?>
+                </div>
+            </div>
+            <footer class="pie">
+                <form class="form-100-width" action="" method="post">
+                    <button class="button to-left-750" type="submit" name="e0">Volver al inicio</button>
+                </form>
+            </footer>
+        </div>
+    <?php } ?>
 </body>
 </html>

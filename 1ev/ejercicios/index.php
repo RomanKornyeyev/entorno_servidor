@@ -8,7 +8,7 @@ function directory(){
     foreach ($files as $file) {
         if (preg_match("/\.php/", $file)) {
             if (!preg_match("/index.php/", $file)){ //muestra todos los archivos que no sean el index (este archivo)
-                echo "<li class='elemento'><a class='button' href=" . $dir . "/" . $file . ">" . $file . "</a></li>";
+                echo "<li class='elemento'><a class='button' href=" . $dir . $file . ">" . $file . "</a></li>";
             }
         }
     }
