@@ -40,7 +40,7 @@
     <!-- INICIO -->
     <?php if($nEjercicio == 0) { ?>
     <div class="container">
-        <h2 class="title">Ejercicios de compañeros</h2>
+        <h2 class="title"><span class="typing">Ejercicios de compañeros</span></h2>
         <form class="formulario" action="" method="post">
             <button class="button to-left-750" type="submit" name="e1">Ejercicio 10.1</button>
             <button class="button to-left-750" type="submit" name="e2">Ejercicio 10.2</button>
