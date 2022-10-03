@@ -112,14 +112,18 @@ Con el array de personas anterior, utiliza el array_filter para sacar un listado
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- CSS -->
-    <link rel="stylesheet" href="./css/10.1.clase.css">
+    <link rel="stylesheet" href="./css/generales.css">
+    <link rel="stylesheet" href="./css/10.clase.css">
     <!-- JS -->
     <script src="./js/scrollreveal-lib.js"></script>
     <script src="./js/sr-10.1.clase.js" defer=""></script>
-    <title>Clase 1</title>
+    <title>Clase</title>
 </head>
 <body>
     <div class="container">
+        <form action="" method="post">
+            <button class="button" type="submit" name="10.1">Ejercicio 10.1</button>
+        </form>
         <div class="container__main">
             <div class="central">
                 <h2 class="title">array_map</h2>
