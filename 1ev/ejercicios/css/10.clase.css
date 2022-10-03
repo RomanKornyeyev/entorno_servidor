@@ -46,7 +46,6 @@
     white-space: nowrap;
     border-right: .4rem solid var(--primary);
     width: 22.5ch;
-
     animation: typing 2s steps(23),
     blink .5s infinite step-end alternate;
     overflow: hidden;
