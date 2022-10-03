@@ -4,7 +4,7 @@
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if (isset($_POST['e0'])) $nEjercicio = 0; //INICIO
-        elseif (isset($_POST['e1'])) $nEjercicio = 1; //EJER 1
+        elseif (isset($_POST['e1'])) $nEjercicio = 1; //EJERCIO 1
         else $nEjercicio = 0; //INICIO
     }
 
@@ -18,9 +18,7 @@
         }
     }
 
-    require('./10.1.clase.php');
-
-    
+    require('./10.1.clase.php'); //EJERCICIO 1
 
 ?>
 <!DOCTYPE html>
@@ -60,17 +58,17 @@
     </div>
     <?php } ?>
 
-    <!-- EJER 10.1 -->
+    <!-- EJER 1 (JORGE) -->
     <?php if($nEjercicio == 1) { ?>
         <div class="container">
             <div class="container__main">
                 <div class="central">
                     <h2 class="title">array_map</h2>
-                    <?= imprimirArray($lista1) ?>
+                    <?= imprimirArray($listaSaludo) ?>
                 </div>
                 <div class="central">
                     <h2 class="title">array_reduce</h2>
-                    <?= imprimirVariable($lista2) ?>
+                    <?= imprimirVariable($listaCalorias) ?>
                 </div>
                 <div class="central">
                     <h2 class="title">array_filter</h2>

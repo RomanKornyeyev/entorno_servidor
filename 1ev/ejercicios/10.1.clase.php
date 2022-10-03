@@ -39,16 +39,13 @@ Con el array de personas anterior, utiliza el array_filter para sacar un listado
 
     function saludo($var){
         $resultado = 0;
-        if($var[1] == 1){
-            $resultado = "Señor";
-        }else{
-            $resultado = "Señora";
-        }
+        if($var[1] == 1) $resultado = "Señor";
+        else $resultado = "Señora";
 
         return $resultado." ".$var[0];
     }
 
-    $lista1 = array_map("saludo", $personas);
+    $listaSaludo = array_map("saludo", $personas);
 
 
     //=== 1.2 ====
@@ -63,7 +60,7 @@ Con el array de personas anterior, utiliza el array_filter para sacar un listado
         return $carry += ($item[1] * $item[2]);
     }
 
-    $lista2 = array_reduce($comida,"calcularCalorias");
+    $listaCalorias = array_reduce($comida,"calcularCalorias");
 
 
     //=== 1.3 ===
