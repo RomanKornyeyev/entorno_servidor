@@ -78,6 +78,9 @@
     <!-- EJER 1 (JORGE) -->
     <?php if($nEjercicio == 1) { ?>
         <main class="container limit-width-120">
+            <header class="cabecera">
+                <h2 class="title title--white">Funciones: array_walk, array_map, array_filter, array_reduce</h2>
+            </header>
             <div class="container__main">
                 <div class="central">
                     <h2 class="title">array_map</h2>
@@ -104,7 +107,7 @@
     <?php }else if($nEjercicio == 2) { ?>
         <main class="container limit-width-50">
             <div class="central">
-            <h1 class="title">CRUM</h1>
+            <h1 class="title">XD</h1>
                 <?php
                     imprimirMatriz($arrays);
                     echo "<div class='lane up-1250'> ¿En qué índice está el 13? - En el índice " . $busqueda . "</div>";

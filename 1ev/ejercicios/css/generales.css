@@ -10,7 +10,7 @@ html{
 }
 body{
     font-size: 1.6rem;
-    background-color: var(--light-gray);
+    background-color: var(--strong-gray-1);
 }
 ul,ol{
     list-style: none;
@@ -21,10 +21,13 @@ input,textarea,button{
     overflow: hidden;
 }
 :root{
-    --light-gray: #1D1D1D;
-    --light-grey: #2B2B2B;
-    --very-light-grey: #606060;
-    --almost-white: #b1b1b1;
+    --almost-black: #0f0f0f;
+    --strong-gray-1: #1D1D1D;
+    --strong-gray-2: #2B2B2B;
+    --gray: #808080;
+    --light-gray-1: #b1b1b1;
+    --light-gray-2: #c4c4c4;
+    --almost-white: #d3d3d3;
     --primary: #08FDD8;
     --secondary: #000;
     --error: #ffc400;
@@ -40,7 +43,7 @@ input,textarea,button{
     width: 100%;
     height: 4rem;
     border: none;
-    background-color: var(--light-grey);
+    background-color: var(--strong-gray-2);
     color: var(--primary);
     cursor: pointer;
     overflow: hidden;

@@ -4,11 +4,18 @@
     justify-content: center;
     align-items: center;
     flex-flow: column;
-    gap: 5rem;
     margin: 0 auto;
     width: 90%;
     min-height: 100vh;
     /* border: 1px solid red; */
+}
+.cabecera{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 2rem;
+    border: 1px solid var(--gray);
 }
 .formulario{
     display: grid;
@@ -23,7 +30,7 @@
     grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
     width: 100%;
-    /* border: 1px solid red; */
+    border: 1px solid var(--gray);
 }
 .central{
     display: flex;
@@ -38,8 +45,8 @@
 .title{
     font-size: 4rem;
     color: var(--primary);
-    margin-bottom: 4rem;
 }
+.title--white{color: var(--almost-white)}
 .typing{
     display: block;
     white-space: nowrap;
@@ -62,12 +69,14 @@
     width: 100%;
     height: 4rem;
     font-size: 2rem;
-    background-color: var(--light-grey);
+    background-color: var(--strong-gray-2);
     color: var(--almost-white);
     border: 1px solid var(--primary);
 }
 .pie{
-    width: calc(100% / 4);
+    width: 100%;
+    padding: 5rem;
+    border: 1px solid var(--gray);
     /* border: 1px solid white; */
 }
 .form-100-width{width: 100%;}
