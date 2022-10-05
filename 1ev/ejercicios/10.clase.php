@@ -38,11 +38,6 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- CSS -->
-    <link rel="preload" href="./css/generales.css" as="styles">
-    <link rel="preload" href="./css/10.clase.css" as="styles">
-    <link rel="stylesheet" href="./css/generales.css">
-    <link rel="stylesheet" href="./css/10.clase.css">
     <!-- JS -->
     <link rel="prefetch" href="./js/scrollreveal-lib.js" as="script">
     <link rel="prefetch" href="./js/sr-10.1.clase.js" as="script">
@@ -50,6 +45,11 @@
     <link rel="preload" href="./js/sr-10.1.clase.js" as="script">
     <script src="./js/scrollreveal-lib.js"></script>
     <script src="./js/sr-10.1.clase.js" defer=""></script>
+    <!-- CSS -->
+    <link rel="preload" href="./css/generales.css" as="styles">
+    <link rel="preload" href="./css/10.clase.css" as="styles">
+    <link rel="stylesheet" href="./css/generales.css">
+    <link rel="stylesheet" href="./css/10.clase.css">
     <title>Clase</title>
 </head>
 <body>
