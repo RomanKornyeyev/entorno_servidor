@@ -5,6 +5,7 @@
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if (isset($_POST['e0'])) $nEjercicio = 0; //INICIO
         elseif (isset($_POST['e1'])) $nEjercicio = 1; //EJERCIO 1
+        elseif (isset($_POST['e2'])) $nEjercicio = 2; //EJERCIO 1
         else $nEjercicio = 0; //INICIO
     }
 
@@ -17,8 +18,18 @@
             echo "<div class='lane up-1250'>".$arr[$i]."</div>";
         }
     }
+    function imprimirMatriz($arr){
+        for ($i=0;$i<count($arr);$i++) {
+                echo "<div class='lane up-1250'>";
+            for ($j=0;$j<count($arr[$i]);$j++){
+                echo " " . $arr[$i][$j];
+            }
+            echo "</div>";
+        }
+    }
 
     require('./10.1.clase.php'); //EJERCICIO 1
+    require('./10.2.clase.php'); //EJERCICIO 2
 
 ?>
 <!DOCTYPE html>
@@ -28,11 +39,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- CSS -->
+    <link rel="preload" href="./css/generales.css" as="styles">
+    <link rel="preload" href="./css/10.clase.css" as="styles">
     <link rel="stylesheet" href="./css/generales.css">
     <link rel="stylesheet" href="./css/10.clase.css">
     <!-- JS -->
+    <link rel="prefetch" href="./js/scrollreveal-lib.js" as="script">
+    <link rel="prefetch" href="./js/sr-10.1.clase.js" as="script">
+    <link rel="preload" href="./js/scrollreveal-lib.js" as="script">
+    <link rel="preload" href="./js/sr-10.1.clase.js" as="script">
     <script src="./js/scrollreveal-lib.js"></script>
-    <script src="./js/sr-10.1.clase.js" defer></script>
+    <script src="./js/sr-10.1.clase.js" defer=""></script>
     <title>Clase</title>
 </head>
 <body>
@@ -60,7 +77,7 @@
 
     <!-- EJER 1 (JORGE) -->
     <?php if($nEjercicio == 1) { ?>
-        <div class="container">
+        <main class="container limit-width-120">
             <div class="container__main">
                 <div class="central">
                     <h2 class="title">array_map</h2>
@@ -83,7 +100,22 @@
                     <button class="button to-left-750" type="submit" name="e0">Volver al inicio</button>
                 </form>
             </footer>
-        </div>
+        </main>
+    <?php }else if($nEjercicio == 2) { ?>
+        <main class="container limit-width-50">
+            <div class="central">
+            <h1 class="title">CRUM</h1>
+                <?php
+                    imprimirMatriz($arrays);
+                    echo "<div class='lane up-1250'> ¿En qué índice está el 13? - En el índice " . $busqueda . "</div>";
+                ?>
+            </div>
+            <footer class="pie">
+                <form class="form-100-width" action="" method="post">
+                    <button class="button to-left-750" type="submit" name="e0">Volver al inicio</button>
+                </form>
+            </footer>
+        </main>
     <?php } ?>
 </body>
 </html>

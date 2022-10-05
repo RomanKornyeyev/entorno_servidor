@@ -29,8 +29,11 @@ input,textarea,button{
     --secondary: #000;
     --error: #ffc400;
 }
+/* === UTILIDADES === */
+.limit-width-120{max-width: 120rem;}
+.limit-width-50{max-width: 50rem;}
 
-/* === GENERALES === */
+/* === BOTONES E INPUTS === */
 .button{
     display: block;
     position: relative;
