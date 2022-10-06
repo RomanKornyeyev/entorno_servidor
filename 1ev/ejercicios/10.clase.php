@@ -5,7 +5,8 @@
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if (isset($_POST['e0'])) $nEjercicio = 0; //INICIO
         elseif (isset($_POST['e1'])) $nEjercicio = 1; //EJERCIO 1
-        elseif (isset($_POST['e2'])) $nEjercicio = 2; //EJERCIO 1
+        elseif (isset($_POST['e2'])) $nEjercicio = 2; //EJERCIO 2
+        elseif (isset($_POST['e3'])) $nEjercicio = 3; //EJERCIO 3
         else $nEjercicio = 0; //INICIO
     }
 
@@ -13,6 +14,7 @@
     require('./funciones_php/funcionesGenerales.php'); //generales
     require('./funciones_php/10.1.clase.php'); //EJERCICIO 1
     require('./funciones_php/10.2.clase.php'); //EJERCICIO 2
+    require('./funciones_php/10.3.clase.php'); //EJERCICIO 3
 
 ?>
 <!DOCTYPE html>
@@ -40,7 +42,7 @@
     <!-- INICIO -->
     <?php if($nEjercicio == 0) { ?>
     <div class="container min-height-100vh">
-        <header class="cabecera">
+        <header class="cabecera flex-center">
             <h2 class="title"><span class="typing">Ejercicios de compañeros</span></h2>
         </header>
         
@@ -70,7 +72,7 @@
     <!-- EJER 1 (JORGE) -->
     <?php if($nEjercicio == 1) { ?>
         <div class="container limit-width-120">
-            <header class="cabecera limit-width-120">
+            <header class="cabecera">
                 <h2 class="title">Funciones: array_walk, array_map, array_filter, array_reduce</h2>
             </header>
 
@@ -101,7 +103,7 @@
         </div>
     <?php }else if($nEjercicio == 2) { ?>
         <div class="container limit-width-120">
-            <header class="cabecera limit-width-120">
+            <header class="cabecera">
                 <h2 class="title">Funciones: array_intersect, array_search y array_replace</h2>
             </header>
 
@@ -113,6 +115,29 @@
                 <p class="central to-left-950 delay-450">
                     <strong>Posición:&nbsp;</strong>
                     <?= "¿En qué índice está el 13? - En el índice " . $busqueda; ?>
+                </p>
+            </div>
+
+            <footer class="pie">
+                <form class="width-100 limit-width-50" action="" method="post">
+                    <button class="button button--transparent up-750 delay-1150" type="submit" name="e0">Volver al inicio</button>
+                </form>
+            </footer>
+        </div>
+    <?php }else if($nEjercicio == 3) { ?>
+        <div class="container limit-width-120">
+            <header class="cabecera">
+                <h2 class="title">Funciones: array_walk, array_map, array_replace</h2>
+            </header>
+
+            <div class="container__main">
+                <p class="central to-left-950 delay-450">
+                    <strong>Usuarios:&nbsp;</strong><br>
+                    <?= walkearArray3($usuarios3) ?>
+                </p>
+                <p class="central to-left-950 delay-450">
+                    <strong>Usuarios:&nbsp;</strong><br>
+                    <?= imprimirArray($usuariosMod3) ?>
                 </p>
             </div>
 

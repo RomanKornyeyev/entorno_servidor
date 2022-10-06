@@ -46,6 +46,7 @@
 .title{
     font-size: 4rem;
     color: var(--primary);
+    width:fit-content;
 }
 .typing{
     display: block;

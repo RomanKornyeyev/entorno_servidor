@@ -1,30 +1,52 @@
 <!-- 
-3 Xing , Marcos
-Funciones: array_replace, array_walk_recursive.
-Enunciado: Crear una array bidimesional que guarda nombre de usuario y contraseña de usuario
-1._ con array_walk_recursive ejecuta una funcion predefinida mostrando nombre de usuario y contraseña 
-2._ hacer cambio de contraseña usando array_replace. 
+3 Xing , Marcos (Revisado)
+
+Utiliza la función print_r() para ver la evolución de cada array.
+
+Funciones: array_walk, array_map, array_replace
+
+Extra: https://www.php.net/manual/es/function.password-hash.php
+
+$usuarios = [
+	"jorge" => "1234",
+	"amparo" => "admin",
+	"mary" = > "",
+]
+
+1: Crea una array bidimesional que guarda nombre de usuario y contraseña de usuario en texto claro. array_walk ejecuta una funcion predefinida mostrando nombre de usuario y contraseña
+
+2: Utilizando las funciones de contraseñas y la función array_map. Genera un array nuevo con los usuarios y su contraseña en formato hash.
+
+3: En base al ejercicio anterior cambia la función para que los usuarios sin contraseña tenga la contraseña "tmp2022"
+
+4: Haz un filtrado de usuarios sin contraseña, utiliza array_replace para establecer en el array original $usuarios la contraseña de los usuarios que no tenían.
+
 -->
 <?php 
-    $matriz = [
-        [$usuario, $contra],
-        []
+    $usuarios3 = [
+        "jorge" => "1234",
+        "amparo" => "admin",
+        "mary" => ""
     ];
+
+    // === 1 ===
+    //recorremos el array e imprimimos los valores
+    function recorrerArray3($valor, $llave){
+        echo "El usuario: $llave tiene la contraseña: $valor <br>";
+    }
+    //hacemos una función para llamarla en HTML
+    function walkearArray3($array){
+        array_walk($array, "recorrerArray3");
+    }
+
+    // === 2 ===
+    function mapeado3($var){
+        $pass = password_hash($var[0], PASSWORD_DEFAULT);
+
+        return $var.", ";
+    }
+
+    $usuariosMod3 = array_map("mapeado3", $usuarios3);
+    print_r(array_map("mapeado3", $usuarios3));
+
 ?>
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- CSS -->
-    <link rel="stylesheet" href="./css/styles-arrays.css">
-    <!-- JS -->
-    <script src="./js/scrollreveal-lib.js"></script>
-    <script src="./js/sr-2.arrays.js" defer=""></script>
-    <title>CRUM</title>
-</head>
-<body>
-    
-</body>
-</html>

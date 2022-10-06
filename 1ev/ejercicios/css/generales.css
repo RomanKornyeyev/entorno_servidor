@@ -42,6 +42,11 @@ input,textarea,button{
 .min-height-100vh{min-height: 100vh;}
 .margin-bottom-4{margin-bottom: 4rem;}
 .align-center{text-align: center;}
+.flex-center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 /* === BOTONES E INPUTS === */
 .button{
