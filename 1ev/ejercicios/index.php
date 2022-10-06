@@ -28,7 +28,7 @@ function directory(){
     <link rel="preload" href="./js/scrollreveal-lib.js" as="script">
     <link rel="preload" href="./js/sr-10.1.clase.js" as="script">
     <script src="./js/scrollreveal-lib.js"></script>
-    <script src="./js/sr-index.js" defer=""></script>
+    <script src="./js/sr-index.js" async=""></script>
     <!-- CSS -->
     <link rel="preload" href="./css/index.css" as="styles">
     <link rel="stylesheet" href="./css/index.css">
