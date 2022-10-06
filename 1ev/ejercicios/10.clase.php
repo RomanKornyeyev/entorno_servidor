@@ -142,8 +142,8 @@
                     <?= walkearArray3($usuariosMod3) ?>
                 </p>
                 <p class="central to-left-950 delay-450">
-                    <strong>Usuarios con hash:&nbsp;</strong><br>
-                    <?= walkearArray3($arrayFinal3) ?>
+                    <strong>Usuarios con contra temporal:&nbsp;</strong><br>
+                    <?= walkearArray31($usuarios3) ?>
                 </p>
             </div>
 
