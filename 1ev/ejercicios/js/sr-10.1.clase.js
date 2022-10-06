@@ -7,6 +7,18 @@ sr.reveal( '.to-left-750',{
     distance: '120px',
     interval: 100
 });
+sr.reveal( '.to-left-950',{
+    duration: 950,
+    origin: 'right',
+    distance: '120px',
+    interval: 100
+});
+sr.reveal('.up-750',{
+    duration: 750,
+    origin: 'bottom',
+    distance: '100px',
+    interval: 150
+});
 sr.reveal('.up-1250',{
     duration: 1250,
     origin: 'bottom',
@@ -21,3 +33,9 @@ sr.reveal('.title',{
     distance: '50px',
     interval: 100
 });
+sr.reveal('.delay-450',{
+    delay: 450
+});
+sr.reveal('.delay-1150',{
+    delay: 1150
+})

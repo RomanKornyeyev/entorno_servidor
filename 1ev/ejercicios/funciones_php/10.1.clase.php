@@ -77,7 +77,7 @@ Con el array de personas anterior, utiliza el array_filter para sacar un listado
 
     //recorremos el array e imprimimos los valores
     function recorrerArray($valor, $llave){
-        echo "<div class='lane up-1250'>".$valor[0]."</div>";
+        echo $valor[0].", ";
     }
     //hacemos una función para llamarla en HTML
     function walkearArray($array){

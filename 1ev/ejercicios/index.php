@@ -23,6 +23,10 @@ function directory(){
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- JS -->
+    <link rel="prefetch" href="./js/scrollreveal-lib.js" as="script">
+    <link rel="prefetch" href="./js/sr-10.1.clase.js" as="script">
+    <link rel="preload" href="./js/scrollreveal-lib.js" as="script">
+    <link rel="preload" href="./js/sr-10.1.clase.js" as="script">
     <script src="./js/scrollreveal-lib.js"></script>
     <script src="./js/sr-index.js" defer=""></script>
     <!-- CSS -->

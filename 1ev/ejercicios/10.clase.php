@@ -9,27 +9,10 @@
         else $nEjercicio = 0; //INICIO
     }
 
-    //=== FUNCIONES GENERALES ===
-    function imprimirVariable($var){
-        echo "<div class='lane up-1250'>".$var."</div>";
-    }
-    function imprimirArray($arr){
-        for ($i = 0; $i < count($arr); $i++) {
-            echo "<div class='lane up-1250'>".$arr[$i]."</div>";
-        }
-    }
-    function imprimirMatriz($arr){
-        for ($i=0;$i<count($arr);$i++) {
-                echo "<div class='lane up-1250'>";
-            for ($j=0;$j<count($arr[$i]);$j++){
-                echo " " . $arr[$i][$j];
-            }
-            echo "</div>";
-        }
-    }
-
-    require('./10.1.clase.php'); //EJERCICIO 1
-    require('./10.2.clase.php'); //EJERCICIO 2
+    
+    require('./funciones_php/funcionesGenerales.php'); //generales
+    require('./funciones_php/10.1.clase.php'); //EJERCICIO 1
+    require('./funciones_php/10.2.clase.php'); //EJERCICIO 2
 
 ?>
 <!DOCTYPE html>
@@ -44,7 +27,7 @@
     <link rel="preload" href="./js/scrollreveal-lib.js" as="script">
     <link rel="preload" href="./js/sr-10.1.clase.js" as="script">
     <script src="./js/scrollreveal-lib.js"></script>
-    <script src="./js/sr-10.1.clase.js" defer=""></script>
+    <script src="./js/sr-10.1.clase.js" defer></script>
     <!-- CSS -->
     <link rel="preload" href="./css/generales.css" as="styles">
     <link rel="preload" href="./css/10.clase.css" as="styles">
@@ -56,8 +39,11 @@
     
     <!-- INICIO -->
     <?php if($nEjercicio == 0) { ?>
-    <div class="container">
-        <h2 class="title"><span class="typing">Ejercicios de compañeros</span></h2>
+    <div class="container min-height-100vh">
+        <header class="cabecera">
+            <h2 class="title"><span class="typing">Ejercicios de compañeros</span></h2>
+        </header>
+        
         <form class="formulario" action="" method="post">
             <button class="button to-left-750" type="submit" name="e1">Ejercicio 10.1</button>
             <button class="button to-left-750" type="submit" name="e2">Ejercicio 10.2</button>
@@ -72,53 +58,70 @@
             <button class="button to-left-750" type="submit" name="e11">Ejercicio 10.11</button>
             <button class="button to-left-750" type="submit" name="e12">Ejercicio 10.12</button>
         </form>
+
+        <footer class="pie">
+            <form class="width-100 limit-width-50" action="./index.php">
+                <button class="button button--transparent up-750 delay-1150" type="submit" name="e0">Volver al INDEX</button>
+            </form>
+        </footer>
     </div>
     <?php } ?>
 
     <!-- EJER 1 (JORGE) -->
     <?php if($nEjercicio == 1) { ?>
-        <main class="container limit-width-120">
-            <header class="cabecera">
-                <h2 class="title title--white">Funciones: array_walk, array_map, array_filter, array_reduce</h2>
+        <div class="container limit-width-120">
+            <header class="cabecera limit-width-120">
+                <h2 class="title">Funciones: array_walk, array_map, array_filter, array_reduce</h2>
             </header>
+
             <div class="container__main">
-                <div class="central">
-                    <h2 class="title">array_map</h2>
+                <p class="central to-left-950 delay-450">
+                    <strong>array_map:&nbsp;</strong>
                     <?= imprimirArray($listaSaludo) ?>
-                </div>
-                <div class="central">
-                    <h2 class="title">array_reduce</h2>
+                </p>
+                <p class="central to-left-950 delay-450">
+                    <strong>array_reduce:&nbsp;</strong>
                     <?= imprimirVariable($listaCalorias) ?>
-                </div>
-                <div class="central">
-                    <h2 class="title">array_filter</h2>
-                    <h3 class="sub-title up-1250">Hombres:</h3>
+                </p>
+                <p class="central to-left-950 delay-450">
+                    <strong>array_filter (Hombres):&nbsp;</strong>
                     <?= walkearArray($listaHombres) ?>
-                    <h3 class="sub-title up-1250">Mujeres:</h3>
+                </p>
+                <p class="central to-left-950 delay-450">
+                    <strong>array_filter (Mujeres):&nbsp;</strong>
                     <?= walkearArray($listaMujeres) ?>
-                </div>
+                </p>
             </div>
+
             <footer class="pie">
-                <form class="form-100-width" action="" method="post">
-                    <button class="button to-left-750" type="submit" name="e0">Volver al inicio</button>
+                <form class="width-100 limit-width-50" action="" method="post">
+                    <button class="button button--transparent up-750 delay-1150" type="submit" name="e0">Volver al inicio</button>
                 </form>
             </footer>
-        </main>
+        </div>
     <?php }else if($nEjercicio == 2) { ?>
-        <main class="container limit-width-50">
-            <div class="central">
-            <h1 class="title">XD</h1>
-                <?php
-                    imprimirMatriz($arrays);
-                    echo "<div class='lane up-1250'> ¿En qué índice está el 13? - En el índice " . $busqueda . "</div>";
-                ?>
+        <div class="container limit-width-120">
+            <header class="cabecera limit-width-120">
+                <h2 class="title">Funciones: array_intersect, array_search y array_replace</h2>
+            </header>
+
+            <div class="container__main">
+                <p class="central to-left-950 delay-450">
+                    <strong>Arrays:&nbsp;</strong>
+                    <?= imprimirMatriz($arrays); ?>
+                </p>
+                <p class="central to-left-950 delay-450">
+                    <strong>Posición:&nbsp;</strong>
+                    <?= "¿En qué índice está el 13? - En el índice " . $busqueda; ?>
+                </p>
             </div>
+
             <footer class="pie">
-                <form class="form-100-width" action="" method="post">
-                    <button class="button to-left-750" type="submit" name="e0">Volver al inicio</button>
+                <form class="width-100 limit-width-50" action="" method="post">
+                    <button class="button button--transparent up-750 delay-1150" type="submit" name="e0">Volver al inicio</button>
                 </form>
             </footer>
-        </main>
+        </div>
     <?php } ?>
 </body>
 </html>

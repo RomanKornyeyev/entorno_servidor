@@ -24,17 +24,24 @@ input,textarea,button{
     --almost-black: #0f0f0f;
     --strong-gray-1: #1D1D1D;
     --strong-gray-2: #2B2B2B;
+    --strong-gray-3: #3b3b3b;
     --gray: #808080;
     --light-gray-1: #b1b1b1;
     --light-gray-2: #c4c4c4;
-    --almost-white: #d3d3d3;
+    --almost-white: #e2e2e2;
+    --almost-white-2: #f0f0f0;
+    --white: #fff;
     --primary: #08FDD8;
     --secondary: #000;
     --error: #ffc400;
 }
 /* === UTILIDADES === */
+.width-100{width: 100%}
 .limit-width-120{max-width: 120rem;}
 .limit-width-50{max-width: 50rem;}
+.min-height-100vh{min-height: 100vh;}
+.margin-bottom-4{margin-bottom: 4rem;}
+.align-center{text-align: center;}
 
 /* === BOTONES E INPUTS === */
 .button{
@@ -75,3 +82,4 @@ input,textarea,button{
 .button:focus{
     color: var(--secondary);
 }
+.button--transparent{background-color: transparent;}
