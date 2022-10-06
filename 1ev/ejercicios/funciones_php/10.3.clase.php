@@ -41,12 +41,33 @@ $usuarios = [
 
     // === 2 ===
     function mapeado3($var){
-        $pass = password_hash($var[0], PASSWORD_DEFAULT);
+        if($var == ""){ //modif 3
+            $var = "tmp2022";
+        }
+        $pass = password_hash($var, PASSWORD_DEFAULT);
 
-        return $var.", ";
+        return $pass;
     }
 
     $usuariosMod3 = array_map("mapeado3", $usuarios3);
-    print_r(array_map("mapeado3", $usuarios3));
+
+    // === 4 ===
+    //recorremos el array e imprimimos los valores
+    function recorrerArray31($valor, $llave){
+        if($valor == ""){
+            $valor = "tmp2022";
+        }
+        echo "El usuario: $llave tiene la contraseña: $valor <br>"; 
+    }
+    //hacemos una función para llamarla en HTML
+    function walkearArray31($array){
+        array_walk($array, "recorrerArray3");
+    }
+    function filtrar3($arr){
+        return ($arr == "");   
+    }
+    
+    $usuariosSinContra3 = array_filter($usuarios3, "filtrar3");
+    $arrayFinal3 = array_replace($usuarios3, $usuariosSinContra3);
 
 ?>

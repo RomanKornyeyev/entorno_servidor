@@ -124,6 +124,8 @@
                 </form>
             </footer>
         </div>
+    
+    <!-- EJERCICIO 3 -->
     <?php }else if($nEjercicio == 3) { ?>
         <div class="container limit-width-120">
             <header class="cabecera">
@@ -136,8 +138,12 @@
                     <?= walkearArray3($usuarios3) ?>
                 </p>
                 <p class="central to-left-950 delay-450">
-                    <strong>Usuarios:&nbsp;</strong><br>
-                    <?= imprimirArray($usuariosMod3) ?>
+                    <strong>Usuarios con hash:&nbsp;</strong><br>
+                    <?= walkearArray3($usuariosMod3) ?>
+                </p>
+                <p class="central to-left-950 delay-450">
+                    <strong>Usuarios con hash:&nbsp;</strong><br>
+                    <?= walkearArray3($arrayFinal3) ?>
                 </p>
             </div>
 
