@@ -47,6 +47,7 @@ input,textarea,button{
     justify-content: center;
     align-items: center;
 }
+.color-a-w{color: var(--almost-white-2);}
 
 /* === BOTONES E INPUTS === */
 .button{
@@ -88,3 +89,13 @@ input,textarea,button{
     color: var(--secondary);
 }
 .button--transparent{background-color: transparent;}
+
+input{
+    height: 4rem;
+    font-size: 1.6rem;
+    background-color: var(--strong-gray-2);
+    color: var(--almost-white);
+}
+input::placeholder{
+    color: var(--very-light-grey);
+}
