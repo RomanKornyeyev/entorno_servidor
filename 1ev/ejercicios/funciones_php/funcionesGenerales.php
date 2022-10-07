@@ -9,6 +9,11 @@
             else echo $arr[$i];
         }
     }
+    function imprimirArrayEach($arr){
+        foreach ($arr as $key) {
+            echo $key;
+        }
+    }
     function imprimirMatriz($arr){
         for ($i=0;$i<count($arr);$i++) {
             for ($j=0;$j<count($arr[$i]);$j++){

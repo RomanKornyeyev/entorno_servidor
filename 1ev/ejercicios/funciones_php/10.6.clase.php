@@ -11,6 +11,8 @@ rand — Generate a random integer
 -->
 <?php 
 
+    $array6 = [];
+
     function generarArray6($longitud){
         $arr = [];
         for ($i=0; $i < $longitud; $i++) { $arr[$i] = rand(1, 100); }
@@ -22,21 +24,24 @@ rand — Generate a random integer
     $array6 = generarArray6(20);
 
     //ORDENAR
-    function ordenarArray6($array6){
+    function ordenarArray6(){
+        global $array6;
         sort($array6, SORT_NUMERIC);
+        return ($array6);
     }
 
     //REHUBICACIÓN
-    function reubicar6($array6){
-        $arrayAux6 = array_slice($array6, (count($array6)/2));
-        for ($i=0; $i < count($array6); $i++) { 
-            array_push($arrayAux6, $array6[$i]);
+    function reubicar6(){
+        global $array6;
+        $arrayCortado6 = array_slice($array6, (count($array6)/2));
+
+        for ($i=0; $i < (count($array6)/2); $i++) { 
+            array_push($arrayCortado6, $array6[$i]);
         }
 
-        return $arrayAux6;
+        return $arrayCortado6;
     }
 
-    $arrayAux6 = reubicar6($array6);
-
+    $arrayReubicado = reubicar6();
 
 ?>

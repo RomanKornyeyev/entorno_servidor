@@ -168,7 +168,7 @@
             <div class="container__main">
                 <p class="central to-left-950 delay-450">
                     <strong>Resultado:&nbsp;</strong>
-                    <?= imprimirArray() ?>
+                    <?= walkearArray4($arrayFinal4) ?>
                 </p>
             </div>
 
@@ -198,20 +198,26 @@
     <?php }else if($nEjercicio == 6) { ?>
         <div class="container limit-width-120">
             <header class="cabecera">
-                <h2 class="title">Funciones:</h2>
+                <h2 class="title">Funciones: array_slice, array_push, sort, rand</h2>
             </header>
             <div class="container__main">
                 <p class="central to-left-950 delay-450">
-                    <strong>Array Generado:&nbsp;</strong>
-                    <?= imprimirArray($array6) ?>
+                    <strong>Array GENERADO:&nbsp;</strong>
+                    <?= imprimirArray($array6); ?>
                 </p>
                 <p class="central to-left-950 delay-450">
-                    <strong>Array Generado:&nbsp;</strong>
-                    <?= imprimirArray($array6) ?>
+                    <strong>Array ORDENADO:&nbsp;</strong>
+                    <?php echo 
+                    ordenarArray6();
+                    imprimirArray($array6);
+                    ?>
                 </p>
                 <p class="central to-left-950 delay-450">
-                    <strong>Array Generado:&nbsp;</strong>
-                    <?= imprimirArray($array6) ?>
+                    <strong>Array REUBICADO:&nbsp;</strong>
+                    <?php echo 
+                    reubicar6();
+                    imprimirArray($arrayReubicado); 
+                    ?>
                 </p>
             </div>
             <footer class="pie">
