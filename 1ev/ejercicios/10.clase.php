@@ -9,6 +9,7 @@
         elseif (isset($_POST['e3'])) $nEjercicio = 3; //...
         elseif (isset($_POST['e4'])) $nEjercicio = 4; 
         elseif (isset($_POST['e5'])) $nEjercicio = 5; 
+        elseif (isset($_POST['e6'])) $nEjercicio = 6; 
         else $nEjercicio = 0; //INICIO
     }
 
@@ -19,6 +20,7 @@
     require('./funciones_php/10.3.clase.php'); //...
     require('./funciones_php/10.4.clase.php'); 
     require('./funciones_php/10.5.clase.php'); 
+    require('./funciones_php/10.6.clase.php'); 
 
 ?>
 <!DOCTYPE html>
@@ -166,7 +168,7 @@
             <div class="container__main">
                 <p class="central to-left-950 delay-450">
                     <strong>Resultado:&nbsp;</strong>
-                    <?= walkearArray4($arrayFinal4) ?>
+                    <?= imprimirArray() ?>
                 </p>
             </div>
 
@@ -179,11 +181,44 @@
     
     <!-- EJERCICIO 5 -->
     <?php }else if($nEjercicio == 5) { ?>
+        <header class="cabecera">
+            <h2 class="title">Funciones: array_merge</h2>
+        </header>
         <div class="container limit-width-50">
             <form class="width-100" action="./funciones_php/10.5.clase.php" method="get">
                 <?php imprimirLista($productos); ?>
                 <?php generarFactura($productos); ?>
             </form>
+        </div>
+        <footer class="pie">
+            <form class="width-100 limit-width-50" action="" method="post">
+                <button class="button button--transparent up-750 delay-1150" type="submit" name="e0">Volver al inicio</button>
+            </form>
+        </footer>
+    <?php }else if($nEjercicio == 6) { ?>
+        <div class="container limit-width-120">
+            <header class="cabecera">
+                <h2 class="title">Funciones:</h2>
+            </header>
+            <div class="container__main">
+                <p class="central to-left-950 delay-450">
+                    <strong>Array Generado:&nbsp;</strong>
+                    <?= imprimirArray($array6) ?>
+                </p>
+                <p class="central to-left-950 delay-450">
+                    <strong>Array Generado:&nbsp;</strong>
+                    <?= imprimirArray($array6) ?>
+                </p>
+                <p class="central to-left-950 delay-450">
+                    <strong>Array Generado:&nbsp;</strong>
+                    <?= imprimirArray($array6) ?>
+                </p>
+            </div>
+            <footer class="pie">
+                <form class="width-100 limit-width-50" action="" method="post">
+                    <button class="button button--transparent up-750 delay-1150" type="submit" name="e0">Volver al inicio</button>
+                </form>
+            </footer>
         </div>
     <?php } ?>
 </body>

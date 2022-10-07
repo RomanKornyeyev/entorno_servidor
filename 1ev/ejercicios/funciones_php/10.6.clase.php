@@ -20,26 +20,23 @@ rand — Generate a random integer
 
     //ARRAY ORIGINAL
     $array6 = generarArray6(20);
-    echo "ARRAY GENERADO:";
-    print_r($array6);
-    echo "<br><br><br>";
 
-    //ORDENADO
-    sort($array6, SORT_NUMERIC);
-    echo "ARRAY ORDENADO:";
-    print_r($array6);
-    echo "<br><br><br>";
-
-    //ARRAY REHUBICADO
-    $arrayAux61 = array_slice($array6, (count($array6)/2));
-    
-    for ($i=0; $i < count($array6); $i++) { 
-        array_push($arrayAux6, $array6[$i]);
+    //ORDENAR
+    function ordenarArray6($array6){
+        sort($array6, SORT_NUMERIC);
     }
-    echo "ARRAY REUBICADO:";
-    print_r($arrayAux6);
 
+    //REHUBICACIÓN
+    function reubicar6($array6){
+        $arrayAux6 = array_slice($array6, (count($array6)/2));
+        for ($i=0; $i < count($array6); $i++) { 
+            array_push($arrayAux6, $array6[$i]);
+        }
 
+        return $arrayAux6;
+    }
+
+    $arrayAux6 = reubicar6($array6);
 
 
 ?>
