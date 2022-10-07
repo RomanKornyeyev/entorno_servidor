@@ -37,6 +37,7 @@ input,textarea,button{
 }
 /* === UTILIDADES === */
 .width-100{width: 100%}
+.limit-width-130{max-width: 130rem;}
 .limit-width-120{max-width: 120rem;}
 .limit-width-50{max-width: 50rem;}
 .min-height-100vh{min-height: 100vh;}
@@ -52,6 +53,11 @@ input,textarea,button{
     display: grid;
     grid-template-columns: repeat(7, 1fr);
 }
+.grid-3{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+.gap-4{gap: 4rem;}
 .color-white-1{color: var(--almost-white-2);}
 
 /* === BOTONES E INPUTS === */

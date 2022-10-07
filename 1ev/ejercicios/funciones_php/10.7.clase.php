@@ -40,9 +40,9 @@
     function imprimirHorario7($tareas, $minions){
         $random_keys = array_rand($tareas, count($tareas));
         for ($i=0; $i < 7 ; $i++) { 
-            echo "<div> DÍA ".($i+1);
+            echo "<div> DÍA ".($i+1)."<br><br>";
             for ($j=0; $j < count($tareas); $j++) {
-                echo $tareas[$random_keys[$j]]." le corresponde a ".$minions[array_rand($minions, 1)];
+                echo $tareas[$random_keys[$j]]." le corresponde a ".$minions[array_rand($minions, 1)]."<br>";
             }
             echo "</div>";
         }
@@ -60,8 +60,22 @@
     <title>Document</title>
 </head>
 <body>
-    <div class="container grid-7 limit-width-120">
-        <?=imprimirHorario7($tareas, $minions);?>
+    <div class="container limit-width-130">
+        <header class="cabecera">
+            <h2 class="title">Funciones: array_merge</h2>
+        </header>
+
+        <div class="container__main">
+            <div class="central to-left-950 delay-450 grid-3 gap-4">
+                <?=imprimirHorario7($tareas, $minions);?>
+            </div>
+        </div>
+
+        <footer class="pie">
+            <form class="width-100 limit-width-50" action="" method="post">
+                <button class="button button--transparent up-750 delay-1150" type="submit" name="e0">Volver al inicio</button>
+            </form>
+        </footer>
     </div>
 </body>
 </html>
