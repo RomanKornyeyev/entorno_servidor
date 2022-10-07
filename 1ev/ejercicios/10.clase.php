@@ -6,7 +6,8 @@
         if (isset($_POST['e0'])) $nEjercicio = 0; //INICIO
         elseif (isset($_POST['e1'])) $nEjercicio = 1; //EJERCIO 1
         elseif (isset($_POST['e2'])) $nEjercicio = 2; //EJERCIO 2
-        elseif (isset($_POST['e3'])) $nEjercicio = 3; //EJERCIO 3
+        elseif (isset($_POST['e3'])) $nEjercicio = 3; //...
+        elseif (isset($_POST['e4'])) $nEjercicio = 4; 
         else $nEjercicio = 0; //INICIO
     }
 
@@ -14,7 +15,8 @@
     require('./funciones_php/funcionesGenerales.php'); //generales
     require('./funciones_php/10.1.clase.php'); //EJERCICIO 1
     require('./funciones_php/10.2.clase.php'); //EJERCICIO 2
-    require('./funciones_php/10.3.clase.php'); //EJERCICIO 3
+    require('./funciones_php/10.3.clase.php'); //...
+    require('./funciones_php/10.4.clase.php'); 
 
 ?>
 <!DOCTYPE html>
@@ -144,6 +146,25 @@
                 <p class="central to-left-950 delay-450">
                     <strong>Usuarios con contra temporal:&nbsp;</strong><br>
                     <?= walkearArray31($usuarios3) ?>
+                </p>
+            </div>
+
+            <footer class="pie">
+                <form class="width-100 limit-width-50" action="" method="post">
+                    <button class="button button--transparent up-750 delay-1150" type="submit" name="e0">Volver al inicio</button>
+                </form>
+            </footer>
+        </div>
+    <?php }else if($nEjercicio == 4) { ?>
+        <div class="container limit-width-120">
+            <header class="cabecera">
+                <h2 class="title">Funciones: array_merge</h2>
+            </header>
+
+            <div class="container__main">
+                <p class="central to-left-950 delay-450">
+                    <strong>Resultado:&nbsp;</strong>
+                    <?= walkearArray4($arrayFinal4) ?>
                 </p>
             </div>
 
