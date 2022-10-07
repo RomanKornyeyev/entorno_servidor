@@ -48,6 +48,10 @@ input,textarea,button{
     justify-content: center;
     align-items: center;
 }
+.grid-7{
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+}
 .color-white-1{color: var(--almost-white-2);}
 
 /* === BOTONES E INPUTS === */
