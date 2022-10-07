@@ -8,6 +8,7 @@
         elseif (isset($_POST['e2'])) $nEjercicio = 2; //EJERCIO 2
         elseif (isset($_POST['e3'])) $nEjercicio = 3; //...
         elseif (isset($_POST['e4'])) $nEjercicio = 4; 
+        elseif (isset($_POST['e5'])) $nEjercicio = 5; 
         else $nEjercicio = 0; //INICIO
     }
 
@@ -17,6 +18,7 @@
     require('./funciones_php/10.2.clase.php'); //EJERCICIO 2
     require('./funciones_php/10.3.clase.php'); //...
     require('./funciones_php/10.4.clase.php'); 
+    require('./funciones_php/10.5.clase.php'); 
 
 ?>
 <!DOCTYPE html>
@@ -173,6 +175,15 @@
                     <button class="button button--transparent up-750 delay-1150" type="submit" name="e0">Volver al inicio</button>
                 </form>
             </footer>
+        </div>
+    
+    <!-- EJERCICIO 5 -->
+    <?php }else if($nEjercicio == 5) { ?>
+        <div class="container limit-width-50">
+            <form class="width-100" action="./funciones_php/10.5.clase.php" method="get">
+                <?php imprimirLista($productos); ?>
+                <?php generarFactura($productos); ?>
+            </form>
         </div>
     <?php } ?>
 </body>

@@ -23,7 +23,7 @@
 
     function imprimirLista($productos){
         echo
-        "<table class='color-a-w'>
+        "<table class='color-white-1 width-100'>
             <caption>Lista de productos</caption>
             <tr>
                 <th>Nombre</th>
@@ -59,10 +59,11 @@
                 $productosCompra[$producto] = $_GET[$producto];
             }
         }
+
         if(!empty($productosCompra)){
             echo
             "
-            <table>
+            <table class='color-white-1 width-100'>
                 <tr>
                     <th>Nombre</th>
                     <th>Cantidad</th>
@@ -84,9 +85,9 @@
                 "
                 <tr>
                     <td>".ucfirst($nombre)."</td>
-                    <td>$cantidad</td>
-                    <td>$precioUnitario</td>
-                    <td>$precioTotal</td>
+                    <td class='align-right'>$cantidad</td>
+                    <td class='align-right'>$precioUnitario</td>
+                    <td class='align-right'>$precioTotal</td>
                 </tr>
                 ";
                }
@@ -95,7 +96,7 @@
             "
                 <tr>
                     <th colspan='3'>TOTAL</th>
-                    <th>".array_sum($precioTotalGeneral)."</th>
+                    <th class='align-right'>".array_sum($precioTotalGeneral)."</th>
                 </tr>
             </table>
             ";
@@ -103,22 +104,3 @@
     }
     
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/generales.css">
-    <link rel="stylesheet" href="../css/10.clase.css">
-    <title>Document</title>
-</head>
-<body>
-    <div class="container limit-width-120">
-        <form action="10.5.clase.php" method="get">
-            <?php imprimirLista($productos); ?>
-            <?php generarFactura($productos); ?>
-        </form>
-    </div>
-</body>
-</html>
