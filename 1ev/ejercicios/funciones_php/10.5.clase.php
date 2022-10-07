@@ -17,19 +17,19 @@
     // Al dar enviar aparecerá el total de la factura: 1.55
     //Funciones: array_sum (opcional => array_push), array_keys, explode
     function cantidad($nombreProducto){
-        if(empty($_GET)) 0;
-        else $_GET[$nombreProducto];
+        if(empty($_GET)) return 0;
+        else return $_GET[$nombreProducto];
     }
 
     function imprimirLista($productos){
         echo
         "<table>
-        <caption>Lista de productos</caption>
-        <tr>
-            <th>Nombre</th>
-            <th>Precio</th>
-            <th>Cantidad</th>
-        </tr>";
+            <caption>Lista de productos</caption>
+            <tr>
+                <th>Nombre</th>
+                <th>Precio</th>
+                <th>Cantidad</th>
+            </tr>";
         for ($i=0; $i < count($productos); $i++) { 
             $nombreProducto = key($productos);
             $precioProducto = $productos[$nombreProducto];
@@ -41,8 +41,10 @@
                 <td><input name='".$nombreProducto."' type='number' value='".cantidad($nombreProducto)."' min='0' max='99'></td>
             </tr>
             ";
-            next($productos);
+        next($productos);
         }
+        echo "</table>";
+        
     }
     
 ?>
