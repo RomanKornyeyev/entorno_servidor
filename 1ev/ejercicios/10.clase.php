@@ -214,17 +214,11 @@
                 </p>
                 <p class="central to-left-950 delay-450">
                     <strong>Array ORDENADO:&nbsp;</strong>
-                    <?php echo 
-                    ordenarArray6();
-                    imprimirArray($array6);
-                    ?>
+                    <?= imprimirArray($arrayOrdenado6); ?>
                 </p>
                 <p class="central to-left-950 delay-450">
                     <strong>Array REUBICADO:&nbsp;</strong>
-                    <?php echo 
-                    reubicar6();
-                    imprimirArray($arrayReubicado); 
-                    ?>
+                    <?= imprimirArray($arrayReubicado);?>
                 </p>
             </div>
             <footer class="pie">

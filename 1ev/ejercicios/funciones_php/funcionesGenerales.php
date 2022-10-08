@@ -11,7 +11,7 @@
     }
     function imprimirArrayEach($arr){
         foreach ($arr as $key) {
-            echo $key;
+            echo $key.", ";
         }
     }
     function imprimirMatriz($arr){
