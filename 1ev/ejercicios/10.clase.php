@@ -9,7 +9,11 @@
         elseif (isset($_POST['e3'])) $nEjercicio = 3; //...
         elseif (isset($_POST['e4'])) $nEjercicio = 4; 
         elseif (isset($_POST['e5'])) $nEjercicio = 5; 
-        elseif (isset($_POST['e6'])) $nEjercicio = 6; 
+        elseif (isset($_POST['e6'])) $nEjercicio = 6;
+        elseif (isset($_POST['e7'])) $nEjercicio = 7; 
+        elseif (isset($_POST['e8'])) $nEjercicio = 8; 
+        elseif (isset($_POST['e9'])) $nEjercicio = 9; 
+        elseif (isset($_POST['e10'])) $nEjercicio = 10; 
         else $nEjercicio = 0; //INICIO
     }
 
@@ -21,6 +25,7 @@
     require('./funciones_php/10.4.clase.php'); 
     require('./funciones_php/10.5.clase.php'); 
     require('./funciones_php/10.6.clase.php'); 
+    require('./funciones_php/10.7.clase.php');
 
 ?>
 <!DOCTYPE html>
@@ -47,7 +52,7 @@
     
     <!-- INICIO -->
     <?php if($nEjercicio == 0) { ?>
-    <div class="container min-height-100vh">
+    <div class="container">
         <header class="cabecera flex-center">
             <h2 class="title"><span class="typing">Ejercicios de compañeros</span></h2>
         </header>
@@ -63,8 +68,6 @@
             <button class="button to-left-750" type="submit" name="e8">Ejercicio 10.8</button>
             <button class="button to-left-750" type="submit" name="e9">Ejercicio 10.9</button>
             <button class="button to-left-750" type="submit" name="e10">Ejercicio 10.10</button>
-            <button class="button to-left-750" type="submit" name="e11">Ejercicio 10.11</button>
-            <button class="button to-left-750" type="submit" name="e12">Ejercicio 10.12</button>
         </form>
 
         <footer class="pie">
@@ -186,7 +189,7 @@
                 <h2 class="title">Funciones: array_merge</h2>
             </header>
             <div class="container__main">
-                <form class="width-100" action="./funciones_php/10.5.clase.php" method="get">
+                <form class="width-100" action="funciones_php/10.5.clase.php" method="get">
                     <?php imprimirLista($productos); ?>
                     <?php generarFactura($productos); ?>
                 </form>
@@ -197,6 +200,8 @@
                 </form>
             </footer>
         </div>
+
+    <!-- EJERCICIO 6 -->
     <?php }else if($nEjercicio == 6) { ?>
         <div class="container limit-width-120">
             <header class="cabecera">
@@ -228,6 +233,26 @@
                 </form>
             </footer>
         </div>
+        
+    <!-- EJERCICIO 7 -->
+    <?php }else if($nEjercicio == 7) { ?>
+    <div class="container limit-width-130">
+        <header class="cabecera">
+            <h2 class="title">Funciones: array_merge</h2>
+        </header>
+
+        <div class="container__main">
+            <div class="central to-left-950 delay-450 grid-3 gap-4">
+                <?=imprimirHorario7($tareas, $minions);?>
+            </div>
+        </div>
+
+        <footer class="pie">
+            <form class="width-100 limit-width-50" action="" method="post">
+                <button class="button button--transparent up-750 delay-1150" type="submit" name="e0">Volver al inicio</button>
+            </form>
+        </footer>
+    </div>
     <?php } ?>
 </body>
 </html>

@@ -49,33 +49,3 @@
     }
     
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/generales.css">
-    <link rel="stylesheet" href="../css/10.clase.css">
-    <title>Document</title>
-</head>
-<body>
-    <div class="container limit-width-130">
-        <header class="cabecera">
-            <h2 class="title">Funciones: array_merge</h2>
-        </header>
-
-        <div class="container__main">
-            <div class="central to-left-950 delay-450 grid-3 gap-4">
-                <?=imprimirHorario7($tareas, $minions);?>
-            </div>
-        </div>
-
-        <footer class="pie">
-            <form class="width-100 limit-width-50" action="" method="post">
-                <button class="button button--transparent up-750 delay-1150" type="submit" name="e0">Volver al inicio</button>
-            </form>
-        </footer>
-    </div>
-</body>
-</html>
