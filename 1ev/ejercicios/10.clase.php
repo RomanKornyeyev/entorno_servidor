@@ -27,6 +27,8 @@
     require('./funciones_php/10.6.clase.php'); 
     require('./funciones_php/10.7.clase.php');
 
+    require('./funciones_php/10.10.clase.php');
+
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -213,23 +215,50 @@
         
     <!-- EJERCICIO 7 -->
     <?php }else if($nEjercicio == 7) { ?>
-    <div class="container limit-width-130">
-        <header class="cabecera">
-            <h2 class="title">Funciones: array_merge</h2>
-        </header>
+        <div class="container limit-width-130">
+            <header class="cabecera">
+                <h2 class="title">Funciones: array_merge</h2>
+            </header>
 
-        <div class="container__main">
-            <div class="central to-left-950 delay-450 grid-3 gap-4">
-                <?=imprimirHorario7($tareas, $minions);?>
+            <div class="container__main">
+                <div class="central to-left-950 delay-450 grid-3 gap-4">
+                    <?=imprimirHorario7($tareas, $minions);?>
+                </div>
             </div>
-        </div>
 
-        <footer class="pie">
-            <form class="width-100 limit-width-50" action="" method="post">
-                <button class="button button--transparent up-750 delay-1150" type="submit" name="e0">Volver al inicio</button>
-            </form>
-        </footer>
-    </div>
+            <footer class="pie">
+                <form class="width-100 limit-width-50" action="" method="post">
+                    <button class="button button--transparent up-750 delay-1150" type="submit" name="e0">Volver al inicio</button>
+                </form>
+            </footer>
+        </div>
+    <?php }else if($nEjercicio == 10) { ?>
+        <div class="container limit-width-130">
+            <header class="cabecera">
+                <h2 class="title">Funciones: array_filter</h2>
+            </header>
+
+            <div class="container__main">
+                <p class="central to-left-950 delay-450">
+                    <strong>Array GENERADO:&nbsp;</strong>
+                    <?= imprimirArray($array10); ?>
+                </p>
+                <p class="central to-left-950 delay-450">
+                    <strong>Array PARES:&nbsp;</strong>
+                    <?= imprimirArray($pares10); ?>
+                </p>
+                <p class="central to-left-950 delay-450">
+                    <strong>Array IMPARES:&nbsp;</strong>
+                    <?= imprimirArray($impares10); ?>
+                </p>
+            </div>
+
+            <footer class="pie">
+                <form class="width-100 limit-width-50" action="" method="post">
+                    <button class="button button--transparent up-750 delay-1150" type="submit" name="e0">Volver al inicio</button>
+                </form>
+            </footer>
+        </div>
     <?php } ?>
 </body>
 </html>
