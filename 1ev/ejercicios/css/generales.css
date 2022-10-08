@@ -20,6 +20,7 @@ input,textarea,button{
     outline: none;
     overflow: hidden;
 }
+a{text-decoration: none;}
 :root{
     --almost-black: #0f0f0f;
     --strong-gray-1: #1D1D1D;

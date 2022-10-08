@@ -8,7 +8,7 @@
         elseif (isset($_POST['e2'])) $nEjercicio = 2; //EJERCIO 2
         elseif (isset($_POST['e3'])) $nEjercicio = 3; //...
         elseif (isset($_POST['e4'])) $nEjercicio = 4; 
-        elseif (isset($_POST['e5'])) $nEjercicio = 5; 
+        //EJERCICIO 5 EXTERNO (POR COMPATIBILIDAD)
         elseif (isset($_POST['e6'])) $nEjercicio = 6;
         elseif (isset($_POST['e7'])) $nEjercicio = 7; 
         elseif (isset($_POST['e8'])) $nEjercicio = 8; 
@@ -23,7 +23,7 @@
     require('./funciones_php/10.2.clase.php'); //EJERCICIO 2
     require('./funciones_php/10.3.clase.php'); //...
     require('./funciones_php/10.4.clase.php'); 
-    require('./funciones_php/10.5.clase.php'); 
+    //EJERCICIO 5 EXTERNO (POR COMPATIBILIDAD)
     require('./funciones_php/10.6.clase.php'); 
     require('./funciones_php/10.7.clase.php');
 
@@ -62,7 +62,8 @@
             <button class="button to-left-750" type="submit" name="e2">Ejercicio 10.2</button>
             <button class="button to-left-750" type="submit" name="e3">Ejercicio 10.3</button>
             <button class="button to-left-750" type="submit" name="e4">Ejercicio 10.4</button>
-            <button class="button to-left-750" type="submit" name="e5">Ejercicio 10.5</button>
+            <!-- ejer 5 externo (por compatibilidad) -->
+            <a href="./funciones_php/10.5.clase.php" target="_blank"><button class="button to-left-750" type="button">Ejercicio 10.5 (externo)</button></a>
             <button class="button to-left-750" type="submit" name="e6">Ejercicio 10.6</button>
             <button class="button to-left-750" type="submit" name="e7">Ejercicio 10.7</button>
             <button class="button to-left-750" type="submit" name="e8">Ejercicio 10.8</button>
@@ -181,26 +182,8 @@
                 </form>
             </footer>
         </div>
-    
-    <!-- EJERCICIO 5 -->
-    <?php }else if($nEjercicio == 5) { ?>
-        <div class="container limit-width-50">
-            <header class="cabecera">
-                <h2 class="title">Funciones: array_merge</h2>
-            </header>
-            <div class="container__main">
-                <form class="width-100" action="funciones_php/10.5.clase.php" method="get">
-                    <?php imprimirLista($productos); ?>
-                    <?php generarFactura($productos); ?>
-                </form>
-            </div>
-            <footer class="pie">
-                <form class="width-100 limit-width-50" action="" method="post">
-                    <button class="button button--transparent up-750 delay-1150" type="submit" name="e0">Volver al inicio</button>
-                </form>
-            </footer>
-        </div>
 
+    <!-- EJERCICIO 5 EXTERNO (POR COMPATIBILIDAD) -->
     <!-- EJERCICIO 6 -->
     <?php }else if($nEjercicio == 6) { ?>
         <div class="container limit-width-120">
