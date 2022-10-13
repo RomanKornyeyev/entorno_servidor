@@ -1,0 +1,58 @@
+/* === GENERALES === */
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
+    margin: 0 auto;
+    width: 90%;
+    min-height: 100vh;
+    /* border: 1px solid red; */
+}
+.cabecera{
+    width: 100%;
+    padding: 4rem;
+    background-color: var(--strong-gray-2);
+    border-bottom: 1px solid var(--strong-gray-3);
+    border-top: 1px solid var(--strong-gray-3);
+}
+.formulario{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    padding: 2rem;
+    width: 100%;
+    background-color: var(--strong-gray-2);
+}
+.container__main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
+    gap: 2rem;
+    padding: 2rem;
+    width: 100%;
+    background-color: var(--strong-gray-2);
+}
+.central{
+    padding: 2rem;
+    width: 100%;
+    height: fit-content;
+    background-color: var(--strong-gray-3);
+    font-size: 2rem;
+    color: var(--almost-white-2);
+}
+.title{
+    font-size: 4rem;
+    color: var(--primary);
+    width:fit-content;
+}
+.sub-title{
+    font-size: 2.5rem;
+    color: var(--primary);
+}
+.title-description{
+    color: var(--primary);
+}

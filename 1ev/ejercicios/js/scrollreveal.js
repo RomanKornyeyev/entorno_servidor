@@ -5,8 +5,9 @@ sr.reveal('.lista__li',{
     origin: 'bottom',
     distance: '50px',
     interval: 100
-})
+});
 
 sr.reveal('.error-message',{
     duration: 750
-})
+});
+
