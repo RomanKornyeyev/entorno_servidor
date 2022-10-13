@@ -1,5 +1,6 @@
 <?php 
 
+    set_time_limit(15000);
     $cadena = "hola";
     function printear($cadena){
         for($i = 0; $i < strlen($cadena); $i++){
@@ -18,10 +19,23 @@
     
     function printearNums(){
         $num;
-        while($num != 17 || ($num%$num!=0 && $num%1!=0)){
+        $primo = false;
+        while($num != 17 && !$primo){
             $num = mt_rand(1,100);
             echo "<span class='central'>".$num."</span>";
+            $primo = esPrimo($num);
         }
+    }
+
+    function esPrimo($numero){
+        for ($i = 2; $i < $numero; $i++) {
+            if (($numero % $i) == 0) {
+                // No es primo 
+                return false;
+            }
+        }
+        // Es primo 
+        return true;
     }
 
 ?>
