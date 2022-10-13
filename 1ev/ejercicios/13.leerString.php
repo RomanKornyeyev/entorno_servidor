@@ -17,10 +17,10 @@
 
     
     function printearNums(){
-        $num = 0;
-        while($num != 17 || ($num%$num==0 && $num%1==0)){
+        $num;
+        while($num != 17 || ($num%$num!=0 && $num%1!=0)){
             $num = mt_rand(1,100);
-            echo $num;
+            echo "<span class='central'>".$num."</span>";
         }
     }
 
