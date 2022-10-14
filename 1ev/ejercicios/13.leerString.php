@@ -1,6 +1,6 @@
 <?php 
 
-    set_time_limit(15000);
+    //ejer 2
     $cadena = "hola";
     function printear($cadena){
         for($i = 0; $i < strlen($cadena); $i++){
@@ -8,25 +8,25 @@
         }
     }
 
+    //ejer 3
     function printearFinA($cadena){
         $i = 0;
-        while(strnatcasecmp("a", substr($cadena, $i, 1))){
+        while(strnatcasecmp("a", substr($cadena, $i, 1)) && $i<strlen($cadena)){
             echo "<h4 class='central'>".substr($cadena, $i, 1)."</h4>";
             $i++;
         }
     }
 
-    
+    //ejer 4
     function printearNums(){
         $num;
         $primo = false;
         while($num != 17 && !$primo){
             $num = mt_rand(1,100);
-            echo "<span class='central'>".$num."</span>";
+            echo $num.", ";
             $primo = esPrimo($num);
         }
     }
-
     function esPrimo($numero){
         for ($i = 2; $i < $numero; $i++) {
             if (($numero % $i) == 0) {
@@ -80,7 +80,9 @@
             </p>
         </header>
         <div class="container__main">
-            <?php echo printearNums($cadena); ?>
+            <span class="central">
+                <?php echo printearNums(); ?>
+            </span>            
         </div>
     </div>
 </body>
