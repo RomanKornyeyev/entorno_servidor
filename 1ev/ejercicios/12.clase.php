@@ -49,6 +49,28 @@
         return true;
     }
 
+    //ejer 5
+    function printearTabla(){
+        foreach ($_GET as $key => $value) {
+            echo "<tr><td>$key</td><td>$value</td></tr>";
+        }
+    }
+
+    //ejer 6
+    function sumarNums($ini, $fin){
+        $resultado = $ini;
+        for ($i=$ini; $i < $fin; $i++) { 
+            $resultado += $i+1;
+        }
+
+        echo "Resultado: $resultado, ";
+    }
+
+    //ejer 7
+    function juntar($delim, ...$cadena){
+        echo implode($delim, $cadena);
+    }
+
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -66,7 +88,7 @@
         <!-- ej 1 -->
         <header class="cabecera">
             <p class="title-description">
-                Crea una página web que genere 3 números aleatorios "mt_rand()", 
+                1. Crea una página web que genere 3 números aleatorios "mt_rand()", 
                 con sentencias condicionales los asigna a tres variables: mayor, mediano y pequeño. 
                 Después los mostrará en h1, h2 y h3 respectivamente.
             </p>
@@ -78,7 +100,7 @@
         <!-- ej 2 -->
         <header class="cabecera">
             <p class="title-description">
-                Crea una página web que recorra una variable de tipo cadena accediendo a cada letra y escriba cada una en un h4.
+                2. Crea una página web que recorra una variable de tipo cadena accediendo a cada letra y escriba cada una en un h4.
                 Usa for.
             </p>
         </header>
@@ -89,7 +111,7 @@
         <!-- ej 3 -->
         <header class="cabecera">
             <p class="title-description">
-                Crea una web similar a la anterior pero que pare al finalizar la cadena o al encontrar el carácter 'a',
+                3. Crea una web similar a la anterior pero que pare al finalizar la cadena o al encontrar el carácter 'a',
                 tanto minúscula como mayúscula. Usa While
             </p>
         </header>
@@ -100,7 +122,7 @@
         <!-- ej 4 -->
         <header class="cabecera">
             <p class="title-description">
-                Crea una página web que escriba span con números aleatorios entre 0 y 100, el proceso parará cuando
+                4. Crea una página web que escriba span con números aleatorios entre 0 y 100, el proceso parará cuando
                 el número acabe en 17 o sea primo.
             </p>
         </header>
@@ -114,13 +136,57 @@
         <!-- ej 5 -->
         <header class="cabecera">
             <p class="title-description">
-                Crea una función que escriba lo parámetros recibidos por la URL en una tabla.
+                5. Crea una función que escriba lo parámetros recibidos por la URL en una tabla.
             </p>
         </header>
         <div class="container__main">
-            <span class="central">
-                
-            </span>            
+            <div class="central">
+                <table>
+                    <thead>
+                        <tr>
+                            <td><strong>Tabla</strong></td>
+                            <td><strong>Valor</strong></td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?= printearTabla() ?>
+                    </tbody>
+                </table>
+            </div>            
+        </div>
+
+
+        <!-- ej 6 -->
+        <header class="cabecera">
+            <p class="title-description">
+                6. [15 min] Crea una función que sume todos los números entre dos parámetros dados: inicio y fin.
+                PRUEBAS: Escribe una web que llame a la función 10 veces con números aleatorios entre 0 y 20.
+            </p>
+        </header>
+        <div class="container__main">
+            <div class="central">
+                <?php for ($i=0; $i < 10; $i++) { 
+                    sumarNums(mt_rand(0, 20), mt_rand(0, 20));
+                }?>
+            </div>            
+        </div>
+
+
+        <!-- ej 7 -->
+        <header class="cabecera">
+            <p class="title-description">
+            7. [15 min] Crea una función que concatene todas las cadenas pasadas como parámetro utilizando el primer parámetro como seprador.
+            PRUEBAS: Escribe una web que llame a la función 3 veces con cadenas.
+            </p>
+        </header>
+        <div class="container__main">
+            <div class="central">
+               <?= juntar(" ", "hola","qtal?"); ?>
+               <br>
+               <?= juntar(" ", "Hola","Mundo!"); ?>
+               <br>
+               <?= juntar(" ", "JI","JI","JI","JA"); ?>
+            </div>            
         </div>
     </div>
 </body>
