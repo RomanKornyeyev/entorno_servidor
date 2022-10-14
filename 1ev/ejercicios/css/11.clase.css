@@ -44,6 +44,8 @@
     font-size: 2rem;
     color: var(--almost-white-2);
 }
+.central--md{font-size: 1.7rem;}
+.central--sm{font-size: 1.4rem;}
 .title{
     font-size: 4rem;
     color: var(--primary);
