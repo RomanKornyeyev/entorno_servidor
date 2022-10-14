@@ -9,6 +9,55 @@
         echo "<h2 class='central central--md'>".$nums[1]."</h2>";
         echo "<h3 class='central central--sm'>".$nums[2]."</h3>";
     }
+
+    //version ifs
+    $a = mt_rand(1,10);
+    $b = mt_rand(1,10);
+    $c = mt_rand(1,10);
+
+    function printearHs2($a, $b, $c){
+        if($a > $b){
+            //a es mayor que b ¿como es respecto a c?
+            if($a > $c){
+                $mayor = $a;
+                if($b > $c){
+                    $mediano = $b;
+                    $menor = $c;
+                }else{
+                    $mediano = $c;
+                    $menor = $b;
+                }
+            }else{
+                //c es mayor que a y que b
+                $mayor = $c;
+    
+                $mediano = $a;
+                $menor = $b;
+            }
+        }else{
+            // b es más grande que a
+            if($b > $c){
+                $mayor = $b;
+                if($a > $c){
+                    $mediano = $a;
+                    $menor = $c;
+                }else{
+                    $mediano = $c;
+                    $menor = $a;
+                }
+            }else{
+                $mayor = $c;
+    
+                $mediano = $b;
+                $menor = $a;
+            }
+        }
+
+        echo "<h1 class='central'>".$mayor."</h1>";
+        echo "<h2 class='central central--md'>".$mediano."</h2>";
+        echo "<h3 class='central central--sm'>".$menor."</h3>";
+    }
+    
     
 
     //ejer 2
@@ -70,6 +119,15 @@
     function juntar($delim, ...$cadena){
         echo implode($delim, $cadena);
     }
+    //variante
+    function concatenar(string $separador, string ...$cadenas7): string
+    {
+        $salida = "";
+        foreach ($cadenas7 as $key7 => $cadena7) {
+            $salida .= (($key7 == 0)?"":$separador).$cadena7;
+        }
+        return $salida;
+    }
 
 ?>
 <!DOCTYPE html>
@@ -94,7 +152,7 @@
             </p>
         </header>
         <div class="container__main">
-            <?php echo printearHs($nums); ?>
+            <?php echo printearHs2($a, $b, $c); ?>
         </div>
 
         <!-- ej 2 -->
@@ -186,8 +244,13 @@
                <?= juntar(" ", "Hola","Mundo!"); ?>
                <br>
                <?= juntar(" ", "JI","JI","JI","JA"); ?>
+               <br>
+               <?= concatenar(", ", "Variante", "2", "XD"); ?>
             </div>            
         </div>
+
+
+        
     </div>
 </body>
 </html>
