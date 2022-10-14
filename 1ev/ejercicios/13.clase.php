@@ -147,7 +147,7 @@
         </header>
         <div class="container__main">
             <div class="central">
-                <?= tipos(2, 3, 4, 2.3, -2.4, "hOlA"); ?>                
+                <?= tipos(2, 3, 4, 2.3, -2.4, "hOlA", [1, 2]); ?>                
             </div>            
         </div>
     </div>
