@@ -84,19 +84,42 @@
         echo "</form>";
     }
 
+    //solución profe
+    function formatFormUser(array $yo)
+    {
+        echo "<form action='' method='post'>";
+        array_walk($yo, function($value, $key){
+            $tipo=(is_integer($value))?'number':'text';
+            echo "<input name='$key' value='$value' type='$tipo'>";
+        });
+        echo "</form>";
+    }
+
     //ejer 13
     $opciones = [
         "Madrid" => 28,
         "Sevilla" => 17,
         "Cáceres" => 56,
     ];
-    function walkearArraySelect($valor, $llave){
-        echo  "<option value='".$valor."'>$llave</option>";
-    }
+
     function genera_select(array $opciones, int $seleccionada = -1)
     {
         echo "<select>";
-        echo array_walk($opciones, "walkearArraySelect");
+        foreach ($opciones as $clave => $valor) {
+            echo '<option value="'.$valor.'"';
+            echo ($seleccionada == $valor)? ' selected>':'>';
+            echo $clave.'</option>';
+        }
+        echo "</select>";
+    }
+    //solución profe
+    function generaSelect(array $datos, int $selected = -1)
+    {
+        echo "<select>";
+        array_walk($datos, function($value, $key, $selected){
+            $sel=($value==$selected)?'selected':'';
+            echo "<option value='$value' $sel>$key</option>";
+        }, $selected);
         echo "</select>";
     }
 
@@ -204,7 +227,8 @@
         </header>
         <div class="container__main">
             <div class="central">
-                <?= format_form_user($yo) ?>        
+                <?= format_form_user($yo) ?>  
+                <?= formatFormUser($yo) ?>      
             </div>            
         </div>
 
@@ -216,7 +240,8 @@
         </header>
         <div class="container__main">
             <div class="central">
-                <?= genera_select($opciones) ?>
+                <?= genera_select($opciones, 17) ?>
+                <?= generaSelect($opciones, 17) ?>
             </div>            
         </div>
     </div>
