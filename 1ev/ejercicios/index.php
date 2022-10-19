@@ -1,49 +1,70 @@
 <?php
-function directory(){
-    $dir = './';
-    $files = scandir($dir,$sorting_order = SCANDIR_SORT_ASCENDING);
-    sort($files, $sort_flags = SORT_NATURAL);
+function navigate()
+{
+    $root = '.';
+    $dirs = scandir($root);
 
-    echo "<ul class='lista'>";
-    foreach ($files as $file) {
-        if (preg_match("/\.php/", $file)) {
-            if (!preg_match("/index.php/", $file)){ //muestra todos los archivos que no sean el index (este archivo)
-                echo "<li class='elemento'><a class='button' href=" . $dir . $file . ">" . $file . "</a></li>";
-            }
+    foreach ($dirs as $dir) :
+        if (is_dir($dir) && strlen($dir) > 4) {
+            $subDir = scandir($dir);
+?>
+            <div class="dropdown">
+                <button class="btn btn-primary dropdown-toggle m-1" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <?= $dir ?>
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <?php
+                    foreach ($subDir as $d) {
+                        if (str_ends_with($d, ".php")) :
+                    ?>
+                            <a class="dropdown-item" href="<?= $dir . "/" . $d ?>"><?= $d ?></a>
+                    <?php
+                        endif;
+                    }
+                    ?>
+                </div>
+            </div>
+
+<?php
+
         }
-    }
-    echo "</ul>";
+    endforeach;
 }
 ?>
 <!DOCTYPE html>
 <html lang="es">
 
 <head>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+
+    <!-- Meta -->
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- JS -->
-    <link rel="prefetch" href="./js/scrollreveal-lib.js" as="script">
-    <link rel="prefetch" href="./js/sr-10.1.clase.js" as="script">
-    <link rel="preload" href="./js/scrollreveal-lib.js" as="script">
-    <link rel="preload" href="./js/sr-10.1.clase.js" as="script">
-    <script src="./js/scrollreveal-lib.js"></script>
-    <script src="./js/sr-index.js" async=""></script>
-    <!-- CSS -->
-    <link rel="preload" href="./css/index.css" as="styles">
-    <link rel="stylesheet" href="./css/index.css">
     <title>Inicio</title>
 </head>
 
-<body>
-    <main class="container">
-        <div class="title-wrapper">
-            <h2 class="title">Ejercicios de Román Kornyeyev</h2>
-        </div>
+<body class="">
+    <header>
+        <h1 class="h1 m-3 p-3 ">Entorno Servidor</h1>
+        <hr class="m-3">
+    </header>
+    <div class="d-flex flex-wrap justify-content-center">
         <?php
-            directory();
+        navigate();
         ?>
-    </main>
+    </div>
+
 </body>
 
 </html>
