@@ -66,6 +66,40 @@
         print_r($listaAux);
     }
 
+    //ejer 12
+    $yo = [
+        "nombre" => "Jorge Dueñas Lerín",
+        "dirección" => "Calle falsa número 1234",
+        "teléfono" => "91 123 45 67",
+        "población" => "Madrid",
+        "edad" => 23,
+    ];
+    function walkearArray($valor, $llave){
+        echo "<input name='".$llave."' value='".$valor."'><br>";
+    }
+    
+    function format_form_user($yo){
+        echo "<form id='datos_personales' action='post'>";
+        array_walk($yo, "walkearArray");
+        echo "</form>";
+    }
+
+    //ejer 13
+    $opciones = [
+        "Madrid" => 28,
+        "Sevilla" => 17,
+        "Cáceres" => 56,
+    ];
+    function walkearArraySelect($valor, $llave){
+        echo  "<option value='".$valor."'>$llave</option>";
+    }
+    function genera_select(array $opciones, int $seleccionada = -1)
+    {
+        echo "<select>";
+        echo array_walk($opciones, "walkearArraySelect");
+        echo "</select>";
+    }
+
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -76,7 +110,7 @@
     <!-- CSS -->
     <link rel="stylesheet" href="./css/generales.css">
     <link rel="stylesheet" href="./css/11.clase.css">
-    <title>12 Clase</title>
+    <title>13 Clase</title>
 </head>
 <body>
     <div class="container limit-width-120">
@@ -142,12 +176,47 @@
         <!-- ej 11 -->
         <header class="cabecera">
             <p class="title-description">                
-                11. 
+                11. [30 min] Crea una función que reciba un array con distintos tipos de valores de tal forma que:
+                <br><br>
+                Si son enteros: el primer entero sea elevado al cuadrado, el segundo entero sea elevado al cubo y así sucesivamente con los números enteros.
+                <br>
+                Si el valor es un double lo convertirá a su valor negativo (si es negativo al positivo)
+                <br>
+                Si es una cadena cambiará las mayúsuclas por minúsculas y viceversa.
+                <br>
+                En caso de no estar entre estos valores lo dejará sin modificar.
+
             </p>
         </header>
         <div class="container__main">
             <div class="central">
                 <?= tipos(2, 3, 4, 2.3, -2.4, "hOlA", [1, 2]); ?>                
+            </div>            
+        </div>
+
+        <!-- ej 12 -->
+        <header class="cabecera">
+            <p class="title-description">                
+                12. [25 min] Crea una función que reciba un array con información de un usuario y escriba un formulario relleno. En este caso solo utiliza campos de texto o enteros
+                <br>
+                NOTA: Utiliza las funciones array_map o array_walk
+            </p>
+        </header>
+        <div class="container__main">
+            <div class="central">
+                <?= format_form_user($yo) ?>        
+            </div>            
+        </div>
+
+        <!-- ej 13 -->
+        <header class="cabecera">
+            <p class="title-description">                
+                13.[15 min] Crea una función para escribir select de HTML, la función recibe un asociativo con el nombre y el value, también recibe el elemento seleccionado. como un entero (que representa su value)
+            </p>
+        </header>
+        <div class="container__main">
+            <div class="central">
+                <?= genera_select($opciones) ?>
             </div>            
         </div>
     </div>
