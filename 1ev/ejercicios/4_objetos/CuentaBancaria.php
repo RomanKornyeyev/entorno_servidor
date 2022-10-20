@@ -1,7 +1,7 @@
 <?php 
     class CuentaBancaria{
 
-        private static $contCuentas = 1001;
+        private static $contCuentas = 100001;
 
         private $numeroCuenta;
         private $nombre;
@@ -26,12 +26,16 @@
         //funciones
         public function ingresar(float $cantidad){$this->saldo += $cantidad;}
         public function retirar(float $cantidad){$this->saldo -= $cantidad;}
-        public function saldo():float
-        {
-            return $this->saldo;
+        public function saldo():float{return $this->saldo;}
+        public function bancarrota(){$this->saldo = 0;}
+        public function transferirA($cuenta, $cantidad){
+            $cuenta->saldo += $cantidad;
+            $this->saldo -= $cantidad;
         }
-        public function transferirA($CuentaBancaria, $cantidad){
-            
+        public function unirCon($cuenta){
+            $this->saldo += $cuenta->saldo;
+            $cuenta->bancarrota();
+            $cuenta->numeroCuenta = -1;
         }
 
         //toString
