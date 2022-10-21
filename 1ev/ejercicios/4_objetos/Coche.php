@@ -27,7 +27,7 @@
         
 
         //toString
-        public function mostrar() {return "Coche: matrícula: ".$this->matricula.", marca: ".$this->marca." con carga: ".$this->carga;}
+        public function mostrar() {return "<b>Coche:</b> matrícula: ".$this->matricula.", marca: ".$this->marca." con carga: ".$this->carga;}
 
     }
 ?>

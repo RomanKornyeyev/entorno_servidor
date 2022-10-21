@@ -4,7 +4,7 @@
         private $cocheCargado;
 
         //constructores
-        public function __construct($matricula = "", $marca = "", $carga = 0, $cocheCargado = "")
+        public function __construct($matricula = "", $marca = "", $carga = 0, $cocheCargado = null)
         {
             parent::__construct($matricula, $marca, $carga);
             $this->cocheCargado = $cocheCargado;
@@ -17,7 +17,7 @@
         //toString
         public function mostrar() {
             $aux = "";
-            ($this->cocheCargado == null)? $aux="ninguno" : $aux = $this->cocheCargado->mostrar();
+            ($this->cocheCargado == null)? $aux="<b>ninguno</b>" : $aux = $this->cocheCargado->mostrar();
             return parent::mostrar()."<br>
             Lleva Coche: ".$aux;
         }
