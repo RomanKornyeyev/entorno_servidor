@@ -1,6 +1,6 @@
 window.sr = ScrollReveal();
 
-window.addEventListener('load', function(){
+window.addEventListener('DOMContentLoaded', function(){ //no va correctamente
     sr.reveal('.elemento',{
         duration: 1500,
         origin: 'bottom',
