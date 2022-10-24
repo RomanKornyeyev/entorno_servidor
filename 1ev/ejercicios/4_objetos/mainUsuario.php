@@ -5,6 +5,9 @@
     $a = new Usuario();
 
     print $a->mostrar();
-    echo "<br>"
+    echo "<br>";
+    
+    $a->introducirResultado("victorIA");
+    
 
 ?>
