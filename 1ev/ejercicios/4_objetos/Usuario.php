@@ -35,22 +35,7 @@
         public function setHistorial($historial){$this->historial = $historial;}
         public function getHistorial(){return $this->historial;} 
 
-        //toString
-        public function mostrar() {
-            print "<p class='azulito'>
-            <b>Usuario:</b> ".$this->nombre." ".$this->apellidos."<br>".
-            "<b>Deporte:</b> ".$this->deporte."<br>".
-            "<b>Nivel:</b> ".$this->nivel."</p>";
-            $this->mostrarHistorial();
-        }
-        public function mostrarHistorial(){
-            print "Historial:<br><ul>";
-            array_walk($this->historial, function($value, $key){
-                print "<li>".$value."</li>";
-            });
-            print "</ul>";
-        }
-
+        
         //métodos
         public function introducirResultado(String $resultado){
             if(strcasecmp(strtolower($resultado), "victoria") == 0){
@@ -89,6 +74,22 @@
             }else{
                 print "Introduce un valor válido <br>";
             }
+        }
+
+        //toString
+        public function mostrar() {
+            print "<p class='azulito'>
+            <b>Usuario:</b> ".$this->nombre." ".$this->apellidos."<br>".
+            "<b>Deporte:</b> ".$this->deporte."<br>".
+            "<b>Nivel:</b> ".$this->nivel."</p>";
+            $this->mostrarHistorial();
+        }
+        public function mostrarHistorial(){
+            print "Historial:<br><ul>";
+            array_walk($this->historial, function($value, $key){
+                print "<li>".$value."</li>";
+            });
+            print "</ul>";
         }
     }
 ?>
