@@ -55,29 +55,33 @@
         public function introducirResultado(String $resultado){
             if(strcasecmp(strtolower($resultado), "victoria") == 0){
                 if(!empty($this->historial)){
-                    if($this->historial[count($this->historial)]){
-                        
+                    if(strcasecmp($this->historial[count($this->historial)-1], "victoria") != 0){
+                        $this->contador = 0; // reset contador si su última partida no fue ganada
                     }
                 }
                 $this->contador++;
                 array_push($this->historial, "victoria");
                 if($this->contador == self::subirNivel){
-                    $this->contador = 0; //reset
                     if($this->nivel < 6){
                         $this->nivel++;
-                        print "Felicidades, has subido de nivel (al $this->nivel)<br>";
-                    }else print "¡Has alcanzado el nivel máximo!<br>";
+                        print "$this->nombre ¡Felicidades, has subido de nivel (al $this->nivel)!<br>";
+                    }else print "$this->nombre ¡Has alcanzado el nivel máximo, eres el puto amo!<br>";
+                    $this->contador = 0; //reset
                 }
             }else if(strcasecmp(strtolower($resultado), "derrota") == 0){
-                //$this->contador = 0;
+                if(!empty($this->historial)){
+                    if(strcasecmp($this->historial[count($this->historial)-1], "derrota") != 0){
+                        $this->contador = 0; // reset contador si su última partida no fue perdida
+                    }
+                }
                 $this->contador++;
                 array_push($this->historial, "derrota");
                 if($this->contador == self::subirNivel){
                     $this->contador = 0; //reset
                     if($this->nivel > 1){
                         $this->nivel--;
-                        print "Felicidades, has subido de nivel ($this->nivel)<br>";
-                    }else print "¡No puedes bajar de nivel, estás en el mínimo (1)!<br>";
+                        print "$this->nombre ¡Has bajado de nivel (al $this->nivel)! Eres un pringao.<br>";
+                    }else print "$this->nombre ¡No puedes bajar de nivel, estás en el mínimo (1)!<br>";
                 }                
             }else if(strcasecmp(strtolower($resultado), "empate") == 0){
                 $this->contador = 0;

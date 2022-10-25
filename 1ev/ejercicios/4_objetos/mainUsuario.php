@@ -10,19 +10,12 @@
     print $b->mostrar();
     print $c->mostrar();
 
-    $a->introducirResultado("victoria");
-    $a->introducirResultado("victoria");
-    $a->introducirResultado("victoria");
-    $a->introducirResultado("victoria");
-    $a->introducirResultado("victoria");
-    $a->introducirResultado("victoria");
-    
-    $a->introducirResultado("victoria");
-    $a->introducirResultado("victoria");
-    $a->introducirResultado("victoria");
-    $a->introducirResultado("victoria");
-    $a->introducirResultado("victoria");
-    $a->introducirResultado("victoria");
+    $a->introducirResultado("derrota");
+    $a->introducirResultado("derrota");
+    $a->introducirResultado("derrota");
+    $a->introducirResultado("derrota");
+    $a->introducirResultado("derrota");
+    $a->introducirResultado("derrota");
 
     $a->introducirResultado("derrota");
     $a->introducirResultado("derrota");
@@ -30,6 +23,7 @@
     $a->introducirResultado("derrota");
     $a->introducirResultado("derrota");
     $a->introducirResultado("derrota");
+    
 
     $a->mostrar();
     
@@ -65,6 +59,15 @@
             background-color:#69b0c7;
             border: 1px solid gray;
             border-bottom: none;
+        }
+        ul{
+            width: 90%;
+            max-width: 750px;
+            max-height: 200px;
+            margin-bottom: 25px;
+            overflow: scroll;
+            text-align: center;
+            border: 1px solid black;
         }
         
     </style>
