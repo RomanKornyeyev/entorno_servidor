@@ -16,9 +16,10 @@
             $this->nombre = $nombre;
             $this->apellidos = $apellidos;
             $this->deporte = $deporte;
-            $this->nivel = 1;
+            $this->nivel = 0;
             $this->contador = 0;
             $this->historial = [];
+            print "Usuario: ".$nombre." creado.<br>";
         }
 
         //getters and setters
@@ -45,7 +46,8 @@
                     }
                 }
                 $this->contador++;
-                array_push($this->historial, "victoria");
+                array_push($this->historial, "victoria"); //añadimos el resultado al historial
+                print $this->nombre." gana partido.<br>"; //print de resultado
                 if($this->contador == self::subirNivel){
                     if($this->nivel < 6){
                         $this->nivel++;
@@ -60,10 +62,11 @@
                     }
                 }
                 $this->contador++;
-                array_push($this->historial, "derrota");
+                array_push($this->historial, "derrota"); //añadimos el resultado al historial
+                print $this->nombre." pierde partido.<br>"; //print del resultado
                 if($this->contador == self::subirNivel){
                     $this->contador = 0; //reset
-                    if($this->nivel > 1){
+                    if($this->nivel > 0){
                         $this->nivel--;
                         print "$this->nombre ¡Has bajado de nivel (al $this->nivel)! Eres un pringao.<br>";
                     }else print "$this->nombre ¡No puedes bajar de nivel, estás en el mínimo (1)!<br>";
@@ -71,6 +74,7 @@
             }else if(strcasecmp(strtolower($resultado), "empate") == 0){
                 $this->contador = 0;
                 array_push($this->historial, "empate");
+                print $this->nombre." empata partido.<br>";
             }else{
                 print "Introduce un valor válido <br>";
             }
