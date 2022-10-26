@@ -1,10 +1,10 @@
 <?php 
-    class UsuarioAdministrador extends Usuario{
+    class Config{
 
         //constructor
         public function __construct($nombre, $apellidos, $deporte)
         {
-            parent::__construct($nombre."(Admin)", $apellidos, $deporte);
+            
         }
 
         //métodos
