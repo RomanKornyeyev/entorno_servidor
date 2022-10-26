@@ -46,14 +46,15 @@
             $tipo = "";
             //si es un usuario normal sube cada 6 partidas
             $auxSubida = self::subirNivel;
-            //si es premium o admin, sube cada 3
+            //si es premium sube cada 3 y añade (PREMIUM) al nombre
             if(get_class($this) == "UsuarioPremium"){
                 $auxSubida = self::subirNivel / 2;
                 $tipo = "(Premium)";
-            }else if(get_class($this) == "UsuarioAdministrador"){
+            }else if(get_class($this) == "UsuarioAdministrador"){ //idem, pero con admin
                 $auxSubida = self::subirNivel / 2;
                 $tipo = "(Admin)";
             }
+            
             if(strcasecmp(strtolower($resultado), "victoria") == 0){ //si ganan
                 if(!empty($this->historial)){
                     if(strcasecmp($this->historial[count($this->historial)-1], "victoria") != 0){
@@ -84,7 +85,7 @@
                     if($this->nivel > 0){ //si el nivel es superior al mínimo
                         $this->nivel--;
                         print "$this->nombre ¡Has bajado de nivel (al $this->nivel)! Eres un pringao.<br>";
-                    }else print "$this->nombre ¡No puedes bajar de nivel, estás en el mínimo (1)!<br>";
+                    }else print "$this->nombre ¡No puedes bajar de nivel, estás en el mínimo (0)!<br>";
                 }                
             }else if(strcasecmp(strtolower($resultado), "empate") == 0){ //si empatan
                 $this->contador = 0;
