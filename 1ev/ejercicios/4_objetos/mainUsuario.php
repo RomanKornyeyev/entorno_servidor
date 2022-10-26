@@ -1,25 +1,13 @@
 <?php
 
     require('Usuario.php');
+    require('UsuarioPremium.php');
 
     $a = new Usuario('Román', 'Kornyeyev', 'Baloncesto');
     $b = new Usuario('Franco', 'Gianello', 'Fútbol');
-    $c = new Usuario('Anabel', 'Pedrajas', 'Balonmano');
+    $c = new UsuarioPremium('Anabel', 'Pedrajas', 'Balonmano');
 
-    $a->introducirResultado("victoria");
-    $a->introducirResultado("victoria");
-    $a->introducirResultado("victoria");
-    $a->introducirResultado("victoria");
-    $a->introducirResultado("victoria");
-    $a->introducirResultado("victoria");
-
-    $a->introducirResultado("victoria");
-    $a->introducirResultado("victoria");
-    $a->introducirResultado("victoria");
-    $a->introducirResultado("victoria");
-    $a->introducirResultado("victoria");
-    $a->introducirResultado("victoria");
-
+    //NORMALES
     $a->introducirResultado("victoria");
     $a->introducirResultado("victoria");
     $a->introducirResultado("victoria");
@@ -37,6 +25,25 @@
     $b->introducirResultado("victoria");
     
     $b->mostrar();
+
+
+    //PREMIUM
+    $c->introducirResultado("victoria");
+    $c->introducirResultado("victoria");
+    $c->introducirResultado("victoria");
+
+    $c->introducirResultado("victoria");
+    $c->introducirResultado("victoria");
+    $c->introducirResultado("victoria");
+
+    $c->introducirResultado("derrota");
+    $c->introducirResultado("derrota");
+    $c->introducirResultado("derrota");
+    $c->introducirResultado("derrota");
+    $c->introducirResultado("derrota");
+    $c->introducirResultado("derrota");
+    
+    $c->mostrar();
     
     
     

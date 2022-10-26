@@ -7,14 +7,26 @@
         "asd"
     ];
 
-    function imprimeTabulado($cosas){
-        foreach ($variable as $value) {
-            while (gettype($value) == 'array') {
-                array_walk($value, function($item, $key){
-                    echo "$key. $item";
-                });
+    function imprimeTabulado($cosas, $tab = 0) {
+        $aux = '';
+        for($i = 0; $i < $tab; $i++) 
+            $aux .= '_';
+
+        foreach ($cosas as $key => $value) {
+            if (is_array($value)) {
+                echo $aux.gettype($value)."<br>";
+                imprimeTabulado($value, ($tab + 4));
+            } else {
+                echo  $aux.$value."<br>";
             }
         }
+    }
+
+    function invertirCadena($cadena, $index = 0) {
+        if (!empty($cadena[$index])) {
+            invertirCadena($cadena, $index + 1);
+        }
+        echo $cadena[$index];
     }
     
 ?>
@@ -39,7 +51,10 @@
         </header>
         <div class="container__main">
             <div class="central">
-                PHP AQUI
+                <?= imprimeTabulado($cosas) ?>
+            </div>
+            <div class="central">
+                <?= invertirCadena("hola") ?>
             </div>            
         </div>
     </div>
