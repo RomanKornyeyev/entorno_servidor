@@ -3,6 +3,16 @@
     require('Usuario.php');
     require('UsuarioPremium.php');
     require('UsuarioAdministrador.php');
+    require('../4-1_objetos_avanzados/Singleton.php');
+    require('../4-1_objetos_avanzados/PlataformaPago.php');
+
+    //singleton
+    $variable = Singleton::singleton();
+    $variable->setNombre("PRUEBAS SINGLETON");
+    print $variable->getNombre();
+
+    //interfaz
+    
 
     $a = new Usuario('Román', 'Kornyeyev', 'Baloncesto');
     $b = new UsuarioPremium('Franco', 'Gianello', 'Fútbol');
