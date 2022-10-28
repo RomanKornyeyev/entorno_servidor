@@ -1,5 +1,7 @@
 <?php
-//trait DESCRIPCION
+    namespace Comun;
+
+    //trait DESCRIPCION
     trait Descripcion
     {
         private $descripcion;

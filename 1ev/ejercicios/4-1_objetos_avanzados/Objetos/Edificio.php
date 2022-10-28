@@ -1,9 +1,11 @@
 <?php
+    namespace Objetos;
+
     //clase EDIFICIO
     class Edificio
     {
-        use Posicion;
-        use Descripcion;
+        use \Comun\Posicion;
+        use \Comun\Descripcion;
 
         private $altura;
 

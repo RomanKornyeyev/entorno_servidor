@@ -1,15 +1,22 @@
 <?php 
 
-    spl_autoload_register(function ($class){
-        $classPath = "./clases/";
-        require("$classPath${class}.php");
+    // spl_autoload_register(function ($class){
+    //     $classPath = "./clases/";
+    //     require("$classPath${class}.php");
+    // });
+
+    spl_autoload_register(function ($class) {
+        $classPath = realpath("./");
+        $file = str_replace('\\','/', $class);
+        $include = "$classPath/${file}.php";
+        require($include);
     });
 
     // ======== TESTEOS ==========
     //Personaje HUMANO
     print "<div class='caja'>";
     print "<h2>PJ HUMANO:</h2>";
-    $humano1 = new Humano();
+    $humano1 = new Personajes\Humano();
     $humano1->ataque();
     $humano1->defiende();
     //trait POSICION
@@ -22,7 +29,7 @@
     //Personaje MAGO BLANCO
     print "<div class='caja'>";
     print "<h2>PJ MAGO BLANCO:</h2>";
-    $magoB1 = new MagoBlanco();
+    $magoB1 = new Personajes\MagoBlanco();
     $magoB1->ataque();
     $magoB1->defiende();
     //trait POSICION
@@ -34,7 +41,7 @@
     //Personaje MAGO OSCURO
     print "<div class='caja'>";
     print "<h2>PJ MAGO OSCURO:</h2>";
-    $magoOs1 = new MagoOscuro();
+    $magoOs1 = new Personajes\MagoOscuro();
     $magoOs1->ataque();
     $magoOs1->defiende();
     //trait POSICION
@@ -47,7 +54,7 @@
     //clase EDIFICIO
     print "<div class='caja'>";
     print "<h2>EDIFICIO:</h2>";
-    $edificio1 = new Edificio();
+    $edificio1 = new Objetos\Edificio();
     $edificio1->setAltura(150);
     print "Altura: ".$edificio1->getAltura()."<br>";
     //trait POSICION
@@ -63,7 +70,7 @@
     //clase OBJETO
     print "<div class='caja'>";
     print "<h2>OBJETO:</h2>";
-    $objeto1 = new Objeto();
+    $objeto1 = new Objetos\Objeto();
     $objeto1->setPeso(20);
     print "Peso: ".$objeto1->getPeso()."<br>";
     //trait POSICION

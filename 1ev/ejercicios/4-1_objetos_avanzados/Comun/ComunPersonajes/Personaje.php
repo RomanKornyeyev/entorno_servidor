@@ -1,4 +1,6 @@
 <?php
+    namespace Comun\ComunPersonajes;
+
     //interfaz PJ
     interface Personaje
     {

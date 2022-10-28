@@ -1,4 +1,6 @@
 <?php
+    namespace Personajes;
+
     //clase MAGOBLANCO
     class MagoBlanco extends Mago
     {

@@ -1,5 +1,7 @@
 <?php
-//trait DICEPOSICION
+    namespace Comun;
+
+    //trait DICEPOSICION
     trait Posicion
     {
         private $x;

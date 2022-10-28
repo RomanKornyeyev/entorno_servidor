@@ -1,9 +1,11 @@
 <?php
+    namespace Objetos;
+
     //clase OBJETO
     class Objeto
     {
-        use Posicion;
-        use Descripcion;
+        use \Comun\Posicion;
+        use \Comun\Descripcion;
 
         private $peso;
 
