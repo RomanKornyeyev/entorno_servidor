@@ -3,17 +3,7 @@
     require('Usuario.php');
     require('UsuarioPremium.php');
     require('UsuarioAdministrador.php');
-    require('../4-1_objetos_avanzados/Singleton.php');
-    require('../4-1_objetos_avanzados/PlataformaPago.php');
-
-    //singleton
-    $variable = Singleton::singleton();
-    $variable->setNombre("PRUEBAS SINGLETON");
-    print $variable->getNombre();
-
-    //interfaz
     
-
     $a = new Usuario('Román', 'Kornyeyev', 'Baloncesto');
     $b = new UsuarioPremium('Franco', 'Gianello', 'Fútbol');
     $c = new UsuarioAdministrador('Anabel', 'Pedrajas', 'Balonmano');
@@ -100,22 +90,17 @@
             justify-content: center;
             align-items: center;
         }
-        .azulito{
+        .azulito, ul{
             width: 90%;
-            max-width: 750px;
             padding: 25px;
+            max-width: 750px;
             background-color:#69b0c7;
-            border: 1px solid gray;
-            border-bottom: none;
         }
         ul{
-            width: 90%;
             max-width: 750px;
             max-height: 200px;
-            margin-bottom: 25px;
             overflow: scroll;
-            text-align: center;
-            border: 1px solid black;
+            text-align: center;s
         }
         
     </style>

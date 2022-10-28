@@ -8,10 +8,11 @@
         private $contador;
         private $historial;
 
-        private const subirNivel = 6;
+        private const MAX_DERR = 6;
+        protected $max_ganar;
 
         //constructors
-        public function __construct($nombre = "anónimo", $apellidos = "", $deporte = null)
+        public function __construct($nombre = "anónimo", $apellidos = "", $deporte = null, $max_ganar = 6)
         {
             $this->nombre = $nombre;
             $this->apellidos = $apellidos;
@@ -19,9 +20,8 @@
             $this->nivel = 0;
             $this->contador = 0;
             $this->historial = [];
-            if(get_class($this) == "Usuario") print "Usuario: ".$nombre." creado.<br>";
-            else if(get_class($this) == "UsuarioPremium") print "Usuario: ".$nombre." (Premium) creado.<br>";
-            else if(get_class($this) == "UsuarioAdministrador") print "Usuario: ".$nombre." (Admin) creado.<br>";
+            $this->max_ganar = $max_ganar;
+            print "Usuario: ".$nombre." creado.<br>";
             
         }
 
@@ -37,58 +37,41 @@
         public function setContador($contador){$this->contador = $contador;}
         public function getContador(){return $this->contador;}
         public function setHistorial($historial){$this->historial = $historial;}
-        public function getHistorial(){return $this->historial;} 
+        public function getHistorial(){return $this->historial;}
+        public function setMax_ganar($max_ganar){$this->max_ganar = $max_ganar;}
+        public function getMax_ganar(){return $this->max_ganar;}
 
         
         //métodos
-        public function introducirResultado(String $resultado){
-            //tipo de usuario
-            $tipo = "";
-            //si es un usuario normal sube cada 6 partidas
-            $auxSubida = self::subirNivel;
-            //si es premium sube cada 3 y añade (PREMIUM) al nombre
-            if(get_class($this) == "UsuarioPremium"){
-                $auxSubida = self::subirNivel / 2;
-                $tipo = "(Premium)";
-            }else if(get_class($this) == "UsuarioAdministrador"){ //idem, pero con admin
-                $auxSubida = self::subirNivel / 2;
-                $tipo = "(Admin)";
-            }
-            
-            if(strcasecmp(strtolower($resultado), "victoria") == 0){ //si ganan
-                if(!empty($this->historial)){
-                    if(strcasecmp($this->historial[count($this->historial)-1], "victoria") != 0){
-                        $this->contador = 0; // reset contador si su última partida no fue ganada
-                    }
-                }
+        public function introducirResultado(String $resultado){    
+            if(strcasecmp(strtolower($resultado), "victoria") == 0){ //VICTORIA
+                // reset contador si su última partida no fue ganada
+                if(!empty($this->historial)){ if(strcasecmp($this->historial[count($this->historial)-1], "victoria") != 0){ $this->contador = 0; }}
                 $this->contador++;
                 array_push($this->historial, "victoria"); //añadimos el resultado al historial
                 print $this->nombre." ".$tipo." gana partido.<br>"; //print de resultado
-                if($this->contador == $auxSubida){ //si llegan a 6 o 3 victorias seguidas
+                if($this->contador == $this->max_ganar){ //si llegan a 6 o 3 victorias seguidas
                     if($this->nivel < 6){ //si el nivel es inferior al máximo
                         $this->nivel++;
                         print "$this->nombre ¡Felicidades, has subido de nivel (al $this->nivel)!<br>";
                     }else print "$this->nombre ¡Has alcanzado el nivel máximo, eres el puto amo!<br>";
                     $this->contador = 0; //reset
                 }
-            }else if(strcasecmp(strtolower($resultado), "derrota") == 0){ //si pierden
-                if(!empty($this->historial)){
-                    if(strcasecmp($this->historial[count($this->historial)-1], "derrota") != 0){
-                        $this->contador = 0; // reset contador si su última partida no fue perdida
-                    }
-                }
+            }else if(strcasecmp(strtolower($resultado), "derrota") == 0){ //DERROTA
+                // reset contador si su última partida no fue perdida
+                if(!empty($this->historial)){if(strcasecmp($this->historial[count($this->historial)-1], "derrota") != 0){ $this->contador = 0; }}
                 $this->contador++;
                 array_push($this->historial, "derrota"); //añadimos el resultado al historial
                 print $this->nombre." ".$tipo." pierde partido.<br>"; //print del resultado
-                if($this->contador == self::subirNivel){
+                if($this->contador == self::MAX_DERR){
                     $this->contador = 0; //reset
                     if($this->nivel > 0){ //si el nivel es superior al mínimo
                         $this->nivel--;
                         print "$this->nombre ¡Has bajado de nivel (al $this->nivel)! Eres un pringao.<br>";
                     }else print "$this->nombre ¡No puedes bajar de nivel, estás en el mínimo (0)!<br>";
                 }                
-            }else if(strcasecmp(strtolower($resultado), "empate") == 0){ //si empatan
-                $this->contador = 0;
+            }else if(strcasecmp(strtolower($resultado), "empate") == 0){ //EMPATE
+                $this->contador = 0; //reseteamos sí o sí
                 array_push($this->historial, "empate");
                 print $this->nombre." ".$tipo." empata partido.<br>";
             }else{
@@ -98,21 +81,21 @@
 
         //toString
         public function mostrar() {
-            $tipo = "";
-            if(get_class($this) == "UsuarioPremium") $tipo = "(Premium)";
-            else if (get_class($this) == "UsuarioAdministrador") $tipo = "(Admin)";
             print "<p class='azulito'>
-            <b>Usuario:</b> ".$this->nombre." ".$this->apellidos." ".$tipo."<br>".
+            <b>Nombre:</b> ".$this->nombre."<br>".
+            "<b>Apellidos:</b>".$this->apellidos." ".$tipo."<br>".
             "<b>Deporte:</b> ".$this->deporte."<br>".
-            "<b>Nivel:</b> ".$this->nivel."</p>";
-            $this->mostrarHistorial();
+            "<b>Nivel:</b> ".$this->nivel."<br>".
+            "<b>Historial:</b>".$this->mostrarHistorial()."</p>";
+            
         }
         public function mostrarHistorial(){
-            print "Historial:<br><ul>";
-            array_walk($this->historial, function($value, $key){
-                print "<li>".$value."</li>";
-            });
-            print "</ul>";
+            $cadena = "";
+            foreach ($this->historial as $valor) {
+                $cadena .= "<li>$valor</li>";
+            }
+
+            return "<ul>$cadena</ul>";
         }
     }
 ?>
