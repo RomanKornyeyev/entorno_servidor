@@ -1,86 +1,9 @@
 <?php 
 
-    //interfaz PJ
-    interface Personaje
-    {
-        public function ataque();
-        public function defiende();
-    }
-
-    //clase HUMANO
-    class Humano implements Personaje
-    {
-        use Posicion;
-
-        public function ataque(){print "puñetazo<br>";}
-        public function defiende(){print "bloqueo<br>";}
-    }
-
-    //clase abstracta MAGO
-    abstract class Mago implements Personaje
-    {
-        use Posicion;
-
-        abstract public function ataque();
-        public function defiende(){print "hechizo protector<br>";}
-    }
-
-    //clase MAGOBLANCO
-    class MagoBlanco extends Mago
-    {
-        public function ataque(){print "ataque de luz<br>";}
-    }
-
-    //clase MAGOOSCURO
-    class MagoOscuro extends Mago
-    {
-        public function ataque(){print "ataque de sombra<br>";}
-    }
-
-    //clase EDIFICIO
-    class Edificio
-    {
-        use Posicion;
-        use Descripcion;
-
-        private $altura;
-
-        public function setAltura($altura){$this->altura = $altura;}
-        public function getAltura(){return $this->altura;}
-    }
-
-    //clase OBJETO
-    class Objeto
-    {
-        use Posicion;
-        use Descripcion;
-
-        private $peso;
-
-        public function setPeso($peso){$this->peso = $peso;}
-        public function getPeso(){return $this->peso;}
-    }
-
-    //trait DESCRIPCION
-    trait Descripcion
-    {
-        private $descripcion;
-
-        public function setDescripcion($descripcion){$this->descripcion = $descripcion;}
-        public function getDescripcion(){return $this->descripcion;}
-    }
-
-    //trait DICEPOSICION
-    trait Posicion
-    {
-        private $x;
-        private $y;
-
-        public function setX($x){$this->x = $x;}
-        public function getX(){return $this->x;}
-        public function setY($y){$this->y = $y;}
-        public function getY(){return $this->y;}
-    }
+    spl_autoload_register(function ($class){
+        $classPath = "./clases/";
+        require("$classPath${class}.php");
+    });
 
     // ======== TESTEOS ==========
     //Personaje HUMANO
