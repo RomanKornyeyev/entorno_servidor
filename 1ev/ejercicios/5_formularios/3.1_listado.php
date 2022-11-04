@@ -4,7 +4,13 @@
     );
 
     $lines = explode("\n", $data);
-    print_r($lines);
+
+    function cleanData($data) {
+        $data = trim($data);
+        $data = stripslashes($data);
+        $data = htmlspecialchars($data);
+        return $data;
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -26,9 +32,9 @@
         <tbody>
             <?php 
                 foreach ($lines as $line) {
-                    $fields = explode($line, ";");
                     echo "<tr>";
-                    echo "<td>$fields[0]</td>";
+                    $fields = explode(";", $line);
+                    echo "<td>".cleanData($fields[0])."</td>";
                     echo "<td>$fields[1]</td>";
                     echo "<td>$fields[2]</td>";
                     echo "</tr>";
@@ -36,5 +42,6 @@
             ?>
         </tbody>
     </table>
+    <a href="3_nuevo.php">Añade otro</a>
 </body>
 </html>
