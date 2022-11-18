@@ -79,7 +79,7 @@
 
     //ejer 4
     function printearNums(){
-        $num;
+        $num=0;//si se rompe, quitar el = 0
         $primo = false;
         while($num != 17 && !$primo){
             $num = mt_rand(1,100);
