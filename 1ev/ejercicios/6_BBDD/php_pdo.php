@@ -5,7 +5,8 @@
 // testConnectionPDO.php
 
 try {
-  $mbd = new PDO('mysql:host=localhost;dbname=mibasededatos', "roman", "123456"); //roman nombre, 123456 contra
+  //mysql:servidor:database, usuario(roman), contra(123456)
+  $mbd = new PDO('mysql:host=localhost;dbname=mibasededatos', "roman", "123456");
   
 
   // Utilizar la conexión aquí
@@ -15,9 +16,11 @@ try {
 
   foreach ($resultado as $key => $fila) {
     echo "<ul>";
+    echo "<a href='detalle.php?id=".$fila['id']."'>";
     foreach ($fila as $clave => $valor) {
       echo "<li>" . $clave . ": <b>" . $valor . "</b></li>";        
     }
+    echo "</a>";
     echo "</ul>";
   }
 
@@ -39,6 +42,7 @@ try {
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Inicio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
   <style>
     ul{
       border: 1px solid black;
