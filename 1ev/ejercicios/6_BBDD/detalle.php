@@ -1,19 +1,27 @@
 <?php 
 
-    //require('./accesoDB.php');
+    require('./accesoBD.php');
 
-    $mbd = new PDO('mysql:host=localhost;dbname=mibasededatos', "roman", "123456");
     $id = $_GET['id'];
-    $detalleCiclista = $mbd->prepare("SELECT * FROM Ciclistas where id=:id");
-    $detalleCiclista->setFetchMode(PDO::FETCH_ASSOC);
-    $detalleCiclista->bindParam(':id', $id);
-    $detalleCiclista->execute();
-    $datos = $detalleCiclista->fetch(PDO::FETCH_OBJ);
-    echo "Ciclista: ".$datos->nombre."<br>ID: ".$datos->id."<br>Número de trofeos: ";
-    for ($i=0; $i < $datos->num_trofeos; $i++) { 
-        echo "<i class='fa-solid fa-trophy'></i>";
+    //si el ID es null, error
+    if($id == null){
+        echo "Error, ID nulo.";
+    }else{
+        $detalleCiclista = $mbd->prepare("SELECT * FROM Ciclistas where id=:id");
+        $detalleCiclista->setFetchMode(PDO::FETCH_ASSOC);
+        $detalleCiclista->bindParam(':id', $id);
+        $detalleCiclista->execute();
+        $datos = $detalleCiclista->fetch();
+        //si el ID introducido no devuelve ninguna row, es un ID inexistente
+        if(count($detall) == 0){
+            echo "Error, ID inexistente.";
+        }
+        echo "Ciclista: ".$datos->nombre."<br>ID: ".$datos->id."<br>Número de trofeos: ";
+        for ($i=0; $i < $datos->num_trofeos; $i++) { 
+            echo "<i class='fa-solid fa-trophy'></i>";
+        }
+        echo "(".$datos->num_trofeos.")";
     }
-    echo "(".$datos->num_trofeos.")";
 
 ?>
 <!DOCTYPE html>
