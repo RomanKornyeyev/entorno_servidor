@@ -7,9 +7,15 @@ CREATE USER 'examen'@'localhost' IDENTIFIED BY 'examen'; //NB USUARIO - CONTRASE
 GRANT ALL PRIVILEGES ON examen.* TO 'examen'@'localhost' WITH GRANT OPTION; //CONCEDER TODOS LOS PRIVILEGIOS AL USUARIO EXAMEN SOBRE LA BASE DE DATOS
 
 
-entrar a base con user: 
+// ==== LOGIN ====
+entrar a base con user:
+//-u usuario -p nombreBD
+
 mariadb -u roman -p mibasededatos
 mariadb -h 127.0.0.1 -u roman -p mibasededatos
+
+//EXAMEN
+mariadb -u examen -p examen
 
 
 INTERFAZ:
