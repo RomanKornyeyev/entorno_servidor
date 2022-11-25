@@ -2,32 +2,7 @@
 
     require('./accesoBD.php');
 
-    $id = $_GET['id'];
-    //si el ID es null, error
-    if($id == null){
-        echo "Error 404, ID nulo.";
-    }else{
-        $stmt = $mbd->prepare("SELECT * FROM Ciclistas where id=:id");
-        $stmt->bindParam(':id', $id);
-        $stmt->setFetchMode(PDO::FETCH_ASSOC);
-        $stmt->execute();
-        $datos = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-        //si el ID introducido no devuelve ninguna row, es un ID inexistente
-        if (count($datos) == 0) {
-            echo "Error 404, ID inexistente.";
-        }else{
-            foreach ($datos as $dato) {
-                echo "Ciclista: ".$dato['nombre']."<br>ID: ".$dato['id']."<br>Número de trofeos: ";
-                for ($i=0; $i < $dato['num_trofeos']; $i++) {echo "<i class='fa-solid fa-trophy'></i>";}
-            }            
-        }        
-    }
-
-    echo "<br><a href='php_pdo.php'>Volver al listado</a>";
-
-    //Ya se ha terminado; se cierra
-    $mbd = null;
+    
 
 ?>
 <!DOCTYPE html>
@@ -46,6 +21,35 @@
   </style>
 </head>
 <body>
-
+    <div class="global">
+        <?php 
+            $id = $_GET['id'];
+            //si el ID es null, error
+            if($id == null){
+                echo "Error 404, ID nulo.";
+            }else{
+                $stmt = $mbd->prepare("SELECT * FROM Ciclistas where id=:id");
+                $stmt->bindParam(':id', $id);
+                $stmt->setFetchMode(PDO::FETCH_ASSOC);
+                $stmt->execute();
+                $datos = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        
+                //si el ID introducido no devuelve ninguna row, es un ID inexistente
+                if (count($datos) == 0) {
+                    echo "Error 404, ID inexistente.";
+                }else{
+                    foreach ($datos as $dato) {
+                        echo "Ciclista: ".$dato['nombre']."<br>ID: ".$dato['id']."<br>Número de trofeos: ";
+                        for ($i=0; $i < $dato['num_trofeos']; $i++) {echo "<i class='fa-solid fa-trophy'></i>";}
+                    }
+                }        
+            }
+        
+            echo "<br><a href='php_pdo.php'>Volver al listado</a>";
+        
+            //Ya se ha terminado; se cierra
+            $mbd = null;
+        ?>
+    </div>
 </body>
 </html>
