@@ -1,0 +1,42 @@
+body {
+    text-align: center;
+  }
+  
+  h1 {
+      padding-top: 0.5em;
+      font-size: 8em;
+  }
+  
+  table {
+      border-collapse: collapse;
+  }
+  
+  table {
+    margin: auto;
+  }
+  
+  table, th, td {
+      border: 1px solid black;
+  }
+  
+  td {
+    min-width: 3em;
+    min-height: 3em;
+    text-align: center;
+  }
+  
+  input {
+    max-width: 3em;
+  }
+  
+  .error {
+    font-weight: bold;
+    color: #D33;
+  }
+  
+  .victoria {
+    font-weight: bold;
+    font-size: 2em;
+    color: #808000;
+  }
+  
