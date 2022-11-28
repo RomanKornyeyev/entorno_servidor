@@ -1,0 +1,38 @@
+textarea, input[type] {
+    margin: 5px;
+}
+
+input,textarea {
+    margin-top: 100px;
+    border: 1px solid gray;
+    padding: 1%;
+    border-radius: 15px;
+}
+
+h1 {
+    padding-bottom: 4%;
+}
+
+.formulario {
+    text-align: center;
+    margin: 0 auto;
+    padding: 5%;
+    margin: 5%;
+
+    background-color: aliceblue;
+    border-radius: 15px;
+}
+
+.elemento {
+    text-align: center;
+    margin: .5%;
+}
+
+.error {
+    font-weight: bold;
+    text-align: center;
+    background-color: rgb(255, 120, 120);
+    margin: 1% 15%;
+    padding: 2%;
+    border-radius: 15px;
+}

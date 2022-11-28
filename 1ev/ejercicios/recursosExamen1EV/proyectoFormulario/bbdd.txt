@@ -1,0 +1,67 @@
+<tr><td>Andor</td>
+<td>Fantasia <td>Disney+</td>
+<td>X</td>
+<td>5</td>
+<td>La mejor serie del mundo.</td>
+<td>on</td>
+</tr><tr><td>Serie Mala</td>
+<td>Terror <td>Netflix</td>
+<td>V</td>
+<td>0</td>
+<td>Terriblemente mala.</td>
+<td>off</td>
+</tr><tr><td>melodrama generico</td>
+<td>Comedia Romantico Escolar Suspense <td>Otros</td>
+<td>X</td>
+<td>3</td>
+<td>A algunos les gusta</td>
+<td>off</td>
+</tr><tr><td>Seriaza</td>
+<td>Comedia Terror Historico </td><td>Netflix</td>
+<td>L</td>
+<td>5</td>
+<td>Me molo mucho</td>
+<td>off</td>
+</tr><tr><td>Serie humilde</td>
+<td>Comedia </td><td>HBO</td>
+<td>J</td>
+<td>1</td>
+<td>Le falta gancho</td>
+<td>off</td>
+<tr><td>Serie Genial</td>
+<td>Romantico </td><td>Netflix</td>
+<td>L</td>
+<td>5</td>
+<td>Es genial.</td>
+<td>off</td>
+</tr><tr><td>pruebaocho</td>
+<td>Comedia Romantico Escolar </td><td>HBO</td>
+<td>J</td>
+<td>0</td>
+<td>una caca</td>
+<td>on</td>
+<tr><td>SerieCaca</td>
+<td>Historico Romantico </td><td>Disney+</td>
+<td>L</td>
+<td>0</td>
+<td>muy mal</td>
+<td>on</td>
+</tr><tr><td>pruebaPrivates</td>
+<td>Romantico Escolar Misterio </td><td>Disney+</td>
+<td>L</td>
+<td>5</td>
+<td>Una pasadisima</td>
+<td>off</td>
+</tr><tr><td>Prueba</td>
+<td>Disney+</td>
+<td>L</td>
+<td>0</td>
+<td>una mierda</td>
+<td>off</td>
+</tr><tr><td>sdfasdfasd</td>
+<td>Terror </td><td>Netflix</td>
+<td>L</td>
+<td>3</td>
+<td>asdfadsf</td>
+<td>off</td>
+</tr>

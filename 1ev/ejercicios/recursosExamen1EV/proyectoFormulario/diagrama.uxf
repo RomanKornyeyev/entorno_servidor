@@ -1,0 +1,40 @@
+<diagram program="umletino" version="15.0.0"><zoom_level>10</zoom_level><element><id>UMLClass</id><coordinates><x>400</x><y>400</y><w>210</w><h>130</h></coordinates><panel_attributes>Serie
+--
+- valores: array
+- esValida: boolean
+--
++ validarGlobal()
++ pintarGlobal()
++ guardar()</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>400</x><y>580</y><w>210</w><h>190</h></coordinates><panel_attributes>Atipo
+--
+# error: string
+- name: string
+- valor: string
+--
++ validar()
++ imprimirError()
+a+ pintar()
+a+ validarEspecifico()</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>490</x><y>520</y><w>30</w><h>80</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;60</additional_attributes></element><element><id>UMLClass</id><coordinates><x>110</x><y>940</y><w>210</w><h>190</h></coordinates><panel_attributes>Texto
+--
+- longitud: int
+--
++ validarEspecifico()
++ pintar()
++ cleanData(): string</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>210</x><y>760</y><w>310</w><h>200</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes><additional_attributes>290;10;10;180</additional_attributes></element><element><id>UMLClass</id><coordinates><x>410</x><y>940</y><w>210</w><h>190</h></coordinates><panel_attributes>Numero
+--
+
+--
++ validarEspecifico()
++ pintar()</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>500</x><y>760</y><w>30</w><h>200</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;180</additional_attributes></element><element><id>UMLClass</id><coordinates><x>700</x><y>940</y><w>210</w><h>190</h></coordinates><panel_attributes>Seleccion
+--
+- atributos: array
+- opcionExclusiva: boolean
+--
++ validarEspecifico()
++ pintar()
++ pintarSelect()
++ pintarCeckbox()</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>510</x><y>760</y><w>310</w><h>200</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes><additional_attributes>10;10;290;180</additional_attributes></element><element><id>UMLClass</id><coordinates><x>400</x><y>170</y><w>210</w><h>140</h></coordinates><panel_attributes>Formulario (---FALTA---)
+--
+
+--
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>490</x><y>300</y><w>30</w><h>120</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;100</additional_attributes></element></diagram>
