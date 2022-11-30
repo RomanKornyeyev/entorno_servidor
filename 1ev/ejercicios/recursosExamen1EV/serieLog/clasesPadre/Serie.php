@@ -29,7 +29,7 @@ class Serie
         array_push($this->valores, new Texto       ($nombre,"nombre", Texto::LONG_NOMBRE));
         array_push($this->valores, new Seleccion   ($genero, "generos", false, ["Comedia","Terror","Historico","Romantico","Escolar","Misterio","Suspense","Fantasia"]));
         array_push($this->valores, new Seleccion   ($plataforma, "plataforma", true, ["Netflix","Amazon Prime","HBO","Disney+","Otros"]));
-        array_push($this->valores, new Seleccion   ($emision, "emision",false, ["En emisión"]));
+        // array_push($this->valores, new Seleccion   ($emision, "emision",true, ["En emisión", ""]));
         array_push($this->valores, new Seleccion   ($diaEstreno, "dia", true, ["L","M","X","J","V","S","D"]));
         array_push($this->valores, new Numero      ($valoracion, "valoracion"));
         array_push($this->valores, new Texto       ($resena, "reseña", Texto::LONG_DESCRIPCION));

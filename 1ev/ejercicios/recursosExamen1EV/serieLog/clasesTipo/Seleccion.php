@@ -12,7 +12,7 @@ class Seleccion extends Atipo
         foreach ($atributos as $atributo){
             array_push($this->atributos, $atributo);
         }
-        }
+    }
     public function validarEspecifico($value)
     {
         if (is_string($value))
@@ -50,10 +50,10 @@ class Seleccion extends Atipo
     }
     public function pintarCheckbox($arr)
     {
-        print '<div class="checkbox__"' . $this->getName() . '>';
+        print '<div class="checkbox__' . $this->getName() . '">';
         $checked ="";
         foreach ($arr as $value) {
-            // if(!empty($this->getValor())) (in_array($value, $this->getValor()))? $checked = "checked" : $checked = "";
+            if(!empty($this->getValor())) (in_array($value, $this->getValor()))? $checked = "checked" : $checked = "";
             print '<label for="' . $this->getName() . '"><input type="checkbox" id="' .$value . '" name="' . $this->getName() . '[]" value="' .$value . '" '.$checked.'>' . $value. '</label>';
         }
         print '</div>';
