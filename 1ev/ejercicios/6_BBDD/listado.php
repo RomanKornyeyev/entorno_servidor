@@ -74,7 +74,8 @@
         $mbd = null;
       ?>
 
-      <a href="insertarCiclista.php">Insertar ciclista</a>
+      <a href="insertarCiclista.php">Insertar ciclista</a><br>
+      <a href="updateCiclista.php">Updatear ciclista</a>
     </div>
 </body>
 
