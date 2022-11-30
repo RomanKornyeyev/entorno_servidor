@@ -1,10 +1,10 @@
 <?php
     $nombre="";
     $edad="";
+    $idioma="";
+    $estado="";
     $comentarios="";
-    $estado=""; //radius
-    $idioma=""; //select
-    $pasatiempos=""; //checkbox
+    $pasatiempos="";
     $datos=[];
     $errores=[];
     $sele="";
@@ -60,6 +60,10 @@
             exit();
         }
     }
+
+    echo "<pre>";
+    print_r($datos);
+    echo "</pre>";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -85,7 +89,7 @@
         ?>
         
         <label for="edad">Edad: </label>
-        <input type="number" name="edad" id="edad" min=10 max=80 size=2 value="<?=$edad?>"><br>
+        <input type="number" name="edad" id="edad" min=10 max=80 size=2 value="<?=$_POST['edad']?>"><br>
         <?php
             if (isset($errores['edad'])) {
                 echo "<p>".$errores['edad']."</p>";
@@ -93,7 +97,7 @@
         ?>
 
         <label for="nombre">Comentarios:</label><br>
-        <textarea name="comentarios" id="comentarios" cols="30" rows="10" placeholder="Escribe algo aquí..."><?=$comentarios?></textarea><br>
+        <textarea name="comentarios" id="comentarios" cols="30" rows="10" placeholder="Escribe algo aquí..."><?=$_POST['comentarios']?></textarea><br>
         <?php
             if (isset($errores['comentarios'])) {
                 echo "<p>".$errores['comentarios']."</p>";
@@ -105,7 +109,7 @@
             array_walk($opcEstado, function($value, $key, $estado) {
                 $sele=($estado==$value)?"checked":"";
                 echo "$value<input type='radio' name='estado' id='$value' value='$value' $sele><br>";
-            }, $estado);
+            }, $_POST['estado']);
         ?>
         <?php
             if (isset($errores['estado'])) {
@@ -119,7 +123,7 @@
             array_walk($opcIdiomas, function($value, $key, $idioma) {
                 $sele=($idioma==$value)?"selected":"";
                 echo "<option value='$value' $sele>$value</option>";
-            }, $idioma);
+            }, $_POST['idioma']);
         ?>
         </select>
         <?php
@@ -131,12 +135,18 @@
         <label for="pasatiempos"><br>Selecciona tus pasatiempos favoritos:</label><br>
         <?php
             $sele;
-            foreach ($opcPasatiempos as $value) {  
+/*          foreach ($opcPasatiempos as $value) {  
                 if (!empty($_POST['pasatiempos'])) {
                     $sele=(in_array($value, $_POST['pasatiempos']))?"checked":"";
                 }
                     echo "$value <input type='checkbox' name='pasatiempos[]' value='$value' $sele><br>";
-            }
+            } */
+            array_walk ($opcPasatiempos, function($value, $key, $pasatiempo) {  
+                if (!empty($_POST['pasatiempos'])) {
+                    $sele=(in_array($value, $_POST['pasatiempos']))?"checked":"";
+                }
+                    echo "$value <input type='checkbox' name='pasatiempos[]' value='$value' $sele><br>";
+            }, $_POST['pasatiempo']);
         ?>
         <?php
             if (isset($errores['pasatiempos'])) {
