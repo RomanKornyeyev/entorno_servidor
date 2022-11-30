@@ -62,15 +62,19 @@
           if($primeraFila) foreach ($fila as $llave => $value)if($llave != 'id') echo "<div class='tabla tabla-titulo'>$llave</div>";
           $primeraFila = false;
           echo "<div class='tabla tabla-valor'><a href='detalle.php?id=" . $fila['id'] . "'>" . $fila['nombre'] . "</a></div>";
+
           echo "<div class='tabla tabla-valor'>";
-          for ($i = 0; $i < $fila['num_trofeos']; $i++) {echo "<i class='fa-solid fa-trophy'></i>";}
-          echo "(" . $fila['num_trofeos'] . ")</div>";
+            for ($i = 0; $i < $fila['num_trofeos']; $i++) {echo "<i class='fa-solid fa-trophy'></i>";}
+          echo "(" . $fila['num_trofeos'] . ")";
+          echo "</div>";
         }
 
         // Ya se ha terminado; se cierra
         $resultado = null;
         $mbd = null;
       ?>
+
+      <a href="insertarCiclista.php">Insertar ciclista</a>
     </div>
 </body>
 
