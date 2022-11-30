@@ -1,7 +1,6 @@
 <?php 
 
     $estado = ""; //almacena el radio seleccionado de estado
-
     $datos = [];
     $errores = [];
     $selected = ""; //booleano para select o no
@@ -25,8 +24,20 @@
         if (isset($_POST['idioma']) && $_POST['idioma'] != "" && $_POST['idioma'] != null) $datos['idioma'] = $_POST['idioma'];
         else $errores['idioma'] = "<span class='error'>*El campo idioma no puede estar vacío</span>";  
 
+        if (isset($_POST['aficion']) && !empty($_POST['aficion']))  $datos['aficion'] = strtolower(implode(", ", $_POST['aficion']));
+        else $errores['aficion']="<span class='error'>*Debes seleccionar al menos una opión</span>";
 
 
+        //guardado de datos
+        if (count($errores) == 0) {
+            $cadena=implode(";", $datos);
+            file_put_contents('BD.txt', "$cadena;\n", FILE_APPEND);
+            //Redirect
+            header("Location: listaForm.php");
+    
+            //Exit
+            exit();
+        }
     }
 
 
@@ -38,7 +49,7 @@
     <meta name="author" content="Román">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Formulario Pocho</title>
     <style>
         .error{color:red}
     </style>
@@ -77,15 +88,18 @@
         <br>Aficiones:<br>
         <?php
             foreach ($opcAficion as $value) {
-                ($_POST['aficion'] == $value)? $selected = "checked" : $selected = "";
-                echo "$value<input type='checkbox' name='aficion' value='$value'><br>";
+                if (!empty($_POST['aficion'])) {
+                    (in_array($value, $_POST['aficion']))? $selected = "checked": $selected = "";
+                }
+                echo "$value<input type='checkbox' name='aficion[]' value='$value' $selected><br>";
             }
         ?>
         <?php if(isset($errores['aficion'])) echo "<br>".$errores['aficion']."<br>"; ?>
 
 
 
-        <br><br><input type="submit" name="enviar" value="ENVIAR">
+        <br><br><input type="submit" name="enviar" value="ENVIAR"><br><br>
+        <a href="listaForm.php">Ver listado</a>
         
     </form>
 </body>
