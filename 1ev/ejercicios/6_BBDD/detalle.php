@@ -2,8 +2,6 @@
 
     require('./accesoBD.php');
 
-    
-
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -45,7 +43,7 @@
                 }        
             }
         
-            echo "<br><a href='php_pdo.php'>Volver al listado</a>";
+            echo "<br><a href='listado.php'>Volver al listado</a>";
         
             //Ya se ha terminado; se cierra
             $mbd = null;

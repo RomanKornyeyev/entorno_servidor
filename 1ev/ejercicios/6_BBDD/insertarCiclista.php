@@ -19,10 +19,27 @@
         foreach ($resultado as $key => $value) {
             $ultimoId = $value['id'];
         }
-        echo $ultimoId;
+        //último ID+1 (ID automático para nuevos ciclistas)
+        $ultimoId++;
 
         //insert de datos
+        if(count($errores) == 0){
+            // Prepare
+            $stmt = $mbd->prepare("INSERT INTO Ciclistas (nombre, num_trofeos) VALUES (:nombre, :num_trofeos)");
+            // Bind
+            $nombre = $datos['nombre'];
+            $num_trofeos = $datos['trofeos'];
+            $stmt->bindParam(':nombre', $nombre);
+            $stmt->bindParam(':num_trofeos', $num_trofeos);
+            // Excecute
+            $stmt->execute();
+            header("Location: listado.php");
+        }
         
+        
+        //cerramos y reseteamos
+        $resultado = null;
+        $mbd = null;
     }
 ?>
 <!DOCTYPE html>
