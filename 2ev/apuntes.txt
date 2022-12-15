@@ -1,1 +1,0 @@
-Location NUNCA debe ir después del contenido(código HTML), siempre tiene que ir ANTES DEL CONTENIDO

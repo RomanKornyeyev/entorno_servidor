@@ -1,0 +1,12 @@
+Location NUNCA debe ir después del contenido(código HTML), siempre tiene que ir ANTES DEL CONTENIDO
+
+=== USERS ===
+
+BBDD:
+la password SIEMPRE va con hash
+
+Siempre que intentas recuperar contra, al introducir el email, no decimos si el email existe,
+decimos que si el email existe, le hemos enviado un correo.
+
+En el correo va un botón con una URL, con un get ENORME (256b), que está asociado a un token
+el cual se crea cuando le damos a "enviar correo de recuperacion" y expira en x tiempo (ej: 1h)
