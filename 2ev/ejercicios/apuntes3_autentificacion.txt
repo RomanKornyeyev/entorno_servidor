@@ -1,0 +1,5 @@
+login.php
+logout.php
+
+¿Qué estrategia tenemos en la web para proteger areas privadas?
+Guardar la info en un sitio confiable (SESIONES)

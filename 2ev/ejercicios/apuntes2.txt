@@ -1,0 +1,18 @@
+CLIENTE     |   SERVIDOR    |   FIABLE
+----------------------------------------
+HTTP-cabec. |   $_SERVER    |   x
+URL         |   $_GET       |   x
+Formulario  |   $_POST      |   x
+AJAX XHR    | $_GET o $_POST|   x
+Cabeceras   |   $_COOKIE    |   x
+
+
+¿Qué hacen las sesiones?
+Como en el mundo web necesitamos tener un registro de los usuarios, pero ninguna info es fiable,
+se usan las sesiones, con los TOKENS.
+
+¿Qué son las sesiones?
+Controlamos en una BD o en ficheros o en otro server la sesión de un usuario:
+    genero TOKEN (numerajo larguísimo)
+    pongo el TOKEN como una COOKIE
+    identifico al user con esa COOKIE 
