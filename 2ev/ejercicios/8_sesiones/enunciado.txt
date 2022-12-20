@@ -1,6 +1,6 @@
-1. Cambiar el anterior (7.2) de cookies a sesiones
+1. Cambiar el anterior (7.2) de cookies a sesiones (es el 8.1)
 
-2. Adivina el número entre 0 y 10 con 3 intentos
+2. Adivina el número entre 0 y 10 con 3 intentos (8.2)
     ->si es mayor o menor
 
-3. Captcha (función imagen)
+3. Captcha (función imagen) (extra)
