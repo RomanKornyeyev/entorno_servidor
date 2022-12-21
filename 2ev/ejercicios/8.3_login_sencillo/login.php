@@ -1,4 +1,16 @@
 <?php
+//conexion BDs
+require("./db.php");
+
+//sesiones siempre de las primeras cosas
+session_start();
+
+if (isset($_SESSION['user'])) {
+    header("Location: premio.php");
+    die();
+}
+
+
 
 function clean_input($data) {
   $data = trim($data);
@@ -9,8 +21,16 @@ function clean_input($data) {
 
 $login = "";
 $pass = "";
+$url = "";
 $errorList = [];
 
+if (isset($_GET['url'])) {
+    $url = $_GET['url'];
+}else if (isset($_POST['url'])) {
+    $url = $_POST['url'];
+}
+
+echo $url;
 
 if(isset($_POST["submit"])) {
     if(isset($_POST["login"])){
@@ -27,16 +47,20 @@ if(isset($_POST["submit"])) {
         $password = clean_input($_POST["password"]);
     }
 
-    // $sql="SELECT * FROM usuarios WHERE user = ? AND password=?";
-    // Consulta preparada!
-    // Traed registro de usuario con ese email
-    // Haced un hash de la contraseña
-    // Comparad hash con hash
+    $consulta = $mbd->prepare("SELECT * FROM usuarios WHERE email = :email LIMIT 1");
+    $consulta->execute([':email' => $login]);
+    $user = $consulta->fetch();
+    print_r($user);
 
-    if( $login == "asd@asd.es" && $password == "1234" ){
-        // Bonus: Semos pogramadores güenos. 
-        // Haced un reenvío a la página privada que quería visitar.
-        header('Location: premio.php');
+    // $sql="SELECT * FROM usuarios WHERE user = ? AND password=?";
+
+    if( isset($user) && password_verify($password, $user['pass']) ){
+        $_SESSION["user"] = $login;
+        if ($url != "") {
+            header('Location: '.$url);
+        }else{
+            header('Location: premio.php');
+        }
         exit;
     }else{
         $errorList[] = "Clave errónea";
@@ -60,6 +84,7 @@ if(isset($_GET["error"])){
         <p>
             <label for="login">Email:</label>
             <input type="text" name="login" id="login" value="<?=$login?>">
+            <input type="hidden" name="url" id="url" value="<?=$url?>">
         </p>
 
         <p>
@@ -83,10 +108,3 @@ if(isset($_GET["error"])){
 </body>
 
 </html>
-
-
-<!---
-<script>alert(document.cookie);</script>
-"<script>alert(document.cookie);</script>
-"><script>alert(document.cookie);</script>
---->

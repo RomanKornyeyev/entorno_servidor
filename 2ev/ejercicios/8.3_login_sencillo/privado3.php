@@ -1,10 +1,6 @@
 <?php
 
-
-if( true ){
-    header('Location: login.php?error=No implementado');
-    exit;
-}
+    require("./private_area.php");
 
 ?>
 <html>

@@ -1,10 +1,6 @@
 <?php
 
-
-if( true ){
-    header('Location: login.php?error=No implementado');
-    exit;
-}
+require("./private_area.php");
 
 ?>
 <html>
@@ -16,7 +12,7 @@ if( true ){
 <body>
     <h1>Bienvenido!!</h1>
     <?php include('menu.php')?><br>
-    <img src="img/starstudent.png" />
+    <img src="./img/starstudent.png" alt="img"/>
 </body>
 
 </html>
