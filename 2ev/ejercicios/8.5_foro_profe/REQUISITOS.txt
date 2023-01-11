@@ -1,0 +1,7 @@
+¿QUÉ NECESITAMOS?
+listado.php (pub)   /listado/   /<nombre>/ (listado de usuarios)
+detalle.php (pub)   /detalle/<id>/
+login.php (pub)     /login/
+logout.php (priv)   /logout/
+registro.php (pub)  /registro/
+edit.php (priv)     /perfil/
