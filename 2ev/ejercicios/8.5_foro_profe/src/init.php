@@ -1,7 +1,7 @@
 <?php 
 
-    require("../src/DWESBaseDatos.php");
-    require("../src/config.php");
+    require("DWESBaseDatos.php");
+    require("config.php");
 
     $DB=DWESBaseDatos::obtenerInstancia();
     $DB->inicializa(
