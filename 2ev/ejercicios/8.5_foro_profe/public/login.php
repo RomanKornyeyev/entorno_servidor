@@ -41,7 +41,7 @@ if (isset($_POST['login'])) {
                 $token,
                 [
                     "expires" => time() + 7 * 24 * 60 * 60,
-                    "secure" => true,
+                    /*"secure" => true,*/
                     "httponly" => true
                 ]
             );
