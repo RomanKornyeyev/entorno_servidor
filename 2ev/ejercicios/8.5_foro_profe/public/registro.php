@@ -13,11 +13,8 @@
         if($insertado){
             Mailer::sendEmail(
                 $_POST['correo'],
-                "Nuevo usuario",
-                <<<EOL
-                    Bienvenido $_POST['nombre'],
-                    Has hecho bien en registrarte.
-                EOL
+                "Nuevo usuario - prueba",
+                "REGISTRAO EN LINKENIN"
             );
         }
     }
