@@ -1,0 +1,16 @@
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.global {
+    min-width: 100vw;
+    min-height: 100vh;
+}
+.heading{background-color: lightgrey;}
+table{margin: 0 auto;}
+table, tr, td{border-collapse: collapse; border: 1px solid black;}
+td{padding: 15px;}
+.titulo{text-align: center;}
