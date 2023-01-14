@@ -36,12 +36,15 @@ CREATE TABLE RESPUESTAS(
 
 
 /*alteramos la tabla para poder tener la doble clave primaria y que solo incremente una*/
+/*también para poder incrementar los ID's por cada post/tema, es decir, post 1, id_res=1, 2, 3 ; post 2 id_res=1, 2, 3*/
 ALTER TABLE RESPUESTAS DROP PRIMARY KEY, ADD PRIMARY KEY(ID_RESPUESTA, ID_POST);
+ALTER TABLE POSTS DROP PRIMARY KEY, ADD PRIMARY KEY(ID_POST, TNOMBRE);
 
 
 
 /*INSERTS*/
 /*USERS*/
+/*todas las contraseñas son 1234*/
 INSERT INTO USUARIOS VALUES('Roman', '$2y$10$fl.4RJM3CqJ7F7g8LIiEB.6k0EIThEN6Z0ShHgLh.vGf8rsw/J2Xi');
 INSERT INTO USUARIOS VALUES('Francis', '$2y$10$JSRajk9KgJi1q4zl5H1V6eJPQNUAlM0KehbtqiEltSsoLsqMflUpC');
 INSERT INTO USUARIOS VALUES('Anabel', '$2y$10$Ul1tpV2SCL7cWC5tFY9yU.j2DZG/xgfY7xbK0vh/pe.tLaZ/TdTKK');
@@ -53,9 +56,12 @@ INSERT INTO TEMAS VALUES('PROGRAMACION','JAVA, PHP, ETC.');
 /*POSTS*/
 INSERT INTO POSTS VALUES(1, 'GAMING', 'Roman', 'HORIZON ZERO DAWN', 'Es un juego muy divertido, porque bla bla bla...');
 INSERT INTO POSTS VALUES(2, 'GAMING', 'Roman', 'APEX', 'Es un shooter jeje');
+INSERT INTO POSTS VALUES(1, 'PROGRAMACION', 'Anabel', 'Java', 'Lenguaje de programación mixto de alto nivel');
+INSERT INTO POSTS VALUES(2, 'PROGRAMACION', 'Francis', 'C++', 'Lenguaje de programación compilado de alto nivel');
+
 
 /*RESPUESTAS*/
 INSERT INTO RESPUESTAS VALUES(1, 1, 'CONTENIDO RESPUESTA', 'Francis');
-INSERT INTO RESPUESTAS (ID_POST, CONTENIDO, NOMBRE) VALUES (1, "CONTENIDO RESPUESTA", 'Francis');
-INSERT INTO RESPUESTAS (ID_POST, CONTENIDO, NOMBRE) VALUES (1, "CONTENIDO RESPUESTA JEJE", 'Francis');
-INSERT INTO RESPUESTAS (ID_POST, CONTENIDO, NOMBRE) VALUES (2, "CONTENIDO", 'Anabel');
+INSERT INTO RESPUESTAS VALUES(2, 1, 'CONTENIDO RESPUESTA 2', 'Roman');
+INSERT INTO RESPUESTAS VALUES(1, 2, 'CONTENIDO RESPUESTA JEJE', 'Anabel');
+INSERT INTO RESPUESTAS VALUES(2, 2, 'CONTENIDO RESPUESTA BLA BLA', 'Francis');
