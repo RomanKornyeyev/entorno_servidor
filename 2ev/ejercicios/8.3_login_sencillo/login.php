@@ -30,23 +30,24 @@ if (isset($_GET['url'])) {
     $url = $_POST['url'];
 }
 
-echo $url;
+//echo $url;
 
 if(isset($_POST["submit"])) {
+    //nombre
     if(isset($_POST["login"])){
         $login = clean_input($_POST["login"]);
     }
-
     if (!filter_var($login, FILTER_VALIDATE_EMAIL)) {
         $errorList[] = "Usuario inválido";
         //http://php.net/manual/es/filter.filters.php
     }
 
-
+    //password
     if(isset($_POST["password"])){
         $password = clean_input($_POST["password"]);
     }
 
+    //consulta en BD
     $consulta = $mbd->prepare("SELECT * FROM usuarios WHERE email = :email LIMIT 1");
     $consulta->execute([':email' => $login]);
     $user = $consulta->fetch();
@@ -105,6 +106,7 @@ if(isset($_GET["error"])){
             <button type="submit" name="submit" class="login-button">Login</button>
         </p>
     </form>
+    
 </body>
 
 </html>
