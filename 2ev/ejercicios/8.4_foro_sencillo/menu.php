@@ -7,7 +7,10 @@
                     <a href='index.php'>Inicio</a>
                     <a href='lista.php'>Lista de usuarios</a>
                 </div>
-                <h2> $user </h2>
+                <div class='flex-center-center gap-10'>
+                    <h2> $user </h2>
+                    $link_login
+                </div>
             </div>
         </nav>";
 

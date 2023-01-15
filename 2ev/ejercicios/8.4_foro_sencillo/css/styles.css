@@ -4,11 +4,12 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    list-style: none;
 }
 .nav-wrapper{
     width: 100vw;
     padding: 15px;
-    background-color: rgb(194, 194, 194);
+    background-color: rgb(172, 172, 172);
 }
 .nav{
     margin: 0 auto;
@@ -24,12 +25,53 @@
     min-height: 500px;
     background-color: rgb(238, 238, 238);
 }
+.posts{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    margin: 0 auto;
+}
+.posts__post{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    padding: 15px;
+    background-color: lightblue;
+}
+.post__desc{
+    max-width: 50%;
+    max-height: 40px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
 .login{
     display: flex;
     justify-content: center;
     align-items: center;
     flex-flow: column;
+    gap: 20px;
+    /* border: 1px solid black; */
+}
+.input-wrapper{
+    width: 100%;
+    text-align: center;
+}
+.input{
+    width: 100%;
+    padding: 10px;
+}
+.login-button{
+    width: 100%;
+    padding: 15px;
+    display: inline-block;
+    text-align: center;
+    background-color: lightgray;
     border: 1px solid black;
+    transition: all 150ms ease-out;
+}
+.login-button:hover{
+    background-color: lightslategray;
 }
 .perfil{
     display: flex;
@@ -69,3 +111,9 @@ td{padding: 15px;}
 .center-text{text-align: center;}
 .width-100vw{width: 100vw;}
 .limit-width-1200{max-width: 1200px;}
+.flex-center-center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.gap-10{gap:10px;}

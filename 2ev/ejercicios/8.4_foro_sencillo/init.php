@@ -22,4 +22,7 @@
     $user = 'Anónimo';
     $user = isset($_SESSION["user"])?"<a href='perfil.php?usuario=".$_SESSION["user"]."'>".$_SESSION["user"]."</a>":$user;
 
+    $link_login = "";
+    $link_login = isset($_SESSION["user"])?"<a href='logout.php'>Cerrar sesión</a>":"<a href='login.php'>Login</a>";
+
 ?>

@@ -49,7 +49,7 @@ if(isset($_POST["submit"])) {
     $consulta->execute([':NOMBRE' => $login]);
     $user = $consulta->fetch();
     //$user = ['NOMBRE' => 'Roman', 'PASSWD' => 'asdads']
-    print_r($user);
+    //print_r($user);
 
     // $sql="SELECT * FROM usuarios WHERE user = ? AND password=?";
 
@@ -82,16 +82,16 @@ if(isset($_GET["error"])){
 </head>
 <body>
     <?php include('menu.php'); ?>
-    <form action="login.php" method="post" class="main limit-width-1200">
+    <form action="login.php" method="post" class="main limit-width-1200 flex-center-center">
         <div class="login">
-            <p>
+            <p class="input-wrapper">
                 <label for="login">Nombre:</label>
-                <input type="text" name="login" id="login" value="<?=$login?>">
+                <input type="text" name="login" id="login" value="<?=$login?>" class="input">
                 <input type="hidden" name="url" id="url" value="<?=$url?>">
             </p>
-            <p>
+            <p class="input-wrapper">
                 <label for="password">Password:</label>
-                <input type="password" name="password" id="password" value="">
+                <input type="password" name="password" id="password" value="" class="input">
             </p>
             <?php if (count($errorList)>0) { ?>
                 <p>
@@ -100,7 +100,7 @@ if(isset($_GET["error"])){
                     <?php } ?>
                 </p>
             <?php }?>
-            <p class="login-submit">
+            <p class="input-wrapper input-wrapper">
                 <button type="submit" name="submit" class="login-button">Login</button>
             </p>
         </div>
