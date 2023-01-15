@@ -5,6 +5,7 @@
     padding: 0;
     box-sizing: border-box;
     list-style: none;
+    text-decoration: none;
 }
 .nav-wrapper{
     width: 100vw;
@@ -38,6 +39,12 @@
     justify-content: space-between;
     padding: 15px;
     background-color: lightblue;
+}
+.posts__post--nuevo{
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    background-color: lightgreen;
 }
 .post__desc{
     max-width: 50%;
@@ -117,3 +124,4 @@ td{padding: 15px;}
     align-items: center;
 }
 .gap-10{gap:10px;}
+.gap-15{gap:15px;}

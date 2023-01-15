@@ -4,7 +4,7 @@ require("./init.php");
 
 //los header y die, también tienen que ir de lo primero
 if (isset($_SESSION['user'])) {
-    header("Location: lista.php");
+    header("Location: index.php");
     die();
 }
 
@@ -34,10 +34,6 @@ if(isset($_POST["submit"])) {
     if(isset($_POST["login"])){
         $login = clean_input($_POST["login"]);
     }
-    // if (!filter_var($login, FILTER_VALIDATE_EMAIL)) {
-    //     $errorList[] = "Usuario inválido";
-    //     //http://php.net/manual/es/filter.filters.php
-    // }
 
     //password
     if(isset($_POST["password"])){
@@ -58,7 +54,7 @@ if(isset($_POST["submit"])) {
         if ($url != "") {
             header('Location: '.$url);
         }else{
-            header('Location: lista.php');
+            header('Location: index.php');
         }
         exit;
     }else{
@@ -100,7 +96,7 @@ if(isset($_GET["error"])){
                     <?php } ?>
                 </p>
             <?php }?>
-            <p class="input-wrapper input-wrapper">
+            <p class="input-wrapper">
                 <button type="submit" name="submit" class="login-button">Login</button>
             </p>
         </div>

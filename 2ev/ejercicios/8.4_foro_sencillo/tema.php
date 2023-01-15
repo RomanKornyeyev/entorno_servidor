@@ -10,6 +10,9 @@
     }
     
     $tema = "";
+    $titulo = "";
+    $contenido = "";
+    $errores = [];
     
     if (isset($_GET['tema'])) {
         $tema = clean_input($_GET['tema']);
@@ -17,31 +20,48 @@
         $tema = clean_input($_POST['tema']);
     }
 
-    //si no hay posts en este tema, resetear el ID_POST a 1 (en este tema)
+    //1 - COMPROBAMOS SI HAY O NO POSTS y CUÁNTOS HAY
     $stmt = $mbd->prepare("SELECT * FROM POSTS WHERE TNOMBRE = :TNOMBRE");
     $stmt->execute([':TNOMBRE' => $tema]);
     $contador=0;
     foreach ($stmt as $valor) {
         $contador++;
     }
-    if ($contador == 0) {
-        $contador = 1;
-    } 
 
+    //2 - INSERTAMOS
+    //cargamos variables
+    if (isset($_POST['submit'])) {
+        if (isset($_POST['titulo']) && $_POST['titulo'] != "" && $_POST['titulo'] != null) $titulo = clean_input($_POST['titulo']);
+        else $errores['titulo'] = "<span class='error'>*El campo titulo no puede estar vacío</span>";
 
+        if (isset($_POST['contenido']) && $_POST['contenido'] != "" && $_POST['contenido'] != null) $contenido = clean_input($_POST['contenido']);
+        else $errores['contenido'] = "<span class='error'>*El campo contenido no puede estar vacío</span>";
 
+        //si no hay errores (campos vacíos)
+        if (count($errores) == 0) {
+            //el último ID_POST de ESTE TEMA + 1
+            $contador = $contador + 1;
 
+            // Prepare
+            $stmt = $mbd->prepare("INSERT INTO POSTS (ID_POST, TNOMBRE, NOMBRE, TITULO, CONTENIDO) VALUES (:ID_POST, :TNOMBRE, :NOMBRE, :TITULO, :CONTENIDO)");
+            // Bind
+            $stmt->bindParam(':ID_POST', $contador);
+            $stmt->bindParam(':TNOMBRE', $tema);
+            $stmt->bindParam(':NOMBRE', $user);
+            $stmt->bindParam(':TITULO', $titulo);
+            $stmt->bindParam(':CONTENIDO', $contenido);
+            // Excecute
+            $stmt->execute();
 
+            $titulo = "";
+            $contenido = "";
+        }
+        
+    }
+    
+    
 
-
-
-
-
-
-
-
-
-
+    //3 - buscamos todos los posts para mostrarlos
     $stmt = $mbd->prepare("SELECT * FROM POSTS WHERE TNOMBRE = :TNOMBRE");
     $stmt->execute([':TNOMBRE' => $tema]);
 
@@ -58,6 +78,7 @@
 <body>
     <?php include('menu.php'); ?>
     <main class="main limit-width-1200">
+        <h1 class="titulo"><?=$tema?></h1>
         <?php 
             echo "<ul class='posts'>";
             foreach ($stmt as $key => $fila) {
@@ -78,6 +99,30 @@
             $stmt = null;
             $mbd = null;
         ?>
+
+        <?php if(!$sesion_iniciada){ ?>
+            <div class="posts__post posts__post--nuevo">
+                ¿Quieres crear un nuevo post? <a href='login.php?url=tema.php?tema=<?=$tema?>'>Inicia sesión</a>
+            </div>
+        <?php }else{ ?>
+            <form action="tema.php?tema=<?=$tema?>" method="post" class="limit-width-1200 flex-center-center gap-15 posts__post posts__post--nuevo">
+                    <h3>Crea un post</h3>
+                    <p class="input-wrapper">
+                        <label for="titulo">Título:</label>
+                        <input type="hidden" name="tema" id="tema" value="<?=$tema?>">
+                        <input type="text" name="titulo" id="titulo" value="<?=$titulo?>" class="input">
+                        <?php if(isset($errores['titulo'])) echo $errores['titulo']."<br>" ?>
+                    </p>
+                    <p class="input-wrapper">
+                        <label for="contenido">Contenido:</label>
+                        <textarea name="contenido" id="contenido" cols="30" rows="10" class="input"><?=$contenido?></textarea>
+                        <?php if(isset($errores['contenido'])) echo $errores['contenido']."<br>" ?>
+                    </p>
+                    <p class="input-wrapper">
+                        <button type="submit" name="submit" class="login-button">Crear</button>
+                    </p>
+            </form>
+        <?php } ?>
     </main>
     <?php include('footer.php'); ?>
 </body>
