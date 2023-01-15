@@ -38,7 +38,8 @@ CREATE TABLE RESPUESTAS(
 /*alteramos la tabla para poder tener la doble clave primaria y que solo incremente una*/
 /*también para poder incrementar los ID's por cada post/tema, es decir, post 1, id_res=1, 2, 3 ; post 2 id_res=1, 2, 3*/
 ALTER TABLE RESPUESTAS DROP PRIMARY KEY, ADD PRIMARY KEY(ID_RESPUESTA, ID_POST);
-ALTER TABLE POSTS DROP PRIMARY KEY, ADD PRIMARY KEY(ID_POST, TNOMBRE);
+/*ALTER TABLE POSTS DROP PRIMARY KEY, ADD PRIMARY KEY(ID_POST, TNOMBRE);*/
+/*se tendría que hacer también con POSTS para ser más pro, pero por falta de tiempo no lo hago*/
 
 
 
@@ -52,20 +53,20 @@ INSERT INTO USUARIOS VALUES('Anabel', '$2y$10$Ul1tpV2SCL7cWC5tFY9yU.j2DZG/xgfY7x
 /*TEMAS*/
 INSERT INTO TEMAS VALUES('GAMING','Videojuegos, consolas, etc');
 INSERT INTO TEMAS VALUES('PROGRAMACION','JAVA, PHP, ETC.');
+INSERT INTO TEMAS VALUES('HARDWARE', 'PCs, portátiles, tarjetas gráficas, etc.');
 
 /*POSTS*/
 INSERT INTO POSTS VALUES(1, 'GAMING', 'Roman', 'HORIZON ZERO DAWN', 'Es un juego muy divertido, porque bla bla bla...');
 INSERT INTO POSTS VALUES(2, 'GAMING', 'Roman', 'APEX', 'Es un shooter jeje');
-INSERT INTO POSTS VALUES(1, 'PROGRAMACION', 'Anabel', 'Java', 'Lenguaje de programación mixto de alto nivel');
-INSERT INTO POSTS VALUES(2, 'PROGRAMACION', 'Francis', 'C++', 'Lenguaje de programación compilado de alto nivel');
+INSERT INTO POSTS VALUES(3, 'PROGRAMACION', 'Anabel', 'Java', 'Lenguaje de programación mixto de alto nivel');
+INSERT INTO POSTS VALUES(4, 'PROGRAMACION', 'Francis', 'C++', 'Lenguaje de programación compilado de alto nivel');
 
 
 /*RESPUESTAS*/
-INSERT INTO RESPUESTAS (ID_POST, NOMBRE, CONTENIDO) VALUES (3, 'Roman', 'hola que tal');
-INSERT INTO RESPUESTAS VALUES(1, 1, 'CONTENIDO RESPUESTA', 'Francis');
-INSERT INTO RESPUESTAS VALUES(2, 1, 'CONTENIDO RESPUESTA 2', 'Roman');
-INSERT INTO RESPUESTAS VALUES(1, 2, 'CONTENIDO RESPUESTA JEJE', 'Anabel');
-INSERT INTO RESPUESTAS VALUES(2, 2, 'CONTENIDO RESPUESTA BLA BLA', 'Francis');
+INSERT INTO RESPUESTAS VALUES(1, 1, 'Buen juego, sí!', 'Francis');
+INSERT INTO RESPUESTAS VALUES(2, 1, 'La verdad es que sí, jeje', 'Roman');
+INSERT INTO RESPUESTAS VALUES(3, 2, 'Claro, que iba a ser si no?', 'Anabel');
+INSERT INTO RESPUESTAS VALUES(4, 3, 'Seh, me encanta!', 'Francis');
 
 
 /*resets valores*/
