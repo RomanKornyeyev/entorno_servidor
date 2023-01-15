@@ -8,9 +8,13 @@
     text-decoration: none;
 }
 .nav-wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 100vw;
     padding: 15px;
     background-color: rgb(172, 172, 172);
+    min-height: 100px;
 }
 .nav{
     margin: 0 auto;
@@ -52,6 +56,24 @@
     overflow: hidden;
     text-overflow: ellipsis;
 }
+.posts__respuesta{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    padding: 15px;
+    gap: 15px;
+    min-height: 150px;
+    background-color: lightblue;
+}
+.respuesta__info{
+    width: 100px;
+    border-right: 1px solid black;
+}
+.respuesta__desc{
+    /*100px de respuesta__info + 15*2px de padding*/
+    width: calc(100% - 130px);
+}
+
 .login{
     display: flex;
     justify-content: center;
@@ -102,9 +124,13 @@ td{padding: 15px;}
     color: red;
 }
 .footer-wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 100vw;
     padding: 15px;
     background-color: rgb(172, 172, 172);
+    min-height: 100px;
 }
 .footer{
     margin: 0 auto;

@@ -20,15 +20,7 @@
         $tema = clean_input($_POST['tema']);
     }
 
-    //1 - COMPROBAMOS SI HAY O NO POSTS y CUÁNTOS HAY
-    $stmt = $mbd->prepare("SELECT * FROM POSTS WHERE TNOMBRE = :TNOMBRE");
-    $stmt->execute([':TNOMBRE' => $tema]);
-    $contador=0;
-    foreach ($stmt as $valor) {
-        $contador++;
-    }
-
-    //2 - INSERTAMOS
+    //1 - INSERTAMOS
     //cargamos variables
     if (isset($_POST['submit'])) {
         if (isset($_POST['titulo']) && $_POST['titulo'] != "" && $_POST['titulo'] != null) $titulo = clean_input($_POST['titulo']);
@@ -39,13 +31,9 @@
 
         //si no hay errores (campos vacíos)
         if (count($errores) == 0) {
-            //el último ID_POST de ESTE TEMA + 1
-            $contador = $contador + 1;
-
             // Prepare
-            $stmt = $mbd->prepare("INSERT INTO POSTS (ID_POST, TNOMBRE, NOMBRE, TITULO, CONTENIDO) VALUES (:ID_POST, :TNOMBRE, :NOMBRE, :TITULO, :CONTENIDO)");
+            $stmt = $mbd->prepare("INSERT INTO POSTS (TNOMBRE, NOMBRE, TITULO, CONTENIDO) VALUES (:TNOMBRE, :NOMBRE, :TITULO, :CONTENIDO)");
             // Bind
-            $stmt->bindParam(':ID_POST', $contador);
             $stmt->bindParam(':TNOMBRE', $tema);
             $stmt->bindParam(':NOMBRE', $user);
             $stmt->bindParam(':TITULO', $titulo);
@@ -61,7 +49,7 @@
     
     
 
-    //3 - buscamos todos los posts para mostrarlos
+    //2 - buscamos todos los posts para mostrarlos
     $stmt = $mbd->prepare("SELECT * FROM POSTS WHERE TNOMBRE = :TNOMBRE");
     $stmt->execute([':TNOMBRE' => $tema]);
 
@@ -85,7 +73,7 @@
                 //pintamos cuerpo
                 echo "<li class='posts__post'>";
                 echo "<div class='post__info'>";
-                echo "<strong><a href='post.php?tema=".$fila['TNOMBRE']."&ID_POST=".$fila['ID_POST']."'>".$fila['TITULO']."</a></strong><br>";
+                echo "<strong><a href='post.php?id_post=".$fila['ID_POST']."'>".$fila['TITULO']."</a></strong><br>";
                 echo "<small><a href='perfil.php?usuario=".$fila['NOMBRE']."'>".$fila['NOMBRE']."</a></small>" ;
                 echo "</div>";
 
@@ -115,7 +103,7 @@
                     </p>
                     <p class="input-wrapper">
                         <label for="contenido">Contenido:</label>
-                        <textarea name="contenido" id="contenido" cols="30" rows="10" class="input"><?=$contenido?></textarea>
+                        <textarea name="contenido" id="contenido" cols="30" rows="10" class="input" maxlength="500"><?=$contenido?></textarea>
                         <?php if(isset($errores['contenido'])) echo $errores['contenido']."<br>" ?>
                     </p>
                     <p class="input-wrapper">
