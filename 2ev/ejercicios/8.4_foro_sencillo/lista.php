@@ -1,6 +1,6 @@
 <?php 
 
-    require('./db.php');
+    require('./init.php');
 
     $resultado = $mbd->prepare("SELECT * FROM USUARIOS");
     $resultado->execute();
@@ -16,7 +16,8 @@
     <title>ForoSencillo - Lista de usuarios</title>
 </head>
 <body>
-    <div class="global">
+    <?php include('menu.php'); ?>
+    <main class="main limit-width-1200">
         <h1 class="titulo">LISTA DE USUARIOS</h1>
         <table>
             <?php 
@@ -35,7 +36,7 @@
 
                     //pintamos cuerpo
                     echo "<tr>";
-                    echo "<td>". $fila['NOMBRE']."</td>";
+                    echo "<td>". "<a href='perfil.php?usuario=".$fila['NOMBRE']."'>".$fila['NOMBRE']."</a>" ."</td>";
                     echo "<td>". $fila['PASSWD']."</td>";
                     echo "</tr>";
                 }
@@ -45,6 +46,7 @@
                 $mbd = null;
             ?>
         </table>
-    </div>
+    </main>
+    <?php include('footer.php'); ?>
 </body>
 </html>

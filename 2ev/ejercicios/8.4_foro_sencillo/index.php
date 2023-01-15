@@ -1,6 +1,6 @@
 <?php 
 
-    require('./db.php');
+    require('./init.php');
 
     $resultado = $mbd->prepare("SELECT * FROM TEMAS");
     $resultado->execute();
