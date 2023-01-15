@@ -70,7 +70,7 @@
     <?php include('menu.php'); ?>
     <main class="main limit-width-1200">
         <h1 class="titulo"><?=$tema?></h1>
-            <h1><a href='perfil.php?usuario="<?=$info_post['TITULO']?>"'><?=$info_post['TITULO']?></a></h1><br>
+            <h1><a href='post.php?id_post=<?=$info_post['ID_POST']?>'><?=$info_post['TITULO']?></a></h1><br>
             <ul class='posts'>
                 <li class='posts__respuesta'>
                     <div class='respuesta__info'>
