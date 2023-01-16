@@ -88,7 +88,7 @@
                             <strong><a href='perfil.php?usuario="<?=$fila['NOMBRE']?>"'><?=$fila['NOMBRE']?></a></strong><br>
                         </div>
                         <div class='respuesta__desc'>
-                            <?=$fila['CONTENIDO']?>
+                            <?=$fila['CONTENIDO']?>                            
                         </div>
                     </li>
                 <?php }

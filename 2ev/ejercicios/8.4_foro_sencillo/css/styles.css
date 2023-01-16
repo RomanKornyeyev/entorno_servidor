@@ -44,6 +44,9 @@
     padding: 15px;
     background-color: lightblue;
 }
+.posts__post--darker{
+    background-color: rgb(113, 168, 187);
+}
 .posts__post--nuevo{
     flex-flow: column;
     justify-content: center;

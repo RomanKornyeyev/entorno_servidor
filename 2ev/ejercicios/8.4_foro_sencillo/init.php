@@ -14,7 +14,6 @@
         ];
         //mysql:servidor:database, usuario(roman), contra(123456)
         $mbd = new PDO('mysql:host=localhost;dbname=foroSencillo;charset=utf8mb4', "roman", "123456", $options);
-        $mbd_aux = new PDO('mysql:host=localhost;dbname=foroSencillo;charset=utf8mb4', "roman", "123456", $options);
     }catch(PDOException $e){
         print "Error en BD";
         die();

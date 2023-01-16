@@ -2,8 +2,8 @@
 
     require('./init.php');
 
-    $resultado = $mbd->prepare("SELECT * FROM TEMAS");
-    $resultado->execute();
+    $stmt = $mbd->prepare("SELECT * FROM TEMAS");
+    $stmt->execute();
 
 ?>
 <!DOCTYPE html>
@@ -19,33 +19,23 @@
     <?php include('menu.php'); ?>
     <main class="main limit-width-1200">
         <h1 class="titulo">TEMAS</h1>
-        <table>
-            <?php 
-                //arrays asociativos
-                $primeraFila = true;
-                foreach ($resultado as $key => $fila) {
-                    //pintamos heading
-                    if($primeraFila){
-                        echo "<tr>";
-                        foreach ($fila as $llave => $value)if($llave != 'id'){
-                            echo "<td class='heading'><b>$llave</b></td>";
-                        }
-                        echo "</tr>";
-                    }
-                    $primeraFila = false;
-
-                    //pintamos cuerpo
-                    echo "<tr>";
-                    echo "<td>". "<a href='tema.php?tema=".$fila['TNOMBRE']."'>".$fila['TNOMBRE']."</a>" ."</td>";
-                    echo "<td>". $fila['DESCRIPCION']."</td>";
-                    echo "</tr>";
-                }
-
+            
+        <ul class="posts">
+            <?php foreach ($stmt as $key => $fila) { ?>
+                <li class='posts__post posts__post--darker'>
+                    <div class='post__info'>
+                        <strong><a href='tema.php?tema=<?=$fila['TNOMBRE']?>'><?=$fila['TNOMBRE']?></a></strong><br>
+                    </div>
+                    <div class='post__desc'>
+                        <?=$fila['DESCRIPCION']?>                            
+                    </div>
+                </li>
+            <?php }
                 // Ya se ha terminado; se cierra
-                $resultado = null;
+                $stmt = null;
                 $mbd = null;
             ?>
-        </table>
+        </ul>
     </main>
     <?php include('footer.php'); ?>
 </body>
