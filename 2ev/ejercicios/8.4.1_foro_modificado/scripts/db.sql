@@ -1,0 +1,77 @@
+DROP TABLE IF EXISTS RESPUESTAS CASCADE;
+DROP TABLE IF EXISTS POSTS CASCADE;
+DROP TABLE IF EXISTS USUARIOS CASCADE;
+DROP TABLE IF EXISTS TEMAS CASCADE;
+
+
+CREATE TABLE USUARIOS (
+    NOMBRE varchar(255) UNIQUE PRIMARY KEY,
+    PASSWD varchar(255) NOT NULL
+);
+
+CREATE TABLE TEMAS(
+    TNOMBRE varchar(255) UNIQUE PRIMARY KEY,
+    DESCRIPCION varchar(500)
+);
+
+CREATE TABLE POSTS(
+    ID_POST INT AUTO_INCREMENT PRIMARY KEY,
+    TNOMBRE varchar(255) NOT NULL,
+    NOMBRE varchar (255) NOT NULL,
+    TITULO varchar(255) NOT NULL,
+    CONTENIDO varchar(500) NOT NULL,
+    CONSTRAINT FK_TNOMBRE FOREIGN KEY (TNOMBRE) REFERENCES TEMAS(TNOMBRE),
+    CONSTRAINT FK_NOMBRE FOREIGN KEY (NOMBRE) REFERENCES USUARIOS(NOMBRE)
+);
+
+CREATE TABLE RESPUESTAS(
+    ID_RESPUESTA INT AUTO_INCREMENT PRIMARY KEY,
+    ID_POST INT NOT NULL,
+    CONTENIDO VARCHAR(500) NOT NULL,
+    NOMBRE VARCHAR(255) NOT NULL,
+    CONSTRAINT FK_POST FOREIGN KEY (ID_POST) REFERENCES POSTS(ID_POST),
+    CONSTRAINT FK_USUARIO FOREIGN KEY (NOMBRE) REFERENCES USUARIOS(NOMBRE)
+);
+
+
+
+/*alteramos la tabla para poder tener la doble clave primaria y que solo incremente una*/
+/*también para poder incrementar los ID's por cada post/tema, es decir, post 1, id_res=1, 2, 3 ; post 2 id_res=1, 2, 3*/
+ALTER TABLE RESPUESTAS DROP PRIMARY KEY, ADD PRIMARY KEY(ID_RESPUESTA, ID_POST);
+/*ALTER TABLE POSTS DROP PRIMARY KEY, ADD PRIMARY KEY(ID_POST, TNOMBRE);*/
+/*se tendría que hacer también con POSTS para ser más pro, pero por falta de tiempo no lo hago*/
+
+
+
+/*INSERTS*/
+/*USERS*/
+/*todas las contraseñas son 1234*/
+INSERT INTO USUARIOS VALUES('Roman', '$2y$10$fl.4RJM3CqJ7F7g8LIiEB.6k0EIThEN6Z0ShHgLh.vGf8rsw/J2Xi');
+INSERT INTO USUARIOS VALUES('Francis', '$2y$10$JSRajk9KgJi1q4zl5H1V6eJPQNUAlM0KehbtqiEltSsoLsqMflUpC');
+INSERT INTO USUARIOS VALUES('Anabel', '$2y$10$Ul1tpV2SCL7cWC5tFY9yU.j2DZG/xgfY7xbK0vh/pe.tLaZ/TdTKK');
+INSERT INTO USUARIOS VALUES('Ariel', '$2y$10$Ul1tpV2SCL7cWC5tFY9yU.j2DZG/xgfY7xbK0vh/pe.tLaZ/TdTKK');
+
+/*TEMAS*/
+INSERT INTO TEMAS VALUES('GAMING','Videojuegos, consolas, etc');
+INSERT INTO TEMAS VALUES('PROGRAMACION','JAVA, PHP, ETC.');
+INSERT INTO TEMAS VALUES('HARDWARE', 'PCs, portátiles, tarjetas gráficas, etc.');
+
+/*POSTS*/
+INSERT INTO POSTS VALUES(1, 'GAMING', 'Roman', 'HORIZON ZERO DAWN', 'Es un juego muy divertido, porque bla bla bla...');
+INSERT INTO POSTS VALUES(2, 'GAMING', 'Roman', 'APEX', 'Es un shooter jeje');
+INSERT INTO POSTS VALUES(3, 'PROGRAMACION', 'Anabel', 'Java', 'Lenguaje de programación mixto de alto nivel');
+INSERT INTO POSTS VALUES(4, 'PROGRAMACION', 'Francis', 'C++', 'Lenguaje de programación compilado de alto nivel');
+
+
+/*RESPUESTAS*/
+INSERT INTO RESPUESTAS VALUES(1, 1, 'Buen juego, sí!', 'Francis');
+INSERT INTO RESPUESTAS VALUES(2, 1, 'La verdad es que sí, jeje', 'Roman');
+INSERT INTO RESPUESTAS VALUES(3, 2, 'Claro, que iba a ser si no?', 'Anabel');
+INSERT INTO RESPUESTAS VALUES(4, 3, 'Seh, me encanta!', 'Francis');
+
+
+/*resets valores*/
+DELETE FROM RESPUESTAS;
+DELETE FROM POSTS;
+DELETE FROM TEMAS;
+DELETE FROM USUARIOS;

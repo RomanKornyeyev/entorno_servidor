@@ -21,6 +21,7 @@
 
     //pon la política de cookies
     session_start();
+    require("recuerdame.php");
 
 
 ?>

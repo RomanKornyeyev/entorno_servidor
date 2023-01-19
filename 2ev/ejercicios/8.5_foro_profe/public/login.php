@@ -47,6 +47,14 @@ if (isset($_POST['login'])) {
             );
         }
 
+        if(isset($_GET['redirect'])){
+            header("Location: ".$_GET['redirect']);
+            die();
+        }else{
+            header("Location: listado.php");
+            die();
+        }
+
     }else{
         //no me quiero detener aqui
         echo "mostrar error";
