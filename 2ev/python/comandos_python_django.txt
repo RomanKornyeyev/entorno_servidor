@@ -24,4 +24,23 @@ python manage.py startapp polls (dentro de mysite (1ero))
 
 python manage.py runserver (dentro de mysite (1ero)) y visitar localhost:8000/polls/
 
-añadir a la app de encuestas una ruta que sea holamundo para que cuando la visites pinte tu nombre
+#añadir a la app de encuestas una ruta que sea holamundo para que cuando la visites pinte tu nombre
+
+apt-get update
+apt-get install python3-dev default-libmysqlclient-dev build-essential
+apt-get install python3-dev default-libmysqlclient-dev libzstd-dev
+pip install mysqlclient (sin root)(da igual la carpeta)
+python3 manage.py migrate
+
+en mysql:
+use mysite;
+show tables;
+desc django_session;
+
+python manage.py makemigrations polls
+python manage.py migrate (sí, otra vez)
+#esto crea tablas nuevas en la BD, por tanto hay que tener bien el user y password en settings.py
+
+
+python manage.py createsuperuser (donde esta el fichero manage.py)
+se accede con localhost:8000/admin (en el navegador)
