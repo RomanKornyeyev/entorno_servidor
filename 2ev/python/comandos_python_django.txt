@@ -38,7 +38,7 @@ show tables;
 desc django_session;
 
 python manage.py makemigrations polls
-python manage.py migrate (sí, otra vez)
+python manage.py migrate polls(sí, otra vez)
 #esto crea tablas nuevas en la BD, por tanto hay que tener bien el user y password en settings.py
 
 

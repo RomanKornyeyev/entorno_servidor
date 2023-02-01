@@ -23,8 +23,8 @@ class Question(models.Model):
 
 class Ofertas(models.Model):
     oferta = models.CharField(max_length=200)
-    salario = models.DecimalField(decimal_places=5)
-    pub_date = models.DateTime('date published')
+    salario = models.DecimalField(max_digits=10, decimal_places=5)
+    pub_date = models.DateTimeField('date published')
 
     def __str__(self):
         return self.oferta
