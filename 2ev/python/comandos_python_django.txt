@@ -46,3 +46,5 @@ python manage.py migrate polls(sí, otra vez)
 
 python manage.py createsuperuser (donde esta el fichero manage.py)
 se accede con localhost:8000/admin (en el navegador)
+
+pip install django-extensions
