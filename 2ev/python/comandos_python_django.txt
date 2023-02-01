@@ -15,6 +15,8 @@ gedit ~/.bashrc
 PATH=$PATH:~/.local/bin
 export PATH
 
+--- creacion proyecto:
+
 django-admin startproject mysite
 
 python manage.py runserver (dentro de mysite (1ero))
