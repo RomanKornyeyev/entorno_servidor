@@ -7,12 +7,13 @@ def index(request):
     return HttpResponse('Hola Mundo')
 
 def detalle_equipo(request, nombre):
-    e = Equipo.objects.get(nombre=nombre)
-    juegos = ""
-    for j in e.juego_set.all():
-        juegos += j.nombre+"<br>"
-    
-    return HttpResponse(f"El nombre del equipo es {e.nombre}: {e.descripcion} <br> {juegos}")
+    vengoDelORMSoyUnaVariable = Equipo.objects.get(nombre=nombre)
+    context = {
+        'equipoVarParaTemplate': vengoDelORMSoyUnaVariable,
+        'publicidad': "IES Juan de la cierva. Tu instituto blablabla",
+        'ultimasnoticias': ["Hola", "k", "ase?"]
+    }
+    return render(request, 'esports/equipo.html', context)
 
 def detalle_juego(request, nombre):
     return HttpResponse(f"El nombre del juego es {nombre}")

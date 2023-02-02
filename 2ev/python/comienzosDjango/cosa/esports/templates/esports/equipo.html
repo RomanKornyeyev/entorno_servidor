@@ -1,0 +1,33 @@
+{% extends 'cosa/base.html' %}
+
+
+{% block title %}
+Detalle: {{ equipoVarParaTemplate.nombre }}
+{% endblock %}
+
+
+{% block content %}
+<div class="px-4 py-5 my-5 text-center">
+    <img class="d-block mx-auto mb-4" src="{{ equipoVarParaTemplate.foto.url }}" alt="" width="72" height="57">
+    <h1 class="display-5 fw-bold">{{ equipoVarParaTemplate.nombre }}</h1>
+    <div class="col-lg-6 mx-auto">
+        <p class="lead mb-4">{{ equipoVarParaTemplate.descripcion }}</p>
+        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+        {% for juego in equipoVarParaTemplate.juegos.all %}
+            <a href="{% url 'esport_detalle_juego' juego.nombre %}" class="btn btn-primary btn-lg px-4 gap-3">{{ juego }}</a>
+        {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+<!-- <div>
+    <h1>{{ equipoVarParaTemplate.nombre }}</h1>
+    <h3>{{ publicidad }}</h3>
+    <p>{{ equipoVarParaTemplate.descripcion }}</p>
+    <ul>
+        {% for juego in equipoVarParaTemplate.juegos.all %}
+            <li>{{ juego }}</li>
+        {% endfor %}
+    </ul>
+</div> -->
