@@ -1,0 +1,12 @@
+{% extends 'noticiero/base.html' %}
+
+{% block title %}
+    Listado noticias
+{% endblock %}
+
+
+{% block content %}
+    {% for noticia in notis %}
+        <a href="{% url 'noticias_detalle_noticia' noticia.nombre %}">{{ noticia }}</a>
+    {% endfor %}
+{% endblock %}
