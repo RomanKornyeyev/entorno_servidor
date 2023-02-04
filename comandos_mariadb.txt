@@ -1,4 +1,5 @@
 sudo apt install mariadb-server
+sudo apt install php-mysql
 
 para abrir mariadb: mariadb (como root)
 
