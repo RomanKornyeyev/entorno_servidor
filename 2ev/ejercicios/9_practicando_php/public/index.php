@@ -28,7 +28,7 @@
     <?php 
     
         foreach ($consulta as $key => $usuario) {
-            echo "<p><b>nombre: </b>".$usuario['nombre']."</p>";
+            echo "<a href='detalle.php?user=".$usuario['nombre']."'><b>nombre: </b>".$usuario['nombre']."</a>";
             echo "<p><b>correo: </b>".$usuario['correo']."</p>";
             echo "<hr>";
         }
