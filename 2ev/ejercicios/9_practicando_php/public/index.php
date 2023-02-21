@@ -23,6 +23,7 @@
     <a href="private1.php">private1</a>
     <a href="private2.php">private2</a>
     <a href="private3.php">private3</a>
+    <a href="logout.php">logout</a>
     <hr>
 
     <?php 
