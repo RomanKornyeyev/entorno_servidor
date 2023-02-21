@@ -11,6 +11,7 @@ class DWESBaseDatos {
     private $conexion = null;
     private $sentencia = null;
     private $executed = false;
+    const LONG_TOKEN = 64;
 
     /*
       Patrón Singletone para poder usar la clase en proyectos más grandes

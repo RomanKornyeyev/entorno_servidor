@@ -1,18 +1,18 @@
 <?php
 
-    //primero clases externas y luego las nuestras
     require("config.php");
     require("DWESBaseDatos.php");
-    require("recuerdame.php");
 
-    $DB=DWESBaseDatos::obtenerInstancia();
-    $DB->inicializa(
+    $db = DWESBaseDatos::obtenerInstancia();
+    $db->inicializa(
         $CONFIG['db_name'],
         $CONFIG['db_user'],
         $CONFIG['db_pass']
     );
 
-    //pon la política de cookies
     session_start();
+
+    require("paginaAnterior.php");
+    $username = (isset($_SESSION['nombre']))? $_SESSION['nombre']:'anonimo';
 
 ?>

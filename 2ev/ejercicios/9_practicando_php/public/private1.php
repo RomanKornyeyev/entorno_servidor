@@ -2,10 +2,13 @@
 
     require("../src/init.php");
 
-    $db->ejecuta("SELECT * FROM usuarios;");
-    $consulta = $db->obtenDatos();
+    //si el usuario no está logueado
+    if (!isset($_SESSION['nombre'])) {
+        header("Location: login.php");
+    }
 
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,7 +19,7 @@
 </head>
 <body>
 
-    <h1>lista usuarios, hola <?=$username?></h1>
+    <h1>PRIVADA 1, hola <?=$username?></h1>
     <a href="index.php">index</a>
     <a href="login.php">login</a>
     <a href="register.php">register</a>
@@ -25,14 +28,6 @@
     <a href="private3.php">private3</a>
     <hr>
 
-    <?php 
-    
-        foreach ($consulta as $key => $usuario) {
-            echo "<p><b>nombre: </b>".$usuario['nombre']."</p>";
-            echo "<p><b>correo: </b>".$usuario['correo']."</p>";
-            echo "<hr>";
-        }
 
-    ?>
 </body>
 </html>
