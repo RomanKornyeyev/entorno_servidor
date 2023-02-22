@@ -2,14 +2,12 @@
 
     require('../src/init.php');
 
-    //cogemos el user del get
+    //cogemos el user del get (sí, del GET)
     if(isset($_GET['user'])){
-        
-        
-
-        //area de admin (modificar datos del perfil, INSERTS
+        //area de admin (modificar datos del perfil, INSERTS, etc)
         //si el usuario está logueado y es el mismo al buscado en el get
         if (isset($_SESSION['nombre']) && $_SESSION['nombre'] == $_GET['user']) {
+            //activa el area de administración (edición del perfil)
             $administrador = true;
 
             //si el usuario ha enviado el form de modificar el perfil
@@ -67,7 +65,7 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>DETALLE</h1>
+    <h1>DETALLE, hola <?=$username?></h1>
     <a href="index.php">index</a>
     <a href="login.php">login</a>
     <a href="register.php">register</a>
@@ -82,18 +80,17 @@
         echo "<h2>id: ".$consulta["id"]."</h2>";
         echo "<h2>correo: ".$consulta["correo"]."</h2>";
         echo "<h2>img: ".$consulta["img"]."</h2>";
+        echo "<img src='".$consulta["img"]."' alt='img'><br>"; //img de perfil
         echo "<h2>descripcion: ".$consulta["descripcion"]."</h2>";
-
-
-        if($administrador){
     ?>
+
+    <?php if($administrador){ ?>
+    
         <form action="" method="post" enctype="multipart/form-data">
-            Imagen: <input type="file" name="img" id="img">
+            Imagen: <input type="file" name="img" id="img"><br>
             Descripción: <input type="text" name="descripcion" id="descripcion"><br>
             <input type="submit" value="enviar" name="enviar">
         </form>
-    <?php
-        }
-    ?>
+    <?php } ?>
 </body>
 </html>

@@ -26,7 +26,9 @@
                         $nombre, $pass, $correo
                     );
 
+                    //si el insert se ha ejecutado con éxito
                     if ($db->getExecuted()) {
+                        //hacemos otra consulta auxiliar, para cargar los datos en $consulta y poder meterlos al $_SESSION
                         $db->ejecuta(
                             "SELECT * FROM usuarios WHERE nombre=?;",
                             $nombre
@@ -42,7 +44,7 @@
                         Mailer::sendEmail(
                             $correo,
                             "Practicando PHP jeje",
-                            "Bienvenido, estoy practicando PHP jeje"
+                            "Bienvenido $nombre, estoy practicando PHP jeje"
                         );
 
                         //redirigimos a la página anterior en caso de que viniese de una
@@ -74,7 +76,7 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>REGISTER</h1>
+    <h1>REGISTER, hola <?=$username?></h1>
     <a href="index.php">index</a>
     <a href="login.php">login</a>
     <a href="register.php">register</a>

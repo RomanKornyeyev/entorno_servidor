@@ -52,12 +52,11 @@
                         header("Location: ".$paginaAnterior);
                         die();
                     }else{
-                        echo "contra incorrecta";
+                        echo "usuario/contraseña incorrecta";
                     }
                 }else{
-                    echo "no existe el usuario";
+                    echo "usuario/contraseña incorrecta";
                 }
-                print_r($consulta);
             }else{
                 echo "hay errores";
             }
@@ -78,7 +77,7 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>LOGIN</h1>
+    <h1>LOGIN, hola <?=$username?></h1>
     <a href="index.php">index</a>
     <a href="login.php">login</a>
     <a href="register.php">register</a>
