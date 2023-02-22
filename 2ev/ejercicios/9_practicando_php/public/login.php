@@ -17,6 +17,9 @@
                     $nombre
                 );
                 $consulta = $db->obtenElDato();
+                //como el nombre es único, nos devolvería o una row o ninguna
+                //si la consulta NO está vacía, es que coincide el user, es decir, existe el user
+                //ahora pasaremos a verificar la pass
                 if ($consulta != "") {
                     //si el usuario y la pass es correcta, lo guardamos en un $_SESSION
                     if (password_verify($pass, $consulta["passwd"])) {
