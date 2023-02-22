@@ -4,6 +4,9 @@
     require("config.php");
     //librería de PDO
     require("DWESBaseDatos.php");
+    //lo del mailer
+    require("../vendor/autoload.php");
+    require("Mailer.php");
 
     //instencia de acceso a BD
     $db = DWESBaseDatos::obtenerInstancia();

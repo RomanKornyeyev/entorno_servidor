@@ -25,12 +25,30 @@
                         "INSERT INTO usuarios (nombre, passwd, correo) VALUES (?,?,?);",
                         $nombre, $pass, $correo
                     );
-    
-                    $_SESSION['nombre'] = $nombre;
-                    $_SESSION['correo'] = $consulta['correo'];
-                    $_SESSION['id'] = $consulta['id'];
-                    header("Location: ".$paginaAnterior);
-                    die();
+
+                    if ($db->getExecuted()) {
+                        $db->ejecuta(
+                            "SELECT * FROM usuarios WHERE nombre=?;",
+                            $nombre
+                        );
+                        $consulta = $db->obtenElDato();
+
+                        //si todo ha salido ok, le ponemos la sesión
+                        $_SESSION['nombre'] = $nombre;
+                        $_SESSION['correo'] = $correo;
+                        $_SESSION['id'] = $consulta['id'];
+
+                        //enviamos correo de registro
+                        Mailer::sendEmail(
+                            $correo,
+                            "Practicando PHP jeje",
+                            "Bienvenido, estoy practicando PHP jeje"
+                        );
+
+                        //redirigimos a la página anterior en caso de que viniese de una
+                        header("Location: ".$paginaAnterior);
+                        die();
+                    }
                 }else{
                     echo "el nombre de usuario ya existe";
                 }
