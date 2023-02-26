@@ -1,0 +1,8 @@
+<h2>Listado</h2>
+{% for linea in lineas %}
+    {% for estacion in linea.estacion_set.all %}
+        {{ linea.nombre_linea }} - {{ estacion.nombre_estacion }} <a href="{% url 'incidencias:incidencia' estacion.id %}">+ Nueva incidencia</a><br>
+    {% endfor %}
+{% endfor %}
+
+{% if mensaje_exito  %}{{mensaje_exito}}{% endif %}
