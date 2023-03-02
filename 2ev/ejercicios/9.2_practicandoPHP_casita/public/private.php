@@ -1,9 +1,11 @@
 <?php
 
+    //acceso a BD, sesión, etc. (tiene que ir en TODAS)
     require("../src/init.php");
 
-    //si no tiene sesión iniciada, le mandamos al login
+    //si no tiene sesión iniciada
     if (!isset($_SESSION['nombre'])) {
+        //redirect al login
         header("Location: login.php");
         die();
     }
@@ -16,15 +18,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <h1>ÁREA PRIVADA, hola <?=$username?></h1>
-    <a href="index.php">index</a>
-    <a href="login.php">login</a>
-    <a href="register.php">register</a>
-    <a href="private.php">private</a>
-    <a href="logout.php">logout</a>
-    <hr>
+    <?php include("menu.php"); ?>
 
     <p>
         Lorem, ipsum dolor sit amet consectetur adipisicing elit.

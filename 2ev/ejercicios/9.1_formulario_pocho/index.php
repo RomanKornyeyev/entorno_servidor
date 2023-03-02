@@ -16,28 +16,29 @@
     $opcAficion = ["Videojuegos", "Ciclismo", "Leer", "Ver series", "Deporte"];
 
     if (isset($_POST['enviar'])) {
-        if (isset($_POST['nombre']) && $_POST['nombre'] != "" && $_POST['nombre'] != null) $datos['nombre'] = $_POST['nombre'];
+        if (isset($_POST['nombre']) && $_POST['nombre'] != "" && $_POST['nombre'] != null) $datos['nombre'] = clean_input($_POST['nombre']);
         else $errores['nombre'] = "<span class='error'>*El campo nombre no puede estar vacío</span>";
 
-        if (isset($_POST['edad']) && $_POST['edad'] != "" && $_POST['edad'] != null) $datos['edad'] = $_POST['edad'];
+        if (isset($_POST['edad']) && $_POST['edad'] != "" && $_POST['edad'] != null) $datos['edad'] = clean_input($_POST['edad']);
         else $errores['edad'] = "<span class='error'>*El campo edad no puede estar vacío</span>";
 
-        if (isset($_POST['comentarios']) && $_POST['comentarios'] != "" && $_POST['comentarios'] != null) $datos['comentarios'] = $_POST['comentarios'];
+        if (isset($_POST['comentarios']) && $_POST['comentarios'] != "" && $_POST['comentarios'] != null) $datos['comentarios'] = clean_input($_POST['comentarios']);
         else $errores['comentarios'] = "<span class='error'>*El campo comentarios no puede estar vacío</span>";
 
-        if (isset($_POST['estado']) && $_POST['estado'] != "" && $_POST['estado'] != null) $datos['estado'] = $_POST['estado'];
+        if (isset($_POST['estado']) && $_POST['estado'] != "" && $_POST['estado'] != null) $datos['estado'] = clean_input($_POST['estado']);
         else $errores['estado'] = "<span class='error'>*El campo estado no puede estar vacío</span>";
         
-        if (isset($_POST['idioma']) && $_POST['idioma'] != "" && $_POST['idioma'] != null) $datos['idioma'] = $_POST['idioma'];
+        if (isset($_POST['idioma']) && $_POST['idioma'] != "" && $_POST['idioma'] != null) $datos['idioma'] = clean_input($_POST['idioma']);
         else $errores['idioma'] = "<span class='error'>*El campo idioma no puede estar vacío</span>";  
 
-        if (isset($_POST['aficion']) && !empty($_POST['aficion']))  $datos['aficion'] = strtolower(implode(", ", $_POST['aficion']));
+        if (isset($_POST['aficion']) && !empty($_POST['aficion']))  $datos['aficion'] = clean_input(strtolower(implode(", ", $_POST['aficion'])));
         else $errores['aficion']="<span class='error'>*Debes seleccionar al menos una opión</span>";
 
 
         //si NO hay errores, hace algo
         if (count($errores) == 0) {
-            echo "--- PERFECTO, NO HAY ERRORES ---";
+            // --- hace algo ---
+            echo " --- PERFECTO, NO HAY ERRORES! --- ";
         }
     }
 

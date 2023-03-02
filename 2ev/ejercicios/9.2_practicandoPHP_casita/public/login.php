@@ -1,5 +1,6 @@
 <?php
 
+    //acceso a BD, sesión, etc. (tiene que ir en TODAS)
     require("../src/init.php");
 
     //errores para form
@@ -60,15 +61,16 @@
                         header("Location: ".$paginaAnterior);
                         die();
                     }else{
-                        echo "nombre/pass incorrectas";
+                        $errores['incorrecto'] = "nombre/pass incorrectas";
                     }
                 }else{
-                    echo "nombre/pass incorrectas";
+                    $errores['incorrecto'] = "nombre/pass incorrectas";
                 }
             }
         }
-    //si está logueado, redirect al index
+    //si está logueado
     }else{
+        //redirect al index
         header("Location: index.php");
         die();
     }
@@ -81,25 +83,29 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style>.error{color:red}</style>
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <h1>LOGIN, hola <?=$username?></h1>
-    <a href="index.php">index</a>
-    <a href="login.php">login</a>
-    <a href="register.php">register</a>
-    <a href="private.php">private</a>
-    <a href="logout.php">logout</a>
-    <hr>
+    <?php include("menu.php"); ?>
 
     <form action="" method="post">
-        Nombre: <input type="text" name="nombre" id="nombre"><br>
+        <!-- input nombre -->
+        Nombre: <input type="text" name="nombre" id="nombre" value="<?=$datos['nombre']?>"><br>
         <?php if(isset($errores['nombre'])) echo $errores['nombre']."<br>" ?>
 
+        <!-- input password -->
         Password: <input type="password" name="passwd" id="passwd"><br>
         <?php if(isset($errores['passwd'])) echo $errores['passwd']."<br>" ?>
 
+        <!-- input recuerdame (checkbox) -->
         Recuerdame: <input type="checkbox" name="recuerdame" id="recuerdame"><br>
+
+        <!-- error de user/password incorrectas -->
+        <div class="error">
+            <?php if(isset($errores['incorrecto'])) echo $errores['incorrecto'] ?>
+        </div>
+
+        <!-- submit -->
         <input type="submit" value="enviar" name="enviar">
     </form>
 </body>
