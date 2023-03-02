@@ -16,5 +16,5 @@ CREATE TABLE tokens (
     id_usuario int,
     valor VARCHAR(255),
     expiracion DATETIME NOT NULL DEFAULT (NOW() + INTERVAL 7 DAY),
-    CONSTRAINT fk_id_usuario FOREIGN KEY (id_usuario) REFERENCES usuarios(id)
+    CONSTRAINT fk_id_usuario FOREIGN KEY (id_usuario) REFERENCES usuarios(id) ON DELETE CASCADE
 );
