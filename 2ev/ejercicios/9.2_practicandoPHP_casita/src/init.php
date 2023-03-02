@@ -1,5 +1,8 @@
 <?php 
 
+    //iniciamos la sesión
+    session_start();
+
     //datos de la BD
     require("config.php");
     //librería de PDO
@@ -16,10 +19,7 @@
         $CONFIG['db_pass']
     );
 
-    //iniciamos la sesión
-    session_start();
-
-    //estos requires tienen que ir debajo de session_start, ya que van con sesiones
+    //---estos requires tienen que ir debajo de session_start, ya que van con sesiones---
     //para los redirects a páginas anteriores al hacer login
     require("paginaAnterior.php");
     //para el token de recuerdame

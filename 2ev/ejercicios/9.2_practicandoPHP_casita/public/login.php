@@ -108,5 +108,6 @@
         <!-- submit -->
         <input type="submit" value="enviar" name="enviar">
     </form>
+    <a href="recovery.php">¿Has olvidado la contraseña?</a>
 </body>
 </html>
