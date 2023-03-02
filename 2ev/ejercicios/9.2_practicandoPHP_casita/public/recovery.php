@@ -12,8 +12,8 @@
     // de token, tienes que poner el correo al cual va a ir la recuperación
     // y si entras CON el get del token (y este coincide con un user), procedes a updatear la password
 
-    //si no está establecido el get del token, mostramos el form para enviar el correo de recuperación
-    if (!isset($_GET['token'])) {
+    //si no está establecido el get del token y el user NO TIENE LA SESIÓN INICIADA, mostramos el form para enviar el correo de recuperación
+    if (!isset($_GET['token']) && !isset($_SESSION['nombre'])) {
         //si el formulario se ha enviado
         if (isset($_POST['enviar'])) {
             //comprobación correo
@@ -59,9 +59,9 @@
                 }
             }
         }
-    //si el user ha llegado a esta página con un token
+    //si el user ha llegado a esta página con un token y NO TIENE LA SESIÓN INICIADA
     //procedemos a hacer las comprobaciones y resetear la contraseña
-    }else if(isset($_GET['token'])){
+    }else if(isset($_GET['token']) && !isset($_SESSION['nombre'])){
         //comprobamos si es un token válido
         $db->ejecuta(
             "SELECT * FROM usuarios WHERE id=(SELECT id_usuario FROM tokens WHERE valor=?);",
@@ -75,7 +75,7 @@
         if ($consulta != "") {
             if (isset($_POST['enviar_passwd'])) {
                 //comprobación passwd
-                if (isset($_POST['passwd']) && $_POST['passwd'] != "" && $_POST['passwd'] != null) $datos['passwd'] = clean_input($_POST['passwd']);
+                if (isset($_POST['passwd']) && $_POST['passwd'] != "" && $_POST['passwd'] != null) $datos['passwd'] = password_hash(clean_input($_POST['passwd']), PASSWORD_DEFAULT);
                 else $errores['passwd'] = "<span class='error'>*El campo passwd no puede estar vacío</span>";
 
                 //si no hay campos vacíos
@@ -83,7 +83,7 @@
                     //actualizamos la password
                     $db->ejecuta(
                         "UPDATE usuarios SET passwd=? WHERE id=?;",
-                        password_hash($datos['passwd'], PASSWORD_DEFAULT), $consulta['id']
+                        $datos['passwd'], $consulta['id']
                     );
                     //eliminamos el token
                     $db->ejecuta(
@@ -96,7 +96,12 @@
                     die();
                 }
             }
-        }        
+        }
+    //si el user entra con la sesión iniciada     
+    }else{
+        //redirect al index
+        header('Location: index.php');
+        die();
     }
 
 
@@ -116,7 +121,7 @@
     <?php include("menu.php"); ?>
 
     <!-- form para introducir el correo de recuperación -->
-    <?php if (!isset($_GET['token']) && !isset($_GET['enviado']) && !isset($_GET['token']) && !isset($_GET['exito'])) { ?>
+    <?php if (!isset($_GET['token']) && !isset($_GET['enviado']) && !isset($_GET['exito'])) { ?>
         <h2>¿Contraseña olvidada?</h2>
         <form action="" method="post">
             <!-- input correo -->

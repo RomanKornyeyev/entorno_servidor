@@ -23,7 +23,7 @@
             if (isset($_POST['passwd']) && $_POST['passwd'] != "" && $_POST['passwd'] != null) $datos['passwd'] = password_hash(clean_input($_POST['passwd']), PASSWORD_DEFAULT);
             else $errores['passwd'] = "<span class='error'>*El campo passwd no puede estar vacío</span>";
 
-            //si NO hay errores, buscamos al user en la BD
+            //si NO hay errores (campos vacíos), buscamos al user en la BD
             if (count($errores) == 0) {
                 //comprobamos si el nombre ya existe
                 $db->ejecuta(
@@ -46,7 +46,7 @@
                         //hacemos otra consulta auxiliar, para cargar los datos en $consulta y poder meterlos al $_SESSION
                         $db->ejecuta(
                             "SELECT * FROM usuarios WHERE nombre=?;",
-                            $nombre
+                            $datos['nombre']
                         );
                         $consulta = $db->obtenElDato();
 
