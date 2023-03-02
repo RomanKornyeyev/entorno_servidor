@@ -16,7 +16,7 @@
     if (!isset($_GET['token'])) {
         //si el formulario se ha enviado
         if (isset($_POST['enviar'])) {
-            //comprobación nombre
+            //comprobación correo
             if (isset($_POST['correo']) && $_POST['correo'] != "" && $_POST['correo'] != null) $datos['correo'] = clean_input($_POST['correo']);
             else $errores['correo'] = "<span class='error'>*El campo correo no puede estar vacío</span>";
 
@@ -51,12 +51,52 @@
                     //redirect a esta misma página con GET "enviado"
                     header('Location: recovery.php?enviado=si');
                     die();
+                }else{
+                   //redirect a esta misma página con GET "enviado"
+                   // (en este caso no se habría enviado, pero por temas de seguridad no lo decimos)
+                   header('Location: recovery.php?enviado=si');
+                   die(); 
                 }
             }
         }
     //si el user ha llegado a esta página con un token
+    //procedemos a hacer las comprobaciones y resetear la contraseña
     }else if(isset($_GET['token'])){
-        echo "recuperando contraseña";
+        //comprobamos si es un token válido
+        $db->ejecuta(
+            "SELECT * FROM usuarios WHERE id=(SELECT id_usuario FROM tokens WHERE valor=?);",
+            $_GET['token']
+        );
+        $consulta = $db->obtenElDato();
+
+        //si el token concuerda con un id de usuario
+        //es decir, si la consulta anterior no está vacía
+        //pasamos a procesar la nueva password enviada
+        if ($consulta != "") {
+            if (isset($_POST['enviar_passwd'])) {
+                //comprobación passwd
+                if (isset($_POST['passwd']) && $_POST['passwd'] != "" && $_POST['passwd'] != null) $datos['passwd'] = clean_input($_POST['passwd']);
+                else $errores['passwd'] = "<span class='error'>*El campo passwd no puede estar vacío</span>";
+
+                //si no hay campos vacíos
+                if (count($errores) == 0) {
+                    //actualizamos la password
+                    $db->ejecuta(
+                        "UPDATE usuarios SET passwd=? WHERE id=?;",
+                        password_hash($datos['passwd'], PASSWORD_DEFAULT), $consulta['id']
+                    );
+                    //eliminamos el token
+                    $db->ejecuta(
+                        "DELETE FROM tokens WHERE valor=?;",
+                        $_GET['tokens']
+                    );
+
+                    //redirect a esta misma página, con mensaje de éxito
+                    header("Location: recovery.php?exito=si");
+                    die();
+                }
+            }
+        }        
     }
 
 
@@ -76,7 +116,7 @@
     <?php include("menu.php"); ?>
 
     <!-- form para introducir el correo de recuperación -->
-    <?php if (!isset($_GET['token']) && !isset($_GET['enviado'])) { ?>
+    <?php if (!isset($_GET['token']) && !isset($_GET['enviado']) && !isset($_GET['token']) && !isset($_GET['exito'])) { ?>
         <h2>¿Contraseña olvidada?</h2>
         <form action="" method="post">
             <!-- input correo -->
@@ -93,8 +133,31 @@
         </form>
     <?php } ?>
 
+    <!-- si el correo de recuperación se ha enviado -->
     <?php if (isset($_GET['enviado']) && $_GET['enviado'] == "si") { ?>
-        <h2>¡¡Correo de recuperación enviado, revisa tu email!!</h2>
+        <h2>Si el correo está registrado, se ha enviado un correo de recuperación</h2>
+    <?php } ?>
+
+    <!-- si el user ha entrado con un token -->
+    <?php if (isset($_GET['token'])) { ?>
+        <form action="recovery.php?token=<?=$_GET['token']?>" method="post">
+            <!-- input passwd -->
+            Nueva password: <input type="password" name="passwd" id="passwd" value="<?=$datos['passwd']?>"><br>
+            <?php if(isset($errores['passwd'])) echo $errores['passwd']."<br>" ?>
+
+            <!-- error -->
+            <div class="error">
+                <?php if(isset($errores['incorrecto'])) echo $errores['incorrecto'] ?>
+            </div>
+
+            <!-- submit -->
+            <input type="submit" value="recuperar" name="enviar_passwd">
+        </form>
+    <?php } ?>
+
+    <!-- si la contraseña se ha actualizado -->
+    <?php if (isset($_GET['exito']) && $_GET['exito'] == "si") { ?>
+        <h2>La contraseña ha sido cambiada!</h2>
     <?php } ?>
 </body>
 </html>
