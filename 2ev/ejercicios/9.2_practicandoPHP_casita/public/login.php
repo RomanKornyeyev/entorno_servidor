@@ -86,6 +86,7 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+    <!-- menu -->
     <?php include("menu.php"); ?>
 
     <form action="" method="post">

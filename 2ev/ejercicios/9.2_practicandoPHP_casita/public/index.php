@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+    <!-- menu -->
     <?php include("menu.php"); ?>
 
     <!-- pintamos todos los users -->

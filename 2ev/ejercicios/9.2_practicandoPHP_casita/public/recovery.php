@@ -88,7 +88,7 @@
                     //eliminamos el token
                     $db->ejecuta(
                         "DELETE FROM tokens WHERE valor=?;",
-                        $_GET['tokens']
+                        $_GET['token']
                     );
 
                     //redirect a esta misma página, con mensaje de éxito
@@ -118,6 +118,7 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+    <!-- menu -->
     <?php include("menu.php"); ?>
 
     <!-- form para introducir el correo de recuperación -->
