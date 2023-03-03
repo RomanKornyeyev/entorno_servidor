@@ -70,7 +70,6 @@
     <title>Formulario Pocho</title>
     <style>
         .error{color:red}
-        body{display:flex;justify-content:center;align-items:center;}
     </style>
 </head>
 <body>
@@ -81,7 +80,7 @@
         <br>Edad <input type="number" name="edad" min="1" max="95" value="<?= $_POST['edad'] ?>"> <br>
         <?php if(isset($errores['edad'])) echo "<span class='error'>".$errores['edad']."</span><br>" ?>
 
-        <br>Comentarios <br><textarea name="comentarios" cols="30" rows="10"><?= $_POST['comentarios'] ?></textarea><br>
+        <br>Comentarios <br><textarea name="comentarios" cols="30" rows="7"><?= $_POST['comentarios'] ?></textarea><br>
         <?php if(isset($errores['comentarios'])) echo "<span class='error'>".$errores['comentarios']."</span><br>" ?>
 
         <br>Estado civil:<br>

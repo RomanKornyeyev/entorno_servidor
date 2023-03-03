@@ -1,0 +1,6 @@
+DROP TABLE IF EXISTS Logs;
+CREATE TABLE Logs(
+    id int AUTO_INCREMENT PRIMARY KEY,
+    navegador VARCHAR(255),
+    tiempo VARCHAR(255)
+);
