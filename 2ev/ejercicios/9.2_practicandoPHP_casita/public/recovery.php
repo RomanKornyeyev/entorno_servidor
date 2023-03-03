@@ -7,6 +7,9 @@
     $datos = [];
     $errores = [];
 
+    //variable para saber si el token es válido
+    $tokenValido = false;
+
     // desde esta página se va a gestionar todo, tanto introducir el email para el recovery
     // como el recovery en sí con el token, la lógica que se sigue es si entras a esta página SIN el get
     // de token, tienes que poner el correo al cual va a ir la recuperación
@@ -73,6 +76,9 @@
         //es decir, si la consulta anterior no está vacía
         //pasamos a procesar la nueva password enviada
         if ($consulta != "") {
+            //habilitamos el area para escribir la nueva contraseña
+            $tokenValido = true;
+            //si está enviado el form de la nueva contraseña
             if (isset($_POST['enviar_passwd'])) {
                 //comprobación passwd
                 if (isset($_POST['passwd']) && $_POST['passwd'] != "" && $_POST['passwd'] != null) $datos['passwd'] = password_hash(clean_input($_POST['passwd']), PASSWORD_DEFAULT);
@@ -145,7 +151,7 @@
     <?php } ?>
 
     <!-- si el user ha entrado con un token -->
-    <?php if (isset($_GET['token'])) { ?>
+    <?php if (isset($_GET['token']) && $tokenValido) { ?>
         <form action="recovery.php?token=<?=$_GET['token']?>" method="post">
             <!-- input passwd -->
             Nueva password: <input type="password" name="passwd" id="passwd" value="<?=$datos['passwd']?>"><br>
@@ -159,6 +165,10 @@
             <!-- submit -->
             <input type="submit" value="recuperar" name="enviar_passwd">
         </form>
+    <!-- si hay un token, pero no es válido -->
+    <?php } else if (isset($_GET['token']) && !$tokenValido) { ?>
+        <h2>Token no válido/expirado</h2>
+        <a href="index.php">Volver al inicio</a>
     <?php } ?>
 
     <!-- si la contraseña se ha actualizado -->
