@@ -1,3 +1,7 @@
 Roman;25;primera entrada;Soltero;Español;videojuegos, ciclismo, ver series;
 romansito xd;32;pruebas xd;Soltero;Español;videojuegos, ciclismo, leer, ver series, deporte;
 roman;25;hola jeje;Soltero;Español;videojuegos, ciclismo, ver series;
+asdasd;8;asdasd;Casado;Español;videojuegos, ver series;
+asdsad;12;asdasd;Casado;Español;videojuegos, ver series;
+asdasd;12;asdasd;Casado;Inglés;videojuegos;
+asdasda;12;asddasd;Casado;Español;videojuegos, leer, ver series;
